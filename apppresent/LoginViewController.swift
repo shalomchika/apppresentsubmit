@@ -24,6 +24,12 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor(displayP3Red: 0.0, green: 0.0, blue: 1.0, alpha: 0.9)
         // Do any additional setup after loading the view, typically from a nib.
         
+        emailtextfield.layer.cornerRadius = 5
+        emailtextfield.layer.borderColor = UIColor.red.cgColor
+        emailtextfield.layer.borderWidth = 1
+        
+        
+        
     }
     @IBAction func login(_ sender: Any) {
         
