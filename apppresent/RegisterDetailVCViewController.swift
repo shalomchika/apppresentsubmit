@@ -37,7 +37,7 @@ class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       /*
         do
         {
             try Auth.auth().signOut()
@@ -46,7 +46,7 @@ class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerD
         {
             print (error.localizedDescription)
         }
-        
+        */
         profileimageview.layer.cornerRadius = 40 //
         profileimageview.clipsToBounds = true //
         birthdaytextfield.inputView = datePicker
