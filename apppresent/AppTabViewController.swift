@@ -9,7 +9,9 @@
 import UIKit
 
 class AppTabViewController: UITabBarController {
-
+    static func create() -> AppTabViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UITabBarController-jNr-XU-i78") as! AppTabViewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

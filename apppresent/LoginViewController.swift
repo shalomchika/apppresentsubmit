@@ -14,12 +14,15 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    static func create() -> LoginViewController {
+        return UIStoryboard(name: "login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+    }
     @IBOutlet weak var emailtextfield: UITextField!
     @IBOutlet weak var passwordtextfield: UITextField!
     @IBOutlet weak var loginbtn: UIButton!
     @IBOutlet weak var registerbtn: UIButton!
     @IBOutlet weak var errormessagelbl: UILabel!
-    
+    var doesexist:Bool = false
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -45,7 +48,10 @@ class LoginViewController: UIViewController {
         registerbtn.titleLabel?.textColor = .black
         registerbtn.layer.borderWidth = 0.5
         
-
+        registerbtn.setRounded(radius: 10)
+        
+        // circle => set radius = width / 2; width = height
+        
         
         
         
@@ -71,26 +77,26 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func login(_ sender: Any) {
-        var emailaddress = self.emailtextfield.text!
-        print(emailaddress)
-        
-        
+        hideKeyboard()
+        // show progress indicator https://github.com/pkluz/PKHUD
         //self.checkemailexists()
         
         Auth.auth().signIn(withEmail: emailtextfield.text!, password: passwordtextfield.text!) { (user, error) in
+            
+            if error != nil {
+                self.errormessagelbl.text = error!.localizedDescription
+                self.errormessagelbl.sizeToFit()
+                return
+            }
+            
             if user != nil {
                 print("User has logged in")
-                
                 self.performSegue(withIdentifier: "tabdetail", sender: user)
             }
             
-            if error != nil {
-            
-                self.errormessagelbl.text = "Incorrect password or email"
+            // I changed the code so I need to make it go back, but the main thing is
                 
-                }
-                
-               
+               Setting.didLogin = true
             }
         }
     
@@ -102,7 +108,11 @@ class LoginViewController: UIViewController {
         let email = emailtextfield.text ?? ""
         
      //1
+       
         
+            // 5. Received the result from the async function,
+            //    now do whatever you want with it:
+           
       ref
             .queryOrdered(byChild: "email").queryEqual(toValue: email) // 2
             .observe(.value, with: { (snapshot: DataSnapshot) in
@@ -110,28 +120,54 @@ class LoginViewController: UIViewController {
                 if (snapshot.exists()){
                 print(snapshot)
            
-                self.errormessagelbl.text = "Email exists"
-                var thisexists = true
+                //self.errormessagelbl.text = "An email exists with this account"
+                    self.errormessagelbl.sizeToFit()
+                     var thisexists = true
                     
+                    
+                    //code is a bit messy but it is meant to check if email exists and if that snapshot in firebase exists (that works I believe) but because it is asychronous I havent got the variable to work that it exists and show the register view controller
                     exists = thisexists
+                    
+                    self.doesexist  = true
                     print ("DOES IT CAPTURE")
                     var thistry = true
-                    print (thistry)
-                    print (thisexists)
-                    print (exists)
-                    self.errormessagelbl.text = (String(exists))
+                    //print (thistry)
+                    //print (thisexists)
+                   // print (exists)
+                    self.doesexist = true
+                   
+                    
+                   // self.errormessagelbl.text = (String(exists))
                   
                 }
                 
+                else {
+                  
+                    var thisexists = false
+                    exists = thisexists
+                    self.shouldregister()
+                  
+                }
+                /*
+                // 1. Call helloCatAsync passing a callback function,
+                //    which will be called receiving the result from the async operation
+                helloCatAsync(function(result) {
+                    // 5. Received the result from the async function,
+                    //    now do whatever you want with it:
+                    alert(result);
+                });
+ 
+ */
                 
               
             
             })
         
+        
 
 
-      
         return exists
+     
     }
                 
         
@@ -168,29 +204,49 @@ class LoginViewController: UIViewController {
  */
 
     @IBAction func register(_ sender: Any) {
-       
+        // remove this ¸¸¸¸contnet
+        // move content of sholdRegister to her e
         
-        var exists: Bool = false
-        var resultexists = self.checkIfEmailExists(exists: exists)
+        shouldregister()
+        return
+        
+        self.errormessagelbl.text = ""
+        var resultexists = self.checkIfEmailExists(exists: doesexist)
+        print("HERE! IF IT IS BACK CORRECT")
+        print(resultexists)
         //self.errormessagelbl.text = (String(resultexists))
-        print("REGISTER EMAIL EXIST")
-        print (resultexists)
+    
         if resultexists == true {
+            let messageexist =  "email exists already"
+            errormessagelbl.text  = messageexist
+            self.errormessagelbl.sizeToFit()
             return
             
         }
         
-        else if resultexists == false  {
-            errormessagelbl.text = " "
-            shouldregister()
+        if resultexists == false  {
+            
+            print(resultexists)
+            self.errormessagelbl.text  = " "
+           // let vc  = RegisterDetailVCViewController()
+         //   self.present(vc, animated: true, completion: nil)
+            //errormessagelbl.text = "false"
+    
         }
     }
-    
+//how do I tell the user they cant register because the email exists using firebases checking
     func shouldregister () {
+        // hie keyboard
+        // show progress indicator https://github.com/pkluz/PKHUD
         
         let email = emailtextfield.text!
         let password = passwordtextfield.text!
         Auth.auth().createUser(withEmail: emailtextfield.text!, password: passwordtextfield.text!) { (user, error) in
+            if error != nil {
+                self.errormessagelbl.text = error!.localizedDescription
+                return
+            }
+            
             if user != nil {
                 
                 
@@ -199,6 +255,8 @@ class LoginViewController: UIViewController {
                 
                 
                 self.saveToFirebase(userid: uid, email: email)
+                let controller = RegisterDetailVCViewController.create()
+                self.navigationController?.pushViewController(controller, animated: true)
                 
                 // let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 // let registerdetailVC = storyboard.instantiateInitialViewController(withIdentifier: "RegisterDetailVC")
@@ -228,7 +286,8 @@ class LoginViewController: UIViewController {
         print("User has registered in")
         
         //https:www.youtube.com/watch?v=OEUeGuBnNAs
-        let ref = Database.database().reference()
+        //let ref = Database.database().reference()
+        
         //let usersReference = ref.child("users")
         //let newUsersReference = usersReference.child(uid!)
         
@@ -240,11 +299,14 @@ class LoginViewController: UIViewController {
         
         //user/_your_id/email|password
         
-        ref.child("users").child(userid).setValue(["email": email, "user_id" : userid])
+        // if you use this, in case you want to change user -> myUsers , you have to go everywhere to change
+        // ref.child("musers").child(userid).setValue(["email": email, "user_id" : userid])
         
+     
         
-        
-        
+        //if you use this, you just change 1 place
+        let rf = DatabaseNode.getDb(.users)
+        rf.child(userid).setValue(["email": email, "user_id" : userid])
     }
 }
 

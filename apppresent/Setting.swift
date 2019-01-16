@@ -6,17 +6,21 @@
 //  Copyright © 2019 Macbook Pro. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Setting {
-    
-var didlogin : Bool
-    
-    
-    init(didlogin: Bool) {
-        self.didlogin = didlogin
-         UserDefaults.standard.bool(forKey: "didlogin")
+    static var didLogin: Bool {
+        get {
+            return UserDefaults.standard.value(forKey: "didLogin") as? Bool ?? false
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "didLogin")
+        }
     }
-    
    
+}
+
+func hideKeyboard(){
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                    to: nil, from: nil, for: nil)
 }

@@ -16,7 +16,7 @@ class InitialNavViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
+        
         var isloggedin = UserDefaults.standard.bool(forKey: "didlogin")
         
         if isloggedin == false {
@@ -31,7 +31,7 @@ class InitialNavViewController: UINavigationController {
             //change this to your class name
         }
  
- */
+ 
 
         // Do any additional setup after loading the view.
     }

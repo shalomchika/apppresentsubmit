@@ -109,6 +109,11 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
  */
     
     
+    @IBAction func editProfile(_ sender: Any) {
+        let controller = EditProfileViewController.create()
+        controller.profilePage = self
+        present(controller, animated: true)
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,6 +139,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         displaystatuslbl.preferredMaxLayoutWidth = 150
         profileimageview.layer.cornerRadius = 40
         profileimageview.clipsToBounds = true
+        
         
         //works
         //var hello = "hello"
@@ -216,7 +222,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    
     func collectionView(_ collection: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
     }
@@ -292,7 +297,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         // is this project is your school assignment? yeah and I will use it after for my personal project which has similar features
         //suggest: add project to github => add me into your git hub
         // I do: break tasks for you
-        // you do: pick tasks and finish in order asap
+        // you do: pick tasks and finish in order /Users/macbookpro/development/apppresent/apppresent/profile.storyboard:-1: Encountered an error communicating with IBAgent-iOS.asap
         // you do: get back to get new tasks
         // i want to develop apps after
         
@@ -302,7 +307,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
 //the general feed with the people I follow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetail") as! PostDetail
+        let controller = UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "PostDetail") as! PostDetail
         let data = datasource[indexPath.row]
         controller.newImageView.sd_setImage(with: URL(string: data.url), placeholderImage: UIImage(named:"image1"))
         
@@ -375,3 +380,4 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
  self.datasource = newposts
  self.collection.reloadData() //update all elements in collection
  */
+ 

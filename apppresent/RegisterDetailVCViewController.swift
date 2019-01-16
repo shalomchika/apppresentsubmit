@@ -12,7 +12,9 @@ import FirebaseAuth
 import FirebaseStorage
 
 class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    static func create() -> RegisterDetailVCViewController {
+        return UIStoryboard(name: "register", bundle: nil).instantiateViewController(withIdentifier: "RegisterDetailVCViewController") as! RegisterDetailVCViewController
+    }
 
     @IBOutlet weak var firstnametextfield: UITextField!
     @IBOutlet weak var lastnametextfield: UITextField!
@@ -47,7 +49,7 @@ class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerD
             print (error.localizedDescription)
         }
         */
-        profileimageview.layer.cornerRadius = 40 //
+        //profileimageview.layer.cornerRadius = 40 //
         profileimageview.clipsToBounds = true //
         birthdaytextfield.inputView = datePicker
         firstnametextfield.delegate = self

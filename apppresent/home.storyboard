@@ -13,7 +13,7 @@
         <!--Feed View Controller-->
         <scene sceneID="9uq-hN-RaL">
             <objects>
-                <viewController id="1ua-YV-KsX" customClass="FeedViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="1ua-YV-KsX" customClass="FeedViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xYN-FO-wsq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

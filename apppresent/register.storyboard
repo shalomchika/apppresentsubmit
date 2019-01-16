@@ -13,12 +13,12 @@
         <!--Register DetailVC View Controller-->
         <scene sceneID="SFG-ED-0Na">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-lH2-5z-iPD" id="lH2-5z-iPD" customClass="RegisterDetailVCViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterDetailVCViewController" id="lH2-5z-iPD" customClass="RegisterDetailVCViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tUl-wF-lic">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picturetest" translatesAutoresizingMaskIntoConstraints="NO" id="cNs-iD-CNo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noprofile" translatesAutoresizingMaskIntoConstraints="NO" id="cNs-iD-CNo">
                                 <rect key="frame" x="68" y="70" width="239" height="196"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="Ytk-MG-zIa"/>
@@ -38,7 +38,6 @@
                                 </state>
                                 <connections>
                                     <action selector="continueB:" destination="lH2-5z-iPD" eventType="touchUpInside" id="bUa-6D-SSG"/>
-                                    <segue destination="7Ob-VG-MRY" kind="show" id="r7x-aj-rhp"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR4-1d-8iT">
@@ -104,16 +103,8 @@
             </objects>
             <point key="canvasLocation" x="-3007" y="-117"/>
         </scene>
-        <!--UINavigationController-bw3-S9-flv-->
-        <scene sceneID="2XJ-FH-wol">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UINavigationController-bw3-S9-flv" id="7Ob-VG-MRY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Qn-qN-cSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2418" y="-906"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="picturetest" width="257" height="196"/>
+        <image name="noprofile" width="100" height="100"/>
     </resources>
 </document>

@@ -10,7 +10,26 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    static func create() -> EditProfileViewController {
+        return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
+    }
+    
+    // when I change the image  in edit profile, you change the image view in PriflePgeCOntorller
+    //
+    // ProfilePageViewCOntroller HAS EditProfilePageController
+    // EditProfilePageController has ProfilePageViewCOntroller
+    
+    //https://medium.com/flawless-app-stories/memory-leaks-in-swift-bfd5f95f3a74
+    //https://medium.com/mackmobile/avoiding-retain-cycles-in-swift-7b08d50fe3ef
+    
+    // A Strong B
+    // B Strong A
+    // retain cycle =? never relase memory here =? leak memory
+    
+    weak var profilePage: ProfilePageViewController?
 
     @IBOutlet weak var datepickercompletionlbl: UILabel!
     
@@ -24,6 +43,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var tapimagebtn: UIButton!
     @IBOutlet weak var profileimageview: UIImageView!
     var selectedimage : UIImage?
+    @IBOutlet weak var savebtn: UIButton!
+    @IBOutlet weak var backtn: UIButton!
     
     let userid = Auth.auth().currentUser!.uid
     let datePicker = UIDatePicker()
@@ -55,6 +76,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         tapimagebtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
+        
+
         
         let dref = Database.database().reference()
         let sref = Storage.storage().reference()
@@ -161,6 +184,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.view.layoutIfNeeded()
     }
     
+    @IBAction func backbtn(_ sender: Any) {
+        
+        
+    }
+    
+    @IBAction func savebtn(_ sender: Any) {
+        
+        
+    }
+    
     func uploadProfileImage(_ image: UIImage, completion: @escaping((_ url: String?) -> ())) {
         let userid = Auth.auth().currentUser!.uid
         let storageRef  = Storage.storage().reference().child("user/\(userid)")
@@ -227,6 +260,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profileimageview.layer.cornerRadius = 40
         profileimageview.image = image
         selectedimage = image
+        
+        profilePage?.profileimageview.image = image
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
