@@ -321,7 +321,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         
         
         //what it will show  image in collection loads
-        let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCell
     //reference cell
         //find right image in array
         

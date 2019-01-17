@@ -9,7 +9,7 @@
 import UIKit
 //for image view alone
 
-class CollectionViewCell: UICollectionViewCell {
+class ImageCell: UICollectionViewCell {
    
     @IBOutlet weak var imageview: UIImageView!
     override func prepareForReuse() {
