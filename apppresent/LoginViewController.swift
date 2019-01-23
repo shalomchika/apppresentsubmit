@@ -100,6 +100,7 @@ class LoginViewController: UIViewController {
             }
         }
     
+    /*DELETE UNLES USE TO EXPLAIN
     func checkIfEmailExists(exists: Bool) -> Bool {
         
        var exists  = exists
@@ -169,39 +170,12 @@ class LoginViewController: UIViewController {
         return exists
      
     }
-                
+ 
+ 
+ */
         
 
     
-
-    
-    /*
-    func checkemailexists() {
-         var emailaddress = emailtextfield.text!
-        Auth.auth().fetchProviders(forEmail: emailaddress , completion: {
-            (providers, error) in
-            print("CHECK")
-            print(emailaddress)
-            if let error = error {
-                    print("not found")
-                self.errormessagelbl.text = "There is no email linked with this account"
-                
-                self.errormessagelbl.sizeToFit()
-                print(error.localizedDescription)
-            }
-            else if var providers =  {
-                //self.errormessagelbl.text = "There is no email linked with this account"
-                
-                self.errormessagelbl.text = ""
-                self.errormessagelbl.text = "There is no email linked with this account"
-                print ("PROVIDERS")
-                print(providers)
-                
-            }
-            
-        })
-    }
- */
 
     @IBAction func register(_ sender: Any) {
         // remove this ¸¸¸¸contnet
@@ -209,7 +183,7 @@ class LoginViewController: UIViewController {
         
         shouldregister()
         return
-        
+        /*DELETE USE TO EXPLAIN?
         self.errormessagelbl.text = ""
         var resultexists = self.checkIfEmailExists(exists: doesexist)
         print("HERE! IF IT IS BACK CORRECT")
@@ -233,6 +207,7 @@ class LoginViewController: UIViewController {
             //errormessagelbl.text = "false"
     
         }
+ */
     }
 //how do I tell the user they cant register because the email exists using firebases checking
     func shouldregister () {

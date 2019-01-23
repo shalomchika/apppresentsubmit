@@ -12,6 +12,7 @@ import FirebaseDatabase
 struct PostData {
     let key:String!
     let url: String!
+    let caption: String!
     let itemRef : DatabaseReference?
     
     
@@ -20,6 +21,7 @@ struct PostData {
     {
         self.key = key
         self.url = url
+        self.caption = caption
         self.itemRef = nil
         
     }
@@ -29,31 +31,23 @@ struct PostData {
     {
         key = snapshot.key
         itemRef = snapshot.ref
+        
     
         var snapshotvalue = snapshot.value as? NSDictionary
-        print("THIS IS COLLECTIONS SNAPPPPPP")
+        //print("THIS IS COLLECTIONS SNAPPPPPP")
         print(snapshot)
       
 
-        /* listen for caption changes
- 
- 
- MyRoom.on('value', function(snapshot) {
- var val = snapshot.val();
- alert(JSON.stringify(val)); // {Name: 'This is my room', Owner: 'frank', Marker1:'foo'}
- alert(val.Marker1); // foo
- });
- */
-        /*
-        if let imageUrl = snapshotvalue?["url"] as? String {
-            url = imageUrl
-          //  print(url)
-        }
+  
         
-        else {
-            url = ""
+        if let feedcaption = snapshotvalue?["caption"] as? String {
+            caption = feedcaption
+            //  print(url)
         }
-        */
+            
+        else {
+            caption = ""
+        }
         
       
         if let imageUrl = snapshotvalue?["pathToImage"] as? String {
@@ -65,9 +59,14 @@ struct PostData {
             url = ""
         }
         print("THIS IS CAPTION TEST on firebase")
-        print("THIS IS URL TEST on firebase")
-        print(url)
-        print(key)
+       // print("THIS IS URL TEST on firebase")
+      //  print(url)
+       // print(key)
+       // print("THIS IS CAPTION TEST on firebase")
+       // print(caption)
+        
+  
+ 
         
     }
 

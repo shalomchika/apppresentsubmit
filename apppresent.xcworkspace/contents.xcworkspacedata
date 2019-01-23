@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PostTableViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:apppresent.xcodeproj">
    </FileRef>
    <FileRef
