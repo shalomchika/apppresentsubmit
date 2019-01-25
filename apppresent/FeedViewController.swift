@@ -35,7 +35,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = .green
         feedTableView.dataSource = self as! UITableViewDataSource
         downloadPost()
-        //loadPosts()
+        //loadPosts() I dont use load posts at the moment ,
     
      
 
@@ -45,7 +45,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     
-    func downloadPost() {
+    func downloadPost1() {
         
         let poststorage = Storage.storage().reference(withPath: "posts")
         let postdatabase = Database.database().reference(withPath: "posts")
@@ -102,8 +102,75 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    func downloadPost(){
+        guard let myId = Auth.auth().currentUser?.uid else { return }
+        let postDB = Database.database().reference().child("posts").observe(.value) { (returnData) in
+            guard let rawData = returnData.value as? [String: Any] else { return }
+            // rawData has many items
+            // -> get all rawData values -> all vaues -> isnot Array -> have to parse to array
+            let posts = Array(rawData.values).map({ return PostData(rawData: $0) })
+            // rawData.values is Any
+            // PostData
+            // posts: [PostData]
+            // map Array(Any) -> Array(PostData)
+            // ok
+            
+            // map is similar to for loop
+            // for item in array {
+            //create new PostData by pass item into
+            //}
+            
+            // now we hvae all posts form everyone
+            // we hvae to filter posts from my followers
+            
+            
+            // todo
+            // - add foloowers and test this function
+            
+            let followerDb = Database.database().reference()
+                .child("followers")
+                .child(myId)
+            followerDb.observe(.value, with: { (followersSnapshot) in
+                guard let followersRawData = followersSnapshot.value as? [String: Any] else {
+                    self.datasource = posts
+                    self.feedTableView.reloadData()
+                    return
+                }
+                let followers = Array(followersRawData.keys)
+                
+                // I'll do it later but if they aren't following anyone I dont want it to throw an error. It will show something like when you sign up to instagram . I haven't figured out what. Or maybe an empty screen because its meant to be people you know for their birthdays. Ill put a default view there.
+                // followrs : [1, 3, 7, 8]
+                // post owner is 6
+                
+                // we have list of my followers
+                // run a for loop to check if the owner of the post is my followers or not
+                /*
+                for item in posts {
+                    if followers.contains(item.userId) {
+                        // this post is form your follower
+                        // add this post to an array
+                    }
+                }
+                 */
+                //its a high order function ( Ill read it up)
+                
+                // map, compactMap, reduce, filter ohhhhh
+                // use
+                // map: use to change an array of data type T to an array of data type Y
+                // map: convert [Int} -> [String]
+                // filter - check condition, if it meets return the item for me (the post item)
+                // add it to array and display it?
+                // any books you reccommend for after
+                let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
+                self.datasource = myFollowerPosts
+                self.feedTableView.reloadData()
+            })
+            
+        }
+    }
     
-    func loadPosts() { // detect any event, observe child added and get it for is from all data from database and get associated data.
+    
+    func loadPosts1() { // detect any event, observe child added and get it for is from all data from database and get associated data.
         //grabs each post one by one and puts it into a dictionary and each post is grabbed an encapsulated into its own dictionary
         
         // post retrieved one by one and added to an optional dictionary
@@ -113,6 +180,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
              print("POSTS!!")
             //print(snapshot.value)
+            // you want to get post from followers only
+            //yeah Im not sure this function gets used as I think ....
+            
+            
+            // get all posts
+            // get all followers
+            // filter posts from followers
+            
+            
             https://www.youtube.com/watch?v=Aw5Hb_A_eFI
                 //coudl be anything type of value form Post data so cast to any type with if let
                 //unwrap data and show in dictionart

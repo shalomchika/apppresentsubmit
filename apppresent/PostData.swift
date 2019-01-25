@@ -10,10 +10,10 @@ import Foundation
 import FirebaseDatabase
 
 struct PostData {
-    let key:String!
-    let url: String!
-    let caption: String!
-    let itemRef : DatabaseReference?
+    var key:String!
+    var url: String!
+    var caption: String!
+    var itemRef : DatabaseReference?
     
     
     //give it the key 
@@ -68,6 +68,14 @@ struct PostData {
   
  
         
+    }
+
+    var userId: String?
+    init(rawData: Any) {
+        guard let data = rawData as? [String: Any] else { return }
+        userId = data["userID"] as? String
+        url = data["pathToImage"] as? String
+        caption = data["caption"] as? String
     }
 
 }
