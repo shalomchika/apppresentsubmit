@@ -13,10 +13,17 @@ import FirebaseAuth
 import SDWebImage
 
 
-class FeedViewController: UIViewController{
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+  
+
+    
+
+    
    
     var datasource = [PostData] ()
-    var posts  = [PostData]()
+
+   // @IBOutlet weak var feedimageviewview: UIImageView!
     
     @IBOutlet weak var feedTableView: UITableView!
     // to append data from snapshot to array from firebase
@@ -26,8 +33,10 @@ class FeedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-       feedTableView.dataSource = self
-        loadPosts()
+        feedTableView.dataSource = self as! UITableViewDataSource
+        downloadPost()
+        //loadPosts()
+    
      
 
   
@@ -111,10 +120,46 @@ class FeedViewController: UIViewController{
                 let feedcaption = dict["caption"] as? String
                 let feedurl = dict["pathToImage"] as? String
                 //let feedkey = dict["key"] as? String
-                let post = PostData(url: feedurl ?? "no url", key: feedurl ?? "no key" , caption: feedcaption ?? "no caption")
-                self.posts.append(post)
-                print(self.posts)
-                self.downloadPost()
+                //let post = PostData(url: feedurl ?? "no url", key: feedurl ?? "no key" , caption: feedcaption ?? "no caption")
+                //self.posts.append(post)
+               // print(self.posts)
+                //self.downloadPost()
+                if let url = URL(string: feedurl ?? "") {
+                    do {
+                        let imageAsData = try Data(contentsOf: url)
+                        let image = UIImage(data: imageAsData)
+                       // self.feedimageview.image = image
+                    } catch {
+                        print("imageURL was not able to be converted into data") // Assert or add an alert
+                    }
+                    
+                }
+                print(snapshot)
+                
+                var postref = Database.database().reference(withPath: "posts")
+                postref.observe(DataEventType.value) { (snapshot) in
+                    self.datasource = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot) })
+                
+         
+            /* UP TILL HERE  was in view did load*/
+            
+            
+            // connect to firebase database
+            var postref = Database.database().reference(withPath: "posts")
+            postref.observe(DataEventType.value) { (snapshot) in
+                self.datasource = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot) })
+                
+                // save to firebase
+                //collection is a iterator from first to last element type
+                //map is a high order function used on collection types
+                //0$ is the data
+                
+                
+                // var newposts = [PostData].self
+                //self.collectionview.reloadData()
+                
+            }
+            
                 self.feedTableView.reloadData()
                 //put everything in the array
                 
@@ -123,31 +168,69 @@ class FeedViewController: UIViewController{
             //print all snapshots
         }
     }
-}
+        
+        
+       
 
-extension FeedViewController : UITableViewDataSource {
+}
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+       print (datasource.count)
+        return datasource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell", for: indexPath)
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell", for: indexPath) as? PostTableViewCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell") as! PostTableViewCell
+       
         cell.backgroundColor = UIColor.red
-        //cell.textLabel?.text = posts[indexPath.row].caption
-       //  let image = datasource[indexPath.row]
-        
-        //cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
+        //cell.textLabel?.text = datasource[indexPath.row].caption
+        let image = datasource[indexPath.row]
+        print("THIS IS image url")
+        //print (datasource)
+        print (image.url)
+        cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
+        cell.feedcaptionlbl.text = image.caption ?? "No caption"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // 400 -> square on iphone 8+/7+/6+ -> because its width is equal 400
+        // 400 -> rectangle on iphone SE -> because its width is equal 200
+        return 400
+    }
+    
+}
+/*
+extension FeedViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datasource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell", for: indexPath) as! PostTableViewCell
+ 
+        cell.backgroundColor = UIColor.red
+       // cell.textLabel?.text = datasource[indexPath.row].caption
+        let image = datasource[indexPath.row]
+ 
+    cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         
         return cell
     }
 
 }
 
-
+}
 
 extension FeedViewController : UITableViewDelegate {
  
     
 }
+
+
+*/
+
+// I will fix this in my side. Next issue
 

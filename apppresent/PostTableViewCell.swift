@@ -23,5 +23,12 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.feedimageview.image = nil
+        self.feedcaptionlbl.text = ""
+        
+    }
 
 }
