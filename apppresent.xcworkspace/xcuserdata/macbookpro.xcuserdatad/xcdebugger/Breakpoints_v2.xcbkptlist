@@ -394,13 +394,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.1657881"
+            timestampString = "570385541.147356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "280"
             endingLineNumber = "280"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FeedViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -410,7 +410,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.1664881"
+            timestampString = "570385541.14781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
@@ -426,7 +426,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.167078"
+            timestampString = "570385541.148188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -474,45 +474,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.167724"
+            timestampString = "570385541.148492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
             landmarkName = "downloadPost()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.FIRDataSnapshot) -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in apppresent.FeedViewController.downloadPost() -&gt; ()"
-                  moduleName = "apppresent"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookpro/development/apppresent/apppresent/FeedViewController.swift"
-                  timestampString = "570144867.439742"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "709">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (apppresent.PostData) -&gt; Swift.Bool in closure #2 (__C.FIRDataSnapshot) -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in apppresent.FeedViewController.downloadPost() -&gt; ()"
-                  moduleName = "apppresent"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookpro/development/apppresent/apppresent/FeedViewController.swift"
-                  timestampString = "570144867.4439861"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "41">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -522,7 +490,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.168098"
+            timestampString = "570385541.148862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -538,7 +506,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.168548"
+            timestampString = "570385541.149251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
@@ -554,7 +522,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.168921"
+            timestampString = "570385541.149628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -566,11 +534,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apppresent/FeedViewController.swift"
-            timestampString = "570144867.169291"
+            timestampString = "570385541.150004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"

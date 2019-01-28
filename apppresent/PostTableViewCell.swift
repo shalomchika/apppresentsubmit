@@ -29,6 +29,7 @@ class PostTableViewCell: UITableViewCell {
         self.feedimageview.image = nil
         self.feedcaptionlbl.text = ""
         
+        // this is demo for git stash 
     }
 
 }
