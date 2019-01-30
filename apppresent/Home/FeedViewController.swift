@@ -274,7 +274,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // 400 -> square on iphone 8+/7+/6+ -> because its width is equal 400
         // 400 -> rectangle on iphone SE -> because its width is equal 200
-        return 400
+        return UITableView.automaticDimension
     }
     
 }

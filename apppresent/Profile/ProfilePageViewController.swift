@@ -268,6 +268,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         let poststorage = Storage.storage().reference(withPath: "posts")
         let postdatabase = Database.database().reference(withPath: "posts")
         let currentuser = Auth.auth().currentUser
+        print(currentuser?.uid)
         
         /*
           var userquery =  postdatabase.queryEqual(toValue: currentuser, childKey: "userID")
@@ -295,9 +296,14 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         */
         // need to make BRug etc.... a string from current user variable , its just a test value
 
+        /*
+        postdatabase
+            .queryOrdered(byChild: "userID").queryEqual(toValue: "BRugt1SWc3Ruxq5kyh8M3RG74Dg1") // 2
+            .observe(.value, with: { (snapshot: DataSnapshot) in
+ */
          var newuserposts = [PostData]() //1
         postdatabase
-         .queryOrdered(byChild: "userID").queryEqual(toValue: "BRugt1SWc3Ruxq5kyh8M3RG74Dg1") // 2
+         .queryOrdered(byChild: "userID").queryEqual(toValue: currentuser?.uid) // 2
             .observe(.value, with: { (snapshot: DataSnapshot) in
     // 3
         

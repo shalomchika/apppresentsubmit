@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-xo-qXv">
-                                <rect key="frame" x="258" y="157" width="46" height="30"/>
+                                <rect key="frame" x="16" y="75" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Follow"/>
                             </button>
@@ -58,8 +58,8 @@
                                 <rect key="frame" x="322" y="287" width="30" height="30"/>
                                 <state key="normal" title="+"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noprofile" translatesAutoresizingMaskIntoConstraints="NO" id="fDL-YZ-ur3">
-                                <rect key="frame" x="62" y="75" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="noprofile" translatesAutoresizingMaskIntoConstraints="NO" id="fDL-YZ-ur3">
+                                <rect key="frame" x="106" y="75" width="150" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Zhk-e5-XqZ"/>
                                 </constraints>
@@ -120,6 +120,11 @@
                                     <outlet property="delegate" destination="LTe-rU-OXe" id="RJg-Do-bSu"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6g-Ia-kXj">
+                                <rect key="frame" x="9" y="75" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Unfollow"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

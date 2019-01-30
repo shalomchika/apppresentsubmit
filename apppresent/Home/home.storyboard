@@ -13,7 +13,6 @@
         <!--Feed View Controller-->
         <scene sceneID="9uq-hN-RaL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BkO-6I-0ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FeedViewController" id="1ua-YV-KsX" customClass="FeedViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xYN-FO-wsq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -50,10 +49,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIq-eP-W2y">
-                                                    <rect key="frame" x="0.0" y="247.5" width="320" height="52.5"/>
+                                                    <rect key="frame" x="0.0" y="247" width="320" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ept-a9-WfE">
-                                                            <rect key="frame" x="16" y="16" width="288" height="20.5"/>
+                                                            <rect key="frame" x="16" y="16" width="288" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -68,7 +67,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSc-Db-m7g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="247.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="QSc-Db-m7g" secondAttribute="height" multiplier="320:247" id="hNQ-BU-16n"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -122,6 +124,7 @@
                         <outlet property="feedTableView" destination="2xC-xV-Kqe" id="AvX-Ji-fHz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BkO-6I-0ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607.5" y="-96.126760563380287"/>
         </scene>
