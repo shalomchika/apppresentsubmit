@@ -11,6 +11,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'SDWebImage/WebP'
+pod 'Firebase/Messaging'
 
 
   target 'apppresentTests' do

@@ -12,6 +12,8 @@
 		522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */; };
 		523F617621EFBF58008D8F41 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617521EFBF58008D8F41 /* Database.swift */; };
 		523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617721EFC413008D8F41 /* UIImageExtension.swift */; };
+		5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6921FF7C6700524276 /* GoogleService-Info.plist */; };
+		5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6E21FF7D2600524276 /* Info copy.plist */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -36,11 +38,9 @@
 		52C3D1DD21ED1D1400DF7F41 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C3D1DC21ED1D1400DF7F41 /* profile.storyboard */; };
 		52C3D1E521EDFA7700DF7F41 /* gifting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */; };
 		52C994EC21F63432002DE553 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C994EB21F63432002DE553 /* PostTableViewCell.swift */; };
-		52D30CFA21DF93C9005E3128 /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CF921DF93C9005E3128 /* photos.swift */; };
 		52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */; };
 		52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */; };
 		52D30D0021DFA912005E3128 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFF21DFA912005E3128 /* PostData.swift */; };
-		52D893A321CD77D300FCAA5D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52D893A221CD77D300FCAA5D /* GoogleService-Info.plist */; };
 		52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */; };
 		52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */; };
 		52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920221DD01760021B3A0 /* EditProfileViewController.swift */; };
@@ -75,6 +75,8 @@
 		522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		523F617521EFBF58008D8F41 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		523F617721EFC413008D8F41 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		5241CD6921FF7C6700524276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5241CD6E21FF7D2600524276 /* Info copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +89,6 @@
 		52713E9621CD2DCB00409294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52713E9821CD2DCD00409294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52713E9B21CD2DCD00409294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		52713E9D21CD2DCD00409294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52713EA221CD2DCD00409294 /* apppresentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = apppresentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52713EA621CD2DCD00409294 /* apppresentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apppresentTests.swift; sourceTree = "<group>"; };
 		52713EA821CD2DCD00409294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		52713EB121CD2DCD00409294 /* apppresentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apppresentUITests.swift; sourceTree = "<group>"; };
 		52713EB321CD2DCD00409294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528117F321E696EA00AD9E4F /* PostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetail.swift; sourceTree = "<group>"; };
+		5281EB6422021257006DF175 /* apppresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = apppresent.entitlements; sourceTree = "<group>"; };
 		52A4DB2921E4C0D7008D1110 /* postHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postHeaderView.swift; sourceTree = "<group>"; };
 		52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewController.swift; sourceTree = "<group>"; };
 		52C3D1D021ED1BFA00DF7F41 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
@@ -105,11 +107,9 @@
 		52C3D1DC21ED1D1400DF7F41 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
 		52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = gifting.storyboard; sourceTree = "<group>"; };
 		52C994EB21F63432002DE553 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		52D30CF921DF93C9005E3128 /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photos.swift; sourceTree = "<group>"; };
 		52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		52D30CFF21DFA912005E3128 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
-		52D893A221CD77D300FCAA5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVCViewController.swift; sourceTree = "<group>"; };
 		52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPostViewController.swift; sourceTree = "<group>"; };
 		52FD920221DD01760021B3A0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +159,98 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5241CD5521FF6E1400524276 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				52713E9121CD2DCB00409294 /* AppDelegate.swift */,
+				52713E9821CD2DCD00409294 /* Assets.xcassets */,
+				52713E9A21CD2DCD00409294 /* LaunchScreen.storyboard */,
+				5241CD6921FF7C6700524276 /* GoogleService-Info.plist */,
+				5241CD6E21FF7D2600524276 /* Info copy.plist */,
+			);
+			name = Config;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		5241CD5621FF6E2D00524276 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				523F617521EFBF58008D8F41 /* Database.swift */,
+				523F617721EFC413008D8F41 /* UIImageExtension.swift */,
+				52645CDE21E7A8B300413DC1 /* Setting.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5241CD5721FF6E3700524276 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5210CBFF21DE192600EE0A79 /* FeedViewController.swift */,
+				52C3D1D421ED1C6300DF7F41 /* home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5241CD5921FF6E5000524276 /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
+				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
+			);
+			path = Gift;
+			sourceTree = "<group>";
+		};
+		5241CD5A21FF6E5600524276 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				52C3D1D821ED1CBE00DF7F41 /* post.storyboard */,
+				52C3D1DC21ED1D1400DF7F41 /* profile.storyboard */,
+				52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */,
+				522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */,
+				52D30CFF21DFA912005E3128 /* PostData.swift */,
+				52FD920221DD01760021B3A0 /* EditProfileViewController.swift */,
+				528117F321E696EA00AD9E4F /* PostDetail.swift */,
+				52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */,
+				52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */,
+				52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */,
+				52C994EB21F63432002DE553 /* PostTableViewCell.swift */,
+				52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */,
+				52A4DB2921E4C0D7008D1110 /* postHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		5241CD5B21FF6E6400524276 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				52C3D1DA21ED1CE100DF7F41 /* search.storyboard */,
+				52645CD821E79D7D00413DC1 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5241CD5C21FF6E7100524276 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				52645CDC21E79EAD00413DC1 /* AppTabViewController.swift */,
+				52713E9521CD2DCB00409294 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5241CD5E21FF73EB00524276 /* UserAccounts */ = {
+			isa = PBXGroup;
+			children = (
+				52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */,
+				52645CE021E7B15700413DC1 /* InitialNavViewController.swift */,
+				52C3D1D021ED1BFA00DF7F41 /* login.storyboard */,
+				52C3D1D221ED1C1300DF7F41 /* register.storyboard */,
+				52713E9321CD2DCB00409294 /* LoginViewController.swift */,
+				52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */,
+			);
+			path = UserAccounts;
+			sourceTree = "<group>";
+		};
 		52713E8521CD2DCB00409294 = {
 			isa = PBXGroup;
 			children = (
@@ -184,42 +276,15 @@
 		52713E9021CD2DCB00409294 /* apppresent */ = {
 			isa = PBXGroup;
 			children = (
-				5210CBFF21DE192600EE0A79 /* FeedViewController.swift */,
-				52C994EB21F63432002DE553 /* PostTableViewCell.swift */,
-				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
-				52C3D1D421ED1C6300DF7F41 /* home.storyboard */,
-				52C3D1D221ED1C1300DF7F41 /* register.storyboard */,
-				52C3D1D021ED1BFA00DF7F41 /* login.storyboard */,
-				52C3D1D821ED1CBE00DF7F41 /* post.storyboard */,
-				52C3D1DA21ED1CE100DF7F41 /* search.storyboard */,
-				52C3D1DC21ED1D1400DF7F41 /* profile.storyboard */,
-				52713E9521CD2DCB00409294 /* Main.storyboard */,
-				52FD920221DD01760021B3A0 /* EditProfileViewController.swift */,
-				52D30CFF21DFA912005E3128 /* PostData.swift */,
-				522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */,
-				528117F321E696EA00AD9E4F /* PostDetail.swift */,
-				52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */,
-				52645CE021E7B15700413DC1 /* InitialNavViewController.swift */,
-				52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */,
-				52713E9121CD2DCB00409294 /* AppDelegate.swift */,
-				52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */,
-				52645CDC21E79EAD00413DC1 /* AppTabViewController.swift */,
-				52713E9321CD2DCB00409294 /* LoginViewController.swift */,
-				52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */,
-				52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */,
-				52D30CF921DF93C9005E3128 /* photos.swift */,
-				52A4DB2921E4C0D7008D1110 /* postHeaderView.swift */,
-				52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */,
-				52645CD821E79D7D00413DC1 /* SearchViewController.swift */,
-				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
-				52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */,
-				52713E9821CD2DCD00409294 /* Assets.xcassets */,
-				52713E9A21CD2DCD00409294 /* LaunchScreen.storyboard */,
-				52713E9D21CD2DCD00409294 /* Info.plist */,
-				52D893A221CD77D300FCAA5D /* GoogleService-Info.plist */,
-				52645CDE21E7A8B300413DC1 /* Setting.swift */,
-				523F617521EFBF58008D8F41 /* Database.swift */,
-				523F617721EFC413008D8F41 /* UIImageExtension.swift */,
+				5281EB6422021257006DF175 /* apppresent.entitlements */,
+				5241CD5E21FF73EB00524276 /* UserAccounts */,
+				5241CD5C21FF6E7100524276 /* Main */,
+				5241CD5B21FF6E6400524276 /* Search */,
+				5241CD5A21FF6E5600524276 /* Profile */,
+				5241CD5921FF6E5000524276 /* Gift */,
+				5241CD5721FF6E3700524276 /* Home */,
+				5241CD5621FF6E2D00524276 /* Common */,
+				5241CD5521FF6E1400524276 /* Config */,
 			);
 			path = apppresent;
 			sourceTree = "<group>";
@@ -327,6 +392,14 @@
 				TargetAttributes = {
 					52713E8D21CD2DCB00409294 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					52713EA121CD2DCD00409294 = {
 						CreatedOnToolsVersion = 10.1;
@@ -365,9 +438,10 @@
 			files = (
 				52C3D1D321ED1C1300DF7F41 /* register.storyboard in Resources */,
 				52C3D1D121ED1BFA00DF7F41 /* login.storyboard in Resources */,
+				5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */,
+				5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */,
 				52C3D1D921ED1CBE00DF7F41 /* post.storyboard in Resources */,
 				52713E9C21CD2DCD00409294 /* LaunchScreen.storyboard in Resources */,
-				52D893A321CD77D300FCAA5D /* GoogleService-Info.plist in Resources */,
 				52C3D1E521EDFA7700DF7F41 /* gifting.storyboard in Resources */,
 				52713E9921CD2DCD00409294 /* Assets.xcassets in Resources */,
 				52C3D1DD21ED1D1400DF7F41 /* profile.storyboard in Resources */,
@@ -428,6 +502,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-apppresent/Pods-apppresent-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
@@ -439,6 +514,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
@@ -517,7 +593,6 @@
 				52C994EC21F63432002DE553 /* PostTableViewCell.swift in Sources */,
 				52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */,
 				523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */,
-				52D30CFA21DF93C9005E3128 /* photos.swift in Sources */,
 				52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */,
 				522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */,
 				52645CDF21E7A8B300413DC1 /* Setting.swift in Sources */,
@@ -698,9 +773,10 @@
 			baseConfigurationReference = D49F1448A7CE97C7CE4B3717 /* Pods-apppresent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apppresent/apppresent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YS67UG4FT;
-				INFOPLIST_FILE = apppresent/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/apppresent/New Group/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,9 +793,10 @@
 			baseConfigurationReference = 94BDA1F1EB6C7B3F171114D2 /* Pods-apppresent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = apppresent/apppresent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YS67UG4FT;
-				INFOPLIST_FILE = apppresent/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/apppresent/New Group/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
