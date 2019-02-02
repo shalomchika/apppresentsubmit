@@ -10,6 +10,8 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+import Kingfisher
+
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -38,7 +40,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastnametextfield: UITextField!
     @IBOutlet weak var statustextfield: UITextField!
     @IBOutlet weak var birthdaytextfield: UITextField!
-    
+    var selectedimageurl : String!
     @IBOutlet weak var emailtextfield: UITextField!
     @IBOutlet weak var tapimagebtn: UIButton!
     @IBOutlet weak var profileimageview: UIImageView!
@@ -82,6 +84,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let dref = Database.database().reference()
         let sref = Storage.storage().reference()
         loadProfileData()
+        
       
         
         
@@ -125,9 +128,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             if let url = URL(string: imageurl) {
                 do {
-                    let imageAsData = try Data(contentsOf: url)
-                    let image = UIImage(data: imageAsData)
-                    self.profileimageview.image = image
+                    // if the url matches our cache it will get the image from the cache url
+                    
+                    let resource = ImageResource(downloadURL: url, cacheKey: url.path)
+                    self.profileimageview.kf.setImage(with: resource)
+                    
+                    // use king fisher load image faster
+                    
+                    // check kingfisher
+                    //oh SD has to bridge from obj C, ok!
+                    //let imageAsData = try Data(contentsOf: url)
+                   // let image = UIImage(data: imageAsData)
+                    //self.profileimageview.image = image
                 } catch {
                     print("imageURL was not able to be converted into data") // Assert or add an alert
                 }
@@ -146,6 +158,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         birthday = birthdaytextfield.text ?? ""
         email = emailtextfield.text ?? ""
        
+        selectedimage = profileimageview.image
+        uploadProfileImage(selectedimage!) { (success) in
+            
+        }
+        // update the profile page
+        profilePage?.profileimageview.image = profileimageview.image
+       
         // update other data first
         // when uploading finihs -> update profile image
         
@@ -159,7 +178,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                                               "age" : self.age,
                                              "email" : self.email,
                                              "status": self.status,
-                                            "profileImageUrl": profileImageUrl])
+                                            "profileImageUrl": selectedimageurl])
 
                         
                         // disiss current contorller
@@ -197,7 +216,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if let profileImageUrl = self.profileimageview.image , let uploadData =
             self.profileimageview.image!.jpegData(compressionQuality: 0.1){
             storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                
                 if error != nil, metadata != nil {
                     print(error ?? "")
                     return
@@ -209,16 +227,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         print(error!.localizedDescription)
                         return
                     }
-                    if let profileImageUrl = url?.absoluteString {
-                        print(profileImageUrl)
+                    if let profileUrl = url?.absoluteString {
+                        self.selectedimageurl = profileUrl
+                        
+                        print(profileUrl)
                         //creates a profile image url which is stored in global variable
                         //how I should upload to Firebase
                         //   let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
                         //   self.registeUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
                     }
+                   
                 })
+               
             })
         }
+        
     }
     
     @objc func handleDatePicker(picker: UIDatePicker) {

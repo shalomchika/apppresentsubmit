@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 import SDWebImage
+import Kingfisher
 
 class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -39,6 +40,11 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var displaystatuslbl: UILabel!
     @IBOutlet weak var displaynamelbl: UILabel!
    
+    @IBAction func editProfile(_ sender: Any) {
+        let controller = EditProfileViewController.create()
+        controller.profilePage = self
+        navigationController?.pushViewController(controller, animated: true)
+    }
     @IBOutlet weak var displayagelbl: UILabel!
     var age = 0
     var stringage = ""
@@ -117,16 +123,22 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
  */
     
     
-   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getData()
+    }
   
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-      
-        super.viewWillAppear(animated)
+    //everytime you go to screen it will load data again, waste of time to reload.
+   // sorry also the profiel picture not staying the edit page. I cna look at it again. if you want to move on.
+    func getData() {
         startloading()
         loadDB()
         stoploading()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+      
+        super.viewWillAppear(animated)
+        
         //startloading()
         // load db again
       
@@ -152,7 +164,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         displaystatuslbl.preferredMaxLayoutWidth = 150
         profileimageview.layer.cornerRadius = 40
         profileimageview.clipsToBounds = true
-       // self.profileimageview.image = selectedimage
+        //self.profileimageview.image = selectedimage
         
         //works
         //var hello = "hello"
@@ -184,11 +196,17 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             
             if let url = URL(string: imageurl) {
                 do {
+                    
+                    
+                    let resource = ImageResource(downloadURL: url, cacheKey: url.path)
+                    self.profileimageview.kf.setImage(with: resource)
+                    
+                    /*
                     let imageAsData = try Data(contentsOf: url)
                     let thisimage = UIImage(data: imageAsData)
                     self.image = thisimage
-                    self.profileimageview.image = thisimage
-                   
+                    //self.profileimageview.image = thisimage
+                   */
                 } catch {
                     print("imageURL was not able to be converted into data") // Assert or add an alert
                 }
@@ -199,7 +217,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             
         })
         
-         self.profileimageview.image = image
+         //self.profileimageview.image = image
          /* UP TILL HERE  was in view did load*/
         
         
@@ -311,8 +329,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 let userpostobject = PostData(snapshot: userpostsnapshot as! DataSnapshot )
                 newuserposts.append(userpostobject)
             }
-            // 4
-                self.datasource = newuserposts
+            // in the firebase I have the timestamp with the id
+                self.datasource = newuserposts.sorted(by: { return $0.timestamp > $1.timestamp })
                 self.collectionview.reloadData()
         })
         

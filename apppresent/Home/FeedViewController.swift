@@ -35,12 +35,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = .green
         feedTableView.dataSource = self as! UITableViewDataSource
         downloadPost()
-        //loadPosts() I dont use load posts at the moment ,
-    
-     
-
-  
-        
     }
     
     
@@ -161,8 +155,14 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // filter - check condition, if it meets return the item for me (the post item)
                 // add it to array and display it?
                 // any books you reccommend for after
+                
+                // add more users -> take not ther user name, email ,passwor
+                // add mroe posts from different users.
+                //ok I understand , so I can test the features properly.
+                
+                
                 let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
-                self.datasource = myFollowerPosts
+                self.datasource = myFollowerPosts.sorted(by: { return $0.timestamp < $1.timestamp })
                 self.feedTableView.reloadData()
             })
             
@@ -223,7 +223,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // connect to firebase database
             var postref = Database.database().reference(withPath: "posts")
             postref.observe(DataEventType.value) { (snapshot) in
-                self.datasource = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot) })
+                guard let rawData = snapshot.value as? [AnyObject] else { return }
+                let posts = rawData.map({ return PostData(rawData: $0) })
+                print(posts)
+                //self.datasource = snapshot.children.sorted(by: { return $0.timestamp > $1.timestamp })
+     
+
+                //self.collectionview.reloadData()
+                
+                //self.datasource = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot) })
                 
                 // save to firebase
                 //collection is a iterator from first to last element type
@@ -272,8 +280,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // 400 -> square on iphone 8+/7+/6+ -> because its width is equal 400
-        // 400 -> rectangle on iphone SE -> because its width is equal 200
         return UITableView.automaticDimension
     }
     

@@ -10,6 +10,8 @@
 		0AEB35BB7AC7757EF0EAECB8 /* Pods_apppresentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */; };
 		5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210CBFF21DE192600EE0A79 /* FeedViewController.swift */; };
 		522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */; };
+		52339EAC2204C35800059075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52339EAB2204C35800059075 /* UserData.swift */; };
+		52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52339EAD2206025000059075 /* SearchTableViewCell.swift */; };
 		523F617621EFBF58008D8F41 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617521EFBF58008D8F41 /* Database.swift */; };
 		523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617721EFC413008D8F41 /* UIImageExtension.swift */; };
 		5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6921FF7C6700524276 /* GoogleService-Info.plist */; };
@@ -73,6 +75,8 @@
 		3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apppresentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5210CBFF21DE192600EE0A79 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		52339EAB2204C35800059075 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		52339EAD2206025000059075 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		523F617521EFBF58008D8F41 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		523F617721EFC413008D8F41 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		5241CD6921FF7C6700524276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				52C3D1DA21ED1CE100DF7F41 /* search.storyboard */,
+				52339EAD2206025000059075 /* SearchTableViewCell.swift */,
 				52645CD821E79D7D00413DC1 /* SearchViewController.swift */,
 			);
 			path = Search;
@@ -241,6 +246,7 @@
 		5241CD5E21FF73EB00524276 /* UserAccounts */ = {
 			isa = PBXGroup;
 			children = (
+				52339EAB2204C35800059075 /* UserData.swift */,
 				52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */,
 				52645CE021E7B15700413DC1 /* InitialNavViewController.swift */,
 				52C3D1D021ED1BFA00DF7F41 /* login.storyboard */,
@@ -502,6 +508,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-apppresent/Pods-apppresent-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -514,6 +521,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -588,6 +596,7 @@
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
 				52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */,
 				52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */,
+				52339EAC2204C35800059075 /* UserData.swift in Sources */,
 				523F617621EFBF58008D8F41 /* Database.swift in Sources */,
 				52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */,
 				52C994EC21F63432002DE553 /* PostTableViewCell.swift in Sources */,
@@ -596,6 +605,7 @@
 				52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */,
 				522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */,
 				52645CDF21E7A8B300413DC1 /* Setting.swift in Sources */,
+				52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */,
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
 			);

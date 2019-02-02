@@ -6,12 +6,18 @@ target 'apppresent' do
   use_frameworks!
 
   # Pods for apppresent
+pod 'Kingfisher', '~> 5.0'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'SDWebImage/WebP'
 pod 'Firebase/Messaging'
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
 
 
   target 'apppresentTests' do
@@ -23,5 +29,6 @@ pod 'Firebase/Messaging'
     inherit! :search_paths
     # Pods for testing
   end
+
 
 end

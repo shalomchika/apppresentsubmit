@@ -13,6 +13,8 @@ struct PostData {
     var key:String!
     var url: String!
     var caption: String!
+    // nee dto add timestamp
+    var timestamp: Double = 0
     var itemRef : DatabaseReference?
     
     
@@ -64,7 +66,7 @@ struct PostData {
        // print(key)
        // print("THIS IS CAPTION TEST on firebase")
        // print(caption)
-        
+        timestamp = snapshotvalue?["timestamp"] as? Double ?? 0
   
  
         
@@ -76,6 +78,7 @@ struct PostData {
         userId = data["userID"] as? String
         url = data["pathToImage"] as? String
         caption = data["caption"] as? String
+        timestamp = data["timestamp"] as? Double ?? 0
     }
 
 }

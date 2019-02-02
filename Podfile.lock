@@ -78,6 +78,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - Kingfisher (5.0.1)
   - leveldb-library (1.20)
   - libwebp (0.6.1):
     - libwebp/core (= 0.6.1)
@@ -120,6 +121,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - Kingfisher (~> 5.0)
   - SDWebImage/WebP
 
 SPEC REPOS:
@@ -137,6 +139,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kingfisher
     - leveldb-library
     - libwebp
     - nanopb
@@ -157,12 +160,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: ff145c3cf355bc53ca7a5991f1bab2ca448d4da5
+PODFILE CHECKSUM: 88290cf2e28c855c71a1e67ebdeca6e21524f432
 
 COCOAPODS: 1.5.3
