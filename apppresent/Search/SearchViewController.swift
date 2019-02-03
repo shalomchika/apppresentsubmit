@@ -49,7 +49,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
  */
         
 
-            self.datasource.filter({return
+            self.datasource.filter({ return
                 $0.name.contains(searchText)
                 
                 self.tableview.reloadData()
