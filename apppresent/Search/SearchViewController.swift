@@ -37,24 +37,29 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     //change the content depending on what I put in the search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        /*
+    
         
         guard !searchText.isEmpty else { return}
         // var search = searchbar.text
+        /*
         var ref = Database.database().reference(withPath: "users").child("firstname")
         ref.observe(DataEventType.value) { (snapshot) in
             
             self.searchedUsers = snapshot.children.map ({return searchedUser(snapshot: $0 as! DataSnapshot)})
-            self.searchedUsers.filter({return
+ */
+        
+
+            self.datasource.filter({return
                 $0.name.contains(searchText)
                 
                 self.tableview.reloadData()
             })
             
         }
- */
+
         
-    }
+    
+
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
