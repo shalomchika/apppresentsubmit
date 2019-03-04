@@ -24,6 +24,7 @@ struct PostData {
         self.key = key
         self.url = url
         self.caption = caption
+    
         self.itemRef = nil
         
     }

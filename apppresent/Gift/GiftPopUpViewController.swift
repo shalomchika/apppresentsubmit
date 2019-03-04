@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GiftPopUpViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
   
@@ -23,12 +24,57 @@ class GiftPopUpViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var pickerview = UIPickerView()
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     self.view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        loadData()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func loadData() {
+        
+        let userid = Auth.auth().currentUser?.uid
+        var ref = Database.database().reference()
+        ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let shoesize = value?["shoesize"] as? String ?? ""
+            let clothessize = value?["clothessize"] as? String ?? ""
+            
+            self.clothestextfield?.text = clothessize
+            self.shoetextfield?.text = shoesize
+            
+            
+        })
     }
     
     @IBAction func closepopup(_ sender: Any) {
         self.view.removeFromSuperview()
+      detailtoFirebase()
+        //save details to firebase
+        
+    }
+    
+    func detailtoFirebase() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let currentUser = Auth.auth().currentUser
+        let userid = currentUser!.uid
+    
+        var csize  = clothestextfield.text ?? "Detective work"
+        var ssize = shoetextfield.text ?? "Detective work"
+       
+       
+                var ssizedata = [String: String]()
+                var csizedata = [String: String]()
+                //ssizedata["shoesize"] = ssize
+                //csizedata["clothessize"] = csize
+                ref = ref.child("users").child(userid)
+                ref.updateChildValues(["shoesize": ssize,
+                                       "clothessize": csize])
+                // create these nodes in firebase
+        
+        
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -74,6 +120,9 @@ class GiftPopUpViewController: UIViewController, UIPickerViewDataSource, UIPicke
             currenttextfield.inputView = pickerview
         }
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation
