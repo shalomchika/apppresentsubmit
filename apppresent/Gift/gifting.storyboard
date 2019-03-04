@@ -10,6 +10,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Gift Pop Up View Controller-->
+        <scene sceneID="YHf-7e-L4T">
+            <objects>
+                <viewController storyboardIdentifier="sbPopupID" id="Ord-U0-WRB" customClass="GiftPopUpViewController" customModule="apppresent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dOt-II-9kr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-cS-z49">
+                                <rect key="frame" x="48" y="202" width="279" height="263"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop For Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxJ-LG-jBg">
+                                        <rect key="frame" x="70" y="0.0" width="98" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Clothes Size" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0q-OD-MaU">
+                                        <rect key="frame" x="0.0" y="40" width="260" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Shoe Size" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o2W-Ug-zHm">
+                                        <rect key="frame" x="0.0" y="78" width="260" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="263" id="lZY-UC-CRS"/>
+                                    <constraint firstAttribute="width" constant="279" id="wBb-hq-ChP"/>
+                                </constraints>
+                            </view>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJa-hM-v2z">
+                                <rect key="frame" x="-5" y="336" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBu-e8-c30">
+                                <rect key="frame" x="153" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closepopup:" destination="Ord-U0-WRB" eventType="touchUpInside" id="Jiu-6N-xfq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NZf-cS-z49" firstAttribute="centerY" secondItem="dOt-II-9kr" secondAttribute="centerY" id="EVU-lh-wfK"/>
+                            <constraint firstItem="NZf-cS-z49" firstAttribute="centerX" secondItem="dOt-II-9kr" secondAttribute="centerX" id="sef-gz-aLt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oS4-2z-VNa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgM-ik-gIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="-1230.1349325337333"/>
+        </scene>
         <!--Gift View Controller-->
         <scene sceneID="bD7-wJ-bzg">
             <objects>
@@ -83,7 +147,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zod-II-KDn">
                                 <rect key="frame" x="125" y="95" width="143" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="ADD"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Places" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOs-2A-8cu">
                                 <rect key="frame" x="125" y="286" width="125" height="21"/>
@@ -161,8 +225,16 @@
                                     <segue destination="t8c-fB-L2f" kind="show" id="qci-oK-crw"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="21st-birthday-party" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-ws-WNw">
-                                <rect key="frame" x="125" y="95" width="143" height="126"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-Z0-aTa">
+                                <rect key="frame" x="153" y="257" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Shop For Me"/>
+                                <connections>
+                                    <action selector="showdetail:" destination="uA7-Tv-f0b" eventType="touchUpInside" id="Svb-sN-gys"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-ws-WNw">
+                                <rect key="frame" x="125" y="95" width="143" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="f9I-db-Z1o"/>
                                     <constraint firstAttribute="height" constant="126" id="m7j-xI-ew7"/>
@@ -196,7 +268,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="qrB-ZH-mHh"/>
                     <connections>
+                        <outlet property="addrecentbtn" destination="Zod-II-KDn" id="rmk-ZS-yep"/>
                         <outlet property="placetableview" destination="i3b-Q6-URV" id="DEe-Ue-yU6"/>
+                        <outlet property="recentimageview" destination="cDz-ws-WNw" id="MqY-vg-vKL"/>
                         <outlet property="shoptableview" destination="Pgu-M1-Lkm" id="V49-Tr-CGO"/>
                     </connections>
                 </viewController>
@@ -273,7 +347,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="21st-birthday-party" width="1950" height="1300"/>
+        <image name="download" width="262" height="192"/>
         <image name="store" width="512" height="512"/>
         <image name="store (2)" width="512" height="512"/>
     </resources>

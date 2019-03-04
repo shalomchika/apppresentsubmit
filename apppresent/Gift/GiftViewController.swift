@@ -9,11 +9,26 @@
 import UIKit
 import Firebase
 
-class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDataSource,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
   
     @IBOutlet weak var shoptableview: UITableView!
     @IBOutlet weak var placetableview: UITableView!
+ 
+
+    @IBOutlet weak var recentimageview: UIImageView!
     
+    @IBOutlet weak var addrecentbtn: UIButton!
+    @IBAction func showdetail(_ sender: Any) {
+        let popoverVC  = UIStoryboard(name: "gifting", bundle:nil).instantiateViewController(withIdentifier: "sbPopupID") as! GiftPopUpViewController
+        self.addChild(popoverVC)
+        popoverVC.view.frame = self.view.frame
+        self.view.addSubview(popoverVC.view)
+        popoverVC.didMove(toParent: self)
+        
+    }
+    
+    
+    var imagePicker = UIImagePickerController()
     static func create() -> GiftViewController {
         return UIStoryboard(name: "gifting", bundle: nil).instantiateViewController(withIdentifier: "GiftViewController") as! GiftViewController
     }
@@ -38,6 +53,7 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addrecentbtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
         guard let myId = Auth.auth().currentUser?.uid else { return }
         let shopDB = Database.database().reference().child("shops")
             .observe(.value) { (returnData) in
@@ -63,11 +79,56 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     
     
+    @objc func handlePickImage(picker: UIImagePickerController) {
+       // let imagePickerController = UIImagePickerController()
+        imagePicker.delegate = self
+        let actionsheet = UIAlertController(title: "Photo Source", message: "Choose A Source", preferredStyle: .actionSheet)
+        actionsheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction)in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePicker.sourceType = .camera
+                
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }else
+            {
+                print("Camera is Not Available")
+            }
+            
+            
+            
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction)in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionsheet,animated: true, completion: nil)
+
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
     override func  viewWillAppear(_ animated: Bool) {
         
         //self.shoptableview.reloadData()
         //self.placetableview.reloadData()
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+            
+        }
+        recentimageview.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated:  true, completion: nil)
+    }
+
+
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

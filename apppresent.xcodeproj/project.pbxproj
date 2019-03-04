@@ -25,6 +25,7 @@
 		5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2D222C835400103C7F /* ShopGiftCell.swift */; };
 		5241DC30222C83FE00103C7F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2F222C83FE00103C7F /* Place.swift */; };
 		5241DC32222C840900103C7F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC31222C840900103C7F /* Shop.swift */; };
+		5241DC34222D63DE00103C7F /* GiftPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC33222D63DE00103C7F /* GiftPopUpViewController.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -99,6 +100,7 @@
 		5241DC2D222C835400103C7F /* ShopGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopGiftCell.swift; sourceTree = "<group>"; };
 		5241DC2F222C83FE00103C7F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5241DC31222C840900103C7F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		5241DC33222D63DE00103C7F /* GiftPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftPopUpViewController.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				5241DC31222C840900103C7F /* Shop.swift */,
 				5241DC2D222C835400103C7F /* ShopGiftCell.swift */,
 				52339EAF2208C8CB00059075 /* usersgiftpage.storyboard */,
+				5241DC33222D63DE00103C7F /* GiftPopUpViewController.swift */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
 			);
 			path = Gift;
@@ -634,6 +637,7 @@
 				52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */,
 				52C994EC21F63432002DE553 /* PostTableViewCell.swift in Sources */,
 				52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */,
+				5241DC34222D63DE00103C7F /* GiftPopUpViewController.swift in Sources */,
 				523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */,
 				52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */,
 				5224EBD2221A527B007519D4 /* ProfileNavigationController.swift in Sources */,

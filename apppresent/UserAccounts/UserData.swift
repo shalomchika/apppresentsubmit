@@ -182,8 +182,8 @@ struct UserData {
         guard let data = rawData as? [String: Any] else { return }
        // userid = data["userID"] as? String
         
-        firstname = data["firstname"] as? String
-        lastname = data["lastname"] as? String
+        firstname = data["firstname"] as? String ?? "firstname"
+        lastname = data["lastname"] as? String ?? "secondname"
         fullname = "\(firstname!) \(lastname!)"
        // age = data["age"] as? Int
         birthday = data["birthday"] as? String
