@@ -148,6 +148,16 @@
                         <viewLayoutGuide key="safeArea" id="Jhq-6I-gs7"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kwv-nn-Wju">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Cfc-1L-KfR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cmk-vh-J4J">
+                                <rect key="frame" x="16" y="7" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remind Me"/>
+                            </button>
+                            <connections>
+                                <action selector="addReminder:" destination="LTe-rU-OXe" id="pzY-SQ-Cew"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="2GS-qz-1rm">
                             <connections>
                                 <action selector="editProfile:" destination="LTe-rU-OXe" id="MxV-ie-j7y"/>

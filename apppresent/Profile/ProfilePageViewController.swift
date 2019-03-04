@@ -19,6 +19,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "ProfilePageViewController") as! ProfilePageViewController
     }
     
+    var currentUser: UserData?
   
     
     @IBOutlet weak var loadview: UIView!
@@ -126,7 +127,12 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        
+        let remindButton = UIBarButtonItem(title: "Remind me", style: .done, target: self, action: #selector(addReminder))
+        navigationController?.navigationItem.leftBarButtonItem = remindButton
     }
+    
+    
   
     //everytime you go to screen it will load data again, waste of time to reload.
    // sorry also the profiel picture not staying the edit page. I cna look at it again. if you want to move on.
@@ -189,6 +195,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             print(imageurl)
             print("This is status ", status)
             print(" This is fullname " ,fullname)
+            
+            self.currentUser = UserData(snapshot: snapshot)
             
             self.displaystatuslbl?.text = status
             self.displayagelbl?.text = stringage
@@ -280,6 +288,13 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
 
+    @IBAction func addReminder(_ sender: Any) {
+        let controller = ReminderViewController.create()
+        controller.user = currentUser
+        //controller. = self
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
     
     func downloadPost() {
         

@@ -26,6 +26,9 @@
 		5241DC30222C83FE00103C7F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2F222C83FE00103C7F /* Place.swift */; };
 		5241DC32222C840900103C7F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC31222C840900103C7F /* Shop.swift */; };
 		5241DC34222D63DE00103C7F /* GiftPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC33222D63DE00103C7F /* GiftPopUpViewController.swift */; };
+		5241DC36222DADBB00103C7F /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5241DC35222DADBB00103C7F /* Reminder.storyboard */; };
+		5241DC38222DC08E00103C7F /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC37222DC08E00103C7F /* ReminderViewController.swift */; };
+		5241DC3A222DC31E00103C7F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC39222DC31E00103C7F /* DateExtension.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -101,6 +104,9 @@
 		5241DC2F222C83FE00103C7F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5241DC31222C840900103C7F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		5241DC33222D63DE00103C7F /* GiftPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftPopUpViewController.swift; sourceTree = "<group>"; };
+		5241DC35222DADBB00103C7F /* Reminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
+		5241DC37222DC08E00103C7F /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		5241DC39222DC31E00103C7F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 				523F617521EFBF58008D8F41 /* Database.swift */,
 				523F617721EFC413008D8F41 /* UIImageExtension.swift */,
 				52645CDE21E7A8B300413DC1 /* Setting.swift */,
+				5241DC39222DC31E00103C7F /* DateExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -218,6 +225,8 @@
 		5241CD5921FF6E5000524276 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				5241DC35222DADBB00103C7F /* Reminder.storyboard */,
+				5241DC37222DC08E00103C7F /* ReminderViewController.swift */,
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
 				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
 				5241DC2F222C83FE00103C7F /* Place.swift */,
@@ -472,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5241DC36222DADBB00103C7F /* Reminder.storyboard in Resources */,
 				52C3D1D321ED1C1300DF7F41 /* register.storyboard in Resources */,
 				52C3D1D121ED1BFA00DF7F41 /* login.storyboard in Resources */,
 				5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */,
@@ -617,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */,
+				5241DC3A222DC31E00103C7F /* DateExtension.swift in Sources */,
 				528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */,
 				52D30D0021DFA912005E3128 /* PostData.swift in Sources */,
 				52645CE121E7B15700413DC1 /* InitialNavViewController.swift in Sources */,
@@ -624,6 +635,7 @@
 				5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */,
 				52713E9221CD2DCB00409294 /* AppDelegate.swift in Sources */,
 				52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */,
+				5241DC38222DC08E00103C7F /* ReminderViewController.swift in Sources */,
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
 				5241DC30222C83FE00103C7F /* Place.swift in Sources */,
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,

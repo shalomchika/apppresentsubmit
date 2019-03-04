@@ -13,7 +13,8 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
   
     @IBOutlet weak var shoptableview: UITableView!
     @IBOutlet weak var placetableview: UITableView!
- 
+    @IBOutlet weak var recentdetaillbl: UIButton!
+    
 
     @IBOutlet weak var recentimageview: UIImageView!
     
