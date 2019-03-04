@@ -26,6 +26,8 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(hideKeyboard(sender:))))
         // Do any additional setup after loading the view.
     }
     

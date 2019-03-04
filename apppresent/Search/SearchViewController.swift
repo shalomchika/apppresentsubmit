@@ -13,60 +13,90 @@ import Kingfisher
 import FirebaseStorage
 // record what it entered in the search bar and search for it in the first and second name of users
 
+class NameArray {
+    var userarray = [UserData]()
+}
 
 class SearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate{
     
+   
     @IBOutlet weak var searchbar: UISearchBar!
-        var datasource = [searchedUser] ()
+    
+
+    //var userarray = [UserData]()
+    var userarray = NameArray().userarray
+    
+    var datasource = [UserData] ()
     //var usernamearray = [searchedUser]()
     //var userarray = [UserData]()
-    
+
     
     @IBOutlet weak var tableview: UITableView!
     static func create() -> SearchViewController {
-        return UIStoryboard(name: "search", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! SearchViewController
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+         self.tableview.allowsSelection = true
+        guard let myId = Auth.auth().currentUser?.uid else { return }
+        let userDB = Database.database().reference().child("users").observe(.value) { (returnData) in
+            guard let rawData = returnData.value as? [String: Any] else { return }
+            self.userarray = Array(rawData.values).map({ return UserData(rawData: $0) })
+        }
+        self.tableview.delegate  = self
+        //self.tableview.datasource  = self
+            
+            
+        }
+        //create a usersearchobject of user search type and append it to to
+        //getData()
         
         // Do any additional setup after loading the view.
-    }
+
+
     
     //change the content depending on what I put in the search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     
         
         guard !searchText.isEmpty else { return}
-        // var search = searchbar.text
-        /*
-        var ref = Database.database().reference(withPath: "users").child("firstname")
-        ref.observe(DataEventType.value) { (snapshot) in
-            
-            self.searchedUsers = snapshot.children.map ({return searchedUser(snapshot: $0 as! DataSnapshot)})
- */
-        
+       
+     var resultarray = [UserData]()
 
-            self.datasource.filter({ return
-                $0.name.contains(searchText)
-                
-                self.tableview.reloadData()
-            })
-            
+        for user in userarray {
+            if user.fullname.contains(searchText)  {
+                 resultarray.append(user)
+            }
+           
         }
-
+        // in the firebase I have the timestamp with the id
+       // self.datasource = datasource.(by: { return $0.timestamp > $1.timestamp })
         
+       // self.datasource.filter({return $0.name.contains(searchText)
+        self.datasource = resultarray
+        self.tableview.reloadData()
+            
+        
+        
+    }
     
 
-    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        hideKeyboard()
+    }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
     }
     
     
-    var keyword = ""
+/*
     
     func getData() {
         // initialise each user(title and image) object
@@ -103,19 +133,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
          //   })
             
         }
-    
-  
+    */
 
-
-      
-        
-        
-        
-        
-        // get all users
-        // create new struct for users
-        // var users = [String]()
-        //users.filter({ return $0.displayName.contains(keyword) })
      
     
     
@@ -135,12 +154,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     }
   
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell") as? SearchTableViewCell
-        cell?.username.text = datasource[indexPath.row].name
-        if let url = URL(string: datasource[indexPath.row].imageurl) {
+       let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell") as! SearchTableViewCell
+        
+        // fetch an example optional string
+        //let optionalString = datasource[indexPath.row].fullname?.description
+        
+        // now unwrap it
+        
+        var dataname = datasource[indexPath.row].fullname
+        cell.username.text = dataname!
+        
+        if let url = URL(string: datasource[indexPath.row].profileimageurl) {
             do {
+                
         let image = ImageResource(downloadURL: url, cacheKey: url.path)
-                cell?.userprofileimage.kf.setImage(with: image)
+                cell.userprofileimage.kf.setImage(with: image)
                 
             }
             catch {
@@ -151,15 +179,36 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     
 }
-           return UITableViewCell()
+           return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // use the username to find the users details
+        // and the post details and display them,
+        
+        //get from row to their page
+        //tableview.deselectRow(at: indexPath, animated: true)
+        let controller = UserProfilePageViewController.create()
+        self.navigationController?.pushViewController(controller, animated: true)
+        //let storyboard = UIStoryboard(name: "profile", bundle: nil)
+        //let destinationNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+        //destinationNavigationController.pushViewController(controller, animated: true)
+        //self.navigationController?.pushViewController(controller, animated: true)
+ 
+    
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    //table view delegate
+    // if you select the searched user displays the user profile page with hidden button
 
-}
 
 
 
     
-
+/*
 
 struct searchedUser {
     var name: String!
@@ -206,7 +255,7 @@ struct searchedUser {
     }
 
     
-    /*
+ 
     init(rawData: Any) {
         guard let data = rawData as? [String: Any] else { return }
        
@@ -214,7 +263,9 @@ struct searchedUser {
         name = data["firstname"] as? String
        
     }
- */
+ 
     
 }
 
+*/
+}

@@ -9,13 +9,22 @@
 /* Begin PBXBuildFile section */
 		0AEB35BB7AC7757EF0EAECB8 /* Pods_apppresentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */; };
 		5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210CBFF21DE192600EE0A79 /* FeedViewController.swift */; };
+		5224EBD2221A527B007519D4 /* ProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5224EBD1221A527B007519D4 /* ProfileNavigationController.swift */; };
+		5224EBD4221A5B38007519D4 /* UserProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5224EBD3221A5B38007519D4 /* UserProfilePageViewController.swift */; };
+		5224EBD6221A5C22007519D4 /* userprofile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5224EBD5221A5C22007519D4 /* userprofile.storyboard */; };
+		5224EBD8221A5D71007519D4 /* UserPostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5224EBD7221A5D71007519D4 /* UserPostDetail.swift */; };
 		522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */; };
 		52339EAC2204C35800059075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52339EAB2204C35800059075 /* UserData.swift */; };
 		52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52339EAD2206025000059075 /* SearchTableViewCell.swift */; };
+		52339EB02208C8CB00059075 /* usersgiftpage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52339EAF2208C8CB00059075 /* usersgiftpage.storyboard */; };
 		523F617621EFBF58008D8F41 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617521EFBF58008D8F41 /* Database.swift */; };
 		523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F617721EFC413008D8F41 /* UIImageExtension.swift */; };
 		5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6921FF7C6700524276 /* GoogleService-Info.plist */; };
 		5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6E21FF7D2600524276 /* Info copy.plist */; };
+		5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */; };
+		5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2D222C835400103C7F /* ShopGiftCell.swift */; };
+		5241DC30222C83FE00103C7F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2F222C83FE00103C7F /* Place.swift */; };
+		5241DC32222C840900103C7F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC31222C840900103C7F /* Shop.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -74,13 +83,22 @@
 		398C734BC67A1E55B8A6D6AF /* Pods-apppresentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apppresentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-apppresentTests/Pods-apppresentTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apppresentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5210CBFF21DE192600EE0A79 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		5224EBD1221A527B007519D4 /* ProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationController.swift; sourceTree = "<group>"; };
+		5224EBD3221A5B38007519D4 /* UserProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePageViewController.swift; sourceTree = "<group>"; };
+		5224EBD5221A5C22007519D4 /* userprofile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = userprofile.storyboard; sourceTree = "<group>"; };
+		5224EBD7221A5D71007519D4 /* UserPostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostDetail.swift; sourceTree = "<group>"; };
 		522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		52339EAB2204C35800059075 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		52339EAD2206025000059075 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		52339EAF2208C8CB00059075 /* usersgiftpage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = usersgiftpage.storyboard; sourceTree = "<group>"; };
 		523F617521EFBF58008D8F41 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		523F617721EFC413008D8F41 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		5241CD6921FF7C6700524276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5241CD6E21FF7D2600524276 /* Info copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = "<group>"; };
+		5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceGiftCell.swift; sourceTree = "<group>"; };
+		5241DC2D222C835400103C7F /* ShopGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopGiftCell.swift; sourceTree = "<group>"; };
+		5241DC2F222C83FE00103C7F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		5241DC31222C840900103C7F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
+				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
+				5241DC2F222C83FE00103C7F /* Place.swift */,
+				5241DC31222C840900103C7F /* Shop.swift */,
+				5241DC2D222C835400103C7F /* ShopGiftCell.swift */,
+				52339EAF2208C8CB00059075 /* usersgiftpage.storyboard */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
 			);
 			path = Gift;
@@ -209,11 +232,15 @@
 			children = (
 				52C3D1D821ED1CBE00DF7F41 /* post.storyboard */,
 				52C3D1DC21ED1D1400DF7F41 /* profile.storyboard */,
-				52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */,
+				5224EBD5221A5C22007519D4 /* userprofile.storyboard */,
 				522F1DF621DC05730076FC88 /* ProfilePageViewController.swift */,
+				5224EBD1221A527B007519D4 /* ProfileNavigationController.swift */,
+				52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */,
+				5224EBD3221A5B38007519D4 /* UserProfilePageViewController.swift */,
 				52D30CFF21DFA912005E3128 /* PostData.swift */,
 				52FD920221DD01760021B3A0 /* EditProfileViewController.swift */,
 				528117F321E696EA00AD9E4F /* PostDetail.swift */,
+				5224EBD7221A5D71007519D4 /* UserPostDetail.swift */,
 				52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */,
 				52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */,
 				52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */,
@@ -453,7 +480,9 @@
 				52C3D1DD21ED1D1400DF7F41 /* profile.storyboard in Resources */,
 				52C3D1DB21ED1CE100DF7F41 /* search.storyboard in Resources */,
 				52713E9721CD2DCB00409294 /* Main.storyboard in Resources */,
+				5224EBD6221A5C22007519D4 /* userprofile.storyboard in Resources */,
 				52FD920521DD1FEF0021B3A0 /* checkedit.storyboard in Resources */,
+				52339EB02208C8CB00059075 /* usersgiftpage.storyboard in Resources */,
 				52C3D1D521ED1C6300DF7F41 /* home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,11 +618,15 @@
 				52D30D0021DFA912005E3128 /* PostData.swift in Sources */,
 				52645CE121E7B15700413DC1 /* InitialNavViewController.swift in Sources */,
 				52713E9421CD2DCB00409294 /* LoginViewController.swift in Sources */,
+				5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */,
 				52713E9221CD2DCB00409294 /* AppDelegate.swift in Sources */,
 				52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */,
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
+				5241DC30222C83FE00103C7F /* Place.swift in Sources */,
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
+				5224EBD4221A5B38007519D4 /* UserProfilePageViewController.swift in Sources */,
+				5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */,
 				52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */,
 				52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */,
 				52339EAC2204C35800059075 /* UserData.swift in Sources */,
@@ -603,10 +636,13 @@
 				52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */,
 				523F617821EFC413008D8F41 /* UIImageExtension.swift in Sources */,
 				52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */,
+				5224EBD2221A527B007519D4 /* ProfileNavigationController.swift in Sources */,
 				522F1DF721DC05730076FC88 /* ProfilePageViewController.swift in Sources */,
 				52645CDF21E7A8B300413DC1 /* Setting.swift in Sources */,
 				52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */,
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
+				5241DC32222C840900103C7F /* Shop.swift in Sources */,
+				5224EBD8221A5D71007519D4 /* UserPostDetail.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,7 @@ struct UserData {
     var username: String!
     var firstname : String!
     var lastname : String!
+    var fullname: String!
     var status: String!
     //var age: Int!
     var birthday: String!
@@ -42,6 +43,8 @@ struct UserData {
         self.birthday = birthday
         self.profileimageurl = profileimageurl
         self.itemRef = nil
+        self.fullname = "\(firstname) + \(lastname)"
+        
         
     }
     
@@ -178,13 +181,15 @@ struct UserData {
     init(rawData: Any) {
         guard let data = rawData as? [String: Any] else { return }
        // userid = data["userID"] as? String
+        
         firstname = data["firstname"] as? String
         lastname = data["lastname"] as? String
+        fullname = "\(firstname!) \(lastname!)"
        // age = data["age"] as? Int
         birthday = data["birthday"] as? String
         status = data["status"] as? String
         email = data["email"] as? String
-        profileimageurl = data["pathToImage"] as? String
+        profileimageurl = data["url"] as? String
         shoesize = data ["shoesize"] as? String
         clothesize = data ["clothesize"] as? String
         

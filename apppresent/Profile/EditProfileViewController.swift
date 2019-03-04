@@ -78,8 +78,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         tapimagebtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
-
         
         let dref = Database.database().reference()
         let sref = Storage.storage().reference()
@@ -266,7 +266,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hideKeyboard()
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

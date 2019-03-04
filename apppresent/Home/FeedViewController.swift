@@ -32,7 +32,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         feedTableView.dataSource = self as! UITableViewDataSource
         downloadPost()
     }
@@ -156,11 +156,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // add it to array and display it?
                 // any books you reccommend for after
                 
-                // add more users -> take not ther user name, email ,passwor
-                // add mroe posts from different users.
-                //ok I understand , so I can test the features properly.
-                
-                
+                // add more users
+                // add mroe posts from different users. 
                 let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
                 self.datasource = myFollowerPosts.sorted(by: { return $0.timestamp < $1.timestamp })
                 self.feedTableView.reloadData()
