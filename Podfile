@@ -6,6 +6,7 @@ target 'apppresent' do
   use_frameworks!
 
   # Pods for apppresent
+pod "CenteredCollectionView"
 pod 'Kingfisher', '~> 5.0'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'

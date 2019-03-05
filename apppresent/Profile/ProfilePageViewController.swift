@@ -19,6 +19,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "ProfilePageViewController") as! ProfilePageViewController
     }
     
+    
     var currentUser: UserData?
   
     
@@ -129,7 +130,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         getData()
         
         let remindButton = UIBarButtonItem(title: "Remind me", style: .done, target: self, action: #selector(addReminder))
-        navigationController?.navigationItem.leftBarButtonItem = remindButton
+        navigationController?.navigationItem.rightBarButtonItem = remindButton
     }
     
     
@@ -177,6 +178,9 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         // self.displayagelbl?.text = hello
         //  let ref = Database.database().reference()
         // Do any additional setup after /loading the view.
+        var searcheduser : String?
+        
+        var searcheduserid: String?
         
         let userid = Auth.auth().currentUser?.uid
         ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -267,25 +271,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     func collectionView(_ collection: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
-    }
-    
- func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
-        //1
-        switch kind {
-        //2
-        case UICollectionView.elementKindSectionHeader:
-            //3
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: "postHeaderView",
-                                                                             for: indexPath) as! postHeaderView
-            headerView.label.text = "header"
-            return headerView
-        default:
-            //4
-            assert(false, "Unexpected element kind")
-        }
     }
 
     @IBAction func addReminder(_ sender: Any) {

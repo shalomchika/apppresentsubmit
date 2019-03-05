@@ -12,7 +12,7 @@ import FirebaseAuth
 import Kingfisher
 import FirebaseStorage
 // record what it entered in the search bar and search for it in the first and second name of users
-
+var searchedusersid:String?
 class NameArray {
     var userarray = [UserData]()
 }
@@ -182,14 +182,48 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
            return cell
     }
     
+   /* func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
+ 
+ */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // use the username to find the users details
         // and the post details and display them,
         
         //get from row to their page
         //tableview.deselectRow(at: indexPath, animated: true)
-        let controller = UserProfilePageViewController.create()
+        let currentCell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
+        
+        print(currentCell.textLabel!.text)
+        var searchedname  = currentCell.username.text
+        
+        
+         var ref  = Database.database().reference()
+        
+        ref.child("users")
+            .queryOrdered(byChild: "fullname")
+            .queryEqual(toValue: searchedname)
+            .observeSingleEvent(of: .value, with: { (snapshot) -> Void in
+                
+                print(snapshot)
+                  var snapshotvalue = snapshot.value as? NSDictionary
+                searchedusersid = snapshotvalue?["userID"] as? String
+                print(snapshot)
+                
+                
+                
+        })
+        
+        
+        
+        
+        // find the userid of the searched user and push it to profile page
+        
+        
+        let controller = ProfilePageViewController.create()
         self.navigationController?.pushViewController(controller, animated: true)
+      
         //let storyboard = UIStoryboard(name: "profile", bundle: nil)
         //let destinationNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
         //destinationNavigationController.pushViewController(controller, animated: true)

@@ -29,6 +29,8 @@
 		5241DC36222DADBB00103C7F /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5241DC35222DADBB00103C7F /* Reminder.storyboard */; };
 		5241DC38222DC08E00103C7F /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC37222DC08E00103C7F /* ReminderViewController.swift */; };
 		5241DC3A222DC31E00103C7F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC39222DC31E00103C7F /* DateExtension.swift */; };
+		5241DC3C222DFB1800103C7F /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC3B222DFB1800103C7F /* RecentCollectionViewCell.swift */; };
+		5241DC3E222DFF3600103C7F /* AddRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC3D222DFF3600103C7F /* AddRecentViewController.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -107,6 +109,8 @@
 		5241DC35222DADBB00103C7F /* Reminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		5241DC37222DC08E00103C7F /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		5241DC39222DC31E00103C7F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		5241DC3B222DFB1800103C7F /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
+		5241DC3D222DFF3600103C7F /* AddRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecentViewController.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 			children = (
 				5241DC35222DADBB00103C7F /* Reminder.storyboard */,
 				5241DC37222DC08E00103C7F /* ReminderViewController.swift */,
+				5241DC3B222DFB1800103C7F /* RecentCollectionViewCell.swift */,
+				5241DC3D222DFF3600103C7F /* AddRecentViewController.swift */,
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
 				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
 				5241DC2F222C83FE00103C7F /* Place.swift */,
@@ -267,8 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				52C3D1DA21ED1CE100DF7F41 /* search.storyboard */,
-				52339EAD2206025000059075 /* SearchTableViewCell.swift */,
 				52645CD821E79D7D00413DC1 /* SearchViewController.swift */,
+				52339EAD2206025000059075 /* SearchTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-apppresent/Pods-apppresent-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -561,6 +568,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -639,6 +647,7 @@
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
 				5241DC30222C83FE00103C7F /* Place.swift in Sources */,
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,
+				5241DC3E222DFF3600103C7F /* AddRecentViewController.swift in Sources */,
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
 				5224EBD4221A5B38007519D4 /* UserProfilePageViewController.swift in Sources */,
 				5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */,
@@ -658,6 +667,7 @@
 				52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */,
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
 				5241DC32222C840900103C7F /* Shop.swift in Sources */,
+				5241DC3C222DFB1800103C7F /* RecentCollectionViewCell.swift in Sources */,
 				5224EBD8221A5D71007519D4 /* UserPostDetail.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
 			);
