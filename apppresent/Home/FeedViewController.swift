@@ -15,7 +15,6 @@ import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-  
 
     
 
@@ -35,6 +34,14 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.backgroundColor = .white
         feedTableView.dataSource = self as! UITableViewDataSource
         downloadPost()
+        setupView()
+    }
+    
+    func setupView() {
+        navigationController?.isNavigationBarHidden = true
+        let headerView = makeHeaderView()
+        feedTableView.tableHeaderView = headerView
+        headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 182)
     }
     
     
@@ -264,8 +271,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell", for: indexPath) as? PostTableViewCell
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedcell") as! PostTableViewCell
-       
-        cell.backgroundColor = UIColor.red
         //cell.textLabel?.text = datasource[indexPath.row].caption
         let image = datasource[indexPath.row]
         print("THIS IS image url")
@@ -313,3 +318,35 @@ extension FeedViewController : UITableViewDelegate {
 
 // I will fix this in my side. Next issue
 
+
+extension FeedViewController {
+    
+    func makeHeaderView() -> UIView {
+        let circle = UIMaker.makeView(background: UIColor.c_102_100_247)
+        let helloLabel = UIMaker.makeLabel(text: "Morning, Ky. What can we help today?",
+                                           font: UIFont.systemFont(ofSize: 17), color: .white)
+        let headerView = UIView()
+        let addButton = UIMaker.makeButton(title: "Add reminder",
+                                           titleColor: UIColor.c_102_100_247,
+                                           font: UIFont.boldSystemFont(ofSize: 17),
+                                           background: .white, cornerRadius: 5)
+        headerView.addSubviews(views: circle, helloLabel, addButton)
+        circle.centerX(toView: headerView)
+        circle.bottom(toView: headerView)
+        let edge: CGFloat = 800
+        circle.square(edge: edge)
+        circle.setCorner(radius: edge / 2)
+        
+        helloLabel.centerX(toView: headerView)
+        helloLabel.top(toView: headerView, space: padding / 2)
+        
+        addButton.backgroundColor = .white
+        addButton.setCorner(radius: 7)
+        addButton.size(CGSize(width: 200, height: 44))
+        addButton.centerX(toView: headerView)
+        addButton.verticalSpacing(toView: helloLabel, space: padding)
+        
+        headerView.height(150)
+        return headerView
+    }
+}

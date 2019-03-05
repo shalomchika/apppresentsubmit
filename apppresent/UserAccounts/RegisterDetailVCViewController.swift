@@ -14,7 +14,7 @@ import FirebaseMessaging
 
 class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     static func create() -> RegisterDetailVCViewController {
-        return UIStoryboard(name: "register", bundle: nil).instantiateViewController(withIdentifier: "RegisterDetailVCViewController") as! RegisterDetailVCViewController
+        return create(fromStoryboard: "register")
     }
 
     @IBOutlet weak var firstnametextfield: UITextField!
@@ -68,7 +68,14 @@ class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerD
         let ref = Database.database().reference()
         //ref.child("users").childByAutoId().setValue("testing2")//move ?
       
+        setupView()
+    }
     
+    func setupView() {
+        continueButton.backgroundColor = UIColor.c_102_100_247
+        continueButton.setTitleColor(.white, for: .normal)
+        continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        continueButton.setCorner(radius: 5)
     }
     
     

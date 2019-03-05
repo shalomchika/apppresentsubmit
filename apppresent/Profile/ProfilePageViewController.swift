@@ -13,10 +13,10 @@ import FirebaseStorage
 import SDWebImage
 import Kingfisher
 
-class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     static func create() -> ProfilePageViewController {
-        return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "ProfilePageViewController") as! ProfilePageViewController
+        return create(fromStoryboard: "profile")
     }
     
   
@@ -126,6 +126,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        setupView()
     }
   
     //everytime you go to screen it will load data again, waste of time to reload.
@@ -138,7 +139,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     override func viewWillAppear(_ animated: Bool) {
       
         super.viewWillAppear(animated)
-        
+        navigationController?.navigationBar.isHidden = true
+
         //startloading()
         // load db again
       
@@ -260,25 +262,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collection: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
     }
-    
- func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
-        //1
-        switch kind {
-        //2
-        case UICollectionView.elementKindSectionHeader:
-            //3
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: "postHeaderView",
-                                                                             for: indexPath) as! postHeaderView
-            headerView.label.text = "header"
-            return headerView
-        default:
-            //4
-            assert(false, "Unexpected element kind")
-        }
-    }
 
     
     func downloadPost() {
@@ -348,14 +331,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
 //the general feed with the people I follow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "PostDetail") as! PostDetail
-        let data = datasource[indexPath.row]
-        controller.newImageView.sd_setImage(with: URL(string: data.url), placeholderImage: UIImage(named:"image1"))
-        
-        //controller.captionlbl.text =
-        
-        //controller.captionlbl.text = data.
-        navigationController?.pushViewController(controller, animated: true)
+        let controller = PostDetail.create()
+        controller.data = datasource[indexPath.row]
+        controller.hidesBottomBarWhenPushed = true
+        present(controller, animated: true)
     }
     
       func collectionView(_ collection: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -422,3 +401,19 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
  self.collection.reloadData() //update all elements in collection
  */
  
+
+extension ProfilePageViewController {
+    func setupView() {
+        collectionview.register(ProfileHeader.create(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader")
+    }
+ 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 350)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        return collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader", for: indexPath)
+    }
+}

@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+extension UIViewController {
+    static func create<T>(fromStoryboard name: String) -> T {
+        let id = String(describing: self)
+        return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as! T
+    }
+}
 
 
 class LoginViewController: UIViewController {
@@ -30,6 +36,7 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view, typically from a nib.
         
+        title = "APP PRESENT"
         emailtextfield.layer.cornerRadius = 5
         emailtextfield.layer.borderColor = UIColor.red.cgColor
         //emailtextfield.layer.borderWidth = 1
@@ -52,7 +59,7 @@ class LoginViewController: UIViewController {
         
         // circle => set radius = width / 2; width = height
         
-        
+        setupView()
         
         
         
@@ -62,19 +69,28 @@ class LoginViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        var logpersistent = UserDefaults.standard.bool(forKey: "didlogin")
-       /*
-        if logpersistent == true {
-        self.performSegue(withIdentifier: "tabdetail", sender: nil)
-          //let vc = FeedViewController()
-            
-          // self.present(vc, animated: true, completion: nil)
-         //   print(logpersistent)
-        }
-        */
+    func setupView() {
+        let radius: CGFloat = 5
+        
+        let textFont = UIFont.systemFont(ofSize: 16)
+        emailtextfield.font = textFont
+        passwordtextfield.font = textFont
+        
+        let boldFont = UIFont.boldSystemFont(ofSize: 20)
+        
+        loginbtn.backgroundColor = UIColor.c_102_100_247
+        loginbtn.setTitleColor(.white, for: .normal)
+        loginbtn.setCorner(radius: radius)
+        loginbtn.titleLabel?.font = boldFont
+        
+        registerbtn.backgroundColor = UIColor.white
+        registerbtn.setBorder(0.5, color: .c_102_100_247)
+        registerbtn.setTitleColor(.c_102_100_247, for: .normal)
+        registerbtn.setCorner(radius: radius)
+        registerbtn.titleLabel?.font = boldFont
         
     }
+    
 
     @IBAction func login(_ sender: Any) {
         hideKeyboard()

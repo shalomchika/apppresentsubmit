@@ -96,6 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window!.rootViewController = UINavigationController(rootViewController: LoginViewController.create())
         }
+//        window!.rootViewController = ProfilePageViewController.create()
+        
         window!.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
     }

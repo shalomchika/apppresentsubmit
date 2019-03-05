@@ -7,21 +7,33 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostDetail: UIViewController {
-
-    let newImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-    @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var captionlbl: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(newImageView)
-        
-    
-
+    static func create() -> PostDetail {
+        return create(fromStoryboard: "profile")
     }
     
+    var data: PostData?
+    
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setData()
+    }
+    @IBAction func dismissView(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    func setData() {
+        guard let urlString = data?.url,
+            let url = URL(string: urlString) else { return }
+        let resource = ImageResource(downloadURL: url)
+        postImageView.kf.setImage(with: resource)
+        captionLabel.text = data?.caption
+    }
 }
 
 

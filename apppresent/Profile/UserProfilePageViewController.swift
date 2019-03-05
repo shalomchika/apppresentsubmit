@@ -344,14 +344,10 @@ class UserProfilePageViewController: UIViewController, UICollectionViewDataSourc
     //the general feed with the people I follow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    let controller = UIStoryboard(name: "userprofile", bundle: nil).instantiateViewController(withIdentifier: "UserPostDetail") as! UserPostDetail
-    let data = datasource[indexPath.row]
-    controller.newImageView.sd_setImage(with: URL(string: data.url), placeholderImage: UIImage(named:"image1"))
-    
-    //controller.captionlbl.text =
-    
-    //controller.captionlbl.text = data.
-    navigationController?.pushViewController(controller, animated: true)
+        let controller = PostDetail.create()
+        controller.data = datasource[indexPath.row]
+        controller.hidesBottomBarWhenPushed = true
+        present(controller, animated: true)
     }
     
     func collectionView(_ collection: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
