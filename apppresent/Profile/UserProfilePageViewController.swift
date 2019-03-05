@@ -16,7 +16,7 @@ import SDWebImage
 class UserProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     static func create() -> UserProfilePageViewController{
-        return UIStoryboard(name: "userprofile", bundle: nil).instantiateViewController(withIdentifier: "UserProfilePageViewController") as! UserProfilePageViewController
+        return create(fromStoryboard: "profile")
     }
     
     var names: NameArray?

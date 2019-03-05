@@ -188,7 +188,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         
         //get from row to their page
         //tableview.deselectRow(at: indexPath, animated: true)
-        let controller = UserProfilePageViewController.create()
+        let controller = ProfilePageViewController.create()
         self.navigationController?.pushViewController(controller, animated: true)
         //let storyboard = UIStoryboard(name: "profile", bundle: nil)
         //let destinationNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
