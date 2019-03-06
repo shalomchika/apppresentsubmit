@@ -14,241 +14,111 @@ import SDWebImage
 import Kingfisher
 
 class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    var currentuserdata = [UserData]()
+    var currentuserdata: UserData?
     static func create() -> ProfilePageViewController {
         return create(fromStoryboard: "profile")
     }
     
-  
-    
-    @IBOutlet weak var loadview: UIView!
+    var header: ProfileHeader?
     
     var activityindicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-
-    var image: UIImage!
-    
-    
     var datasource = [PostData]() //data structure defined
-    //collection = imagecollection
-    //collectionViewCell = imageCollectionViewCell
-     var ref = Database.database().reference()
-   // let userid = Auth.auth().currentUser!.uid
+    //var ref = Database.database().reference()
     
     @IBOutlet weak var collectionview: UICollectionView!
-    var customimageflowlayout : CustomImageFlowLayout!
-    @IBOutlet weak var profileimageview: UIImageView!
-    @IBOutlet weak var displaystatuslbl: UILabel!
-    @IBOutlet weak var displaynamelbl: UILabel!
-   
+    
     @IBAction func editProfile(_ sender: Any) {
         let controller = EditProfileViewController.create()
         controller.profilePage = self
         navigationController?.pushViewController(controller, animated: true)
     }
-    @IBOutlet weak var displayagelbl: UILabel!
-    var age = 0
-    var stringage = ""
-    var birthday = ""
-    var status = ""
-    var profileImageUrl = ""
-    var firstname = ""
-    var lastname = ""
-    var fullname = ""
-    var  selectedimage : UIImage?
-   
-    
-    /*
-    override func viewDidLoad() {
-        //https:www.youtube.com/watch?v=4lssReDhpWU for layout from 10:00 ish
-       
-        super.viewDidLoad()
-        /*
-        customimageflowlayout = CustomImageFlowLayout()
-        collectionview.collectionViewLayout = customimageflowlayout
-        collectionview.backgroundColor = .white
-        displaynamelbl.preferredMaxLayoutWidth = 150
-        displayagelbl.preferredMaxLayoutWidth = 150
-        displaystatuslbl.preferredMaxLayoutWidth = 150
-        profileimageview.layer.cornerRadius = 40
-        profileimageview.clipsToBounds = true
-      
-        let userid = Auth.auth().currentUser?.uid
-           ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-           
-            let firstname = value?["firstname"] as? String ?? ""
-            let lastname = value?["lastname"] as? String ?? ""
-            let age = value?["age"] as? Int ?? 0
-            let status = value?["status"] as? String ?? ""
-            let fullname = "\(firstname) \(lastname)"
-            let imageurl = value?["profileImageUrl"] as? String ?? ""
-            print("This is age" ,age)
-            let stringage = String(age)
-            print(stringage)
-            print(imageurl)
-            print("This is status ", status)
-            print(" This is fullname " ,fullname)
-            
-            self.displaystatuslbl?.text = status
-            self.displayagelbl?.text = stringage
-            self.displaynamelbl?.text = fullname
-            
-            if let url = URL(string: imageurl) {
-                do {
-                    let imageAsData = try Data(contentsOf: url)
-                    let image = UIImage(data: imageAsData)
-                    self.profileimageview.image = image
-                } catch {
-                    print("imageURL was not able to be converted into data") // Assert or add an alert
-                }
-   
-                }
-               print(snapshot)
-    
-            
-        })
-        
-      
-        
-        
-   
-        let hello = "hello"
-        self.displayagelbl?.text = hello
-       
-       // self.displaynamelbl.text = fullname
- 
- */
-    }
- */
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let button = UIMaker.makeButton(title: "Info")
+        
+        view.addSubviews(views: button)
+        //button.center(toView: view)
+        button.topRight(toView: view, top: 35.0, right: -10.0)
+        //button.topLeft(toView: view, top: 0.8, left: 0.6, isActive: true)
+        button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
         getData()
         setupView()
     }
-  
-    //everytime you go to screen it will load data again, waste of time to reload.
-   // sorry also the profiel picture not staying the edit page. I cna look at it again. if you want to move on.
-    func getData() {
-        startloading()
-        loadDB()
-        stoploading()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-      
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-
-        //startloading()
-        // load db again
-      
-    }
-   /*
-    @IBAction func editbtn(_ sender: Any) {
-        
-      EditProfileViewController.create()
-        window!.rootViewController = AppTabViewController.create()
-    }
- 
- */
     
-    func loadDB() {
+    @objc func showMenu() {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        customimageflowlayout = CustomImageFlowLayout()
-        collectionview.collectionViewLayout = customimageflowlayout
-        collectionview.backgroundColor = .white
-        
-        
-        displaynamelbl.preferredMaxLayoutWidth = 150
-        displayagelbl.preferredMaxLayoutWidth = 150
-        displaystatuslbl.preferredMaxLayoutWidth = 150
-        profileimageview.layer.cornerRadius = 40
-        profileimageview.clipsToBounds = true
-        //self.profileimageview.image = selectedimage
-        
-        //works
-        //var hello = "hello"
-        // self.displayagelbl?.text = hello
-        //  let ref = Database.database().reference()
-        // Do any additional setup after /loading the view.
-        
-        let userid = Auth.auth().currentUser?.uid
-        ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
+        if isMyProfile {
+            controller.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+                let editController = EditProfileViewController.create()
+                editController.myProfile = self?.currentuserdata
+                editController.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(editController, animated: true)
+            }))
             
-            let value = snapshot.value as? NSDictionary
-            
-            let firstname = value?["firstname"] as? String ?? ""
-            let lastname = value?["lastname"] as? String ?? ""
-            let age = value?["age"] as? Int ?? 0
-            let status = value?["status"] as? String ?? ""
-            let fullname = "\(firstname) \(lastname)"
-            let imageurl = value?["profileImageUrl"] as? String ?? ""
-            print("This is age" ,age)
-            let stringage = String(age)
-            print(stringage)
-            print(imageurl)
-            print("This is status ", status)
-            print(" This is fullname " ,fullname)
-            
-            self.displaystatuslbl?.text = status
-            self.displayagelbl?.text = stringage
-            self.displaynamelbl?.text = fullname
-            
-            if let url = URL(string: imageurl) {
-                do {
-                    
-                    
-                    let resource = ImageResource(downloadURL: url, cacheKey: url.path)
-                    self.profileimageview.kf.setImage(with: resource)
-                    
-                    /*
-                    let imageAsData = try Data(contentsOf: url)
-                    let thisimage = UIImage(data: imageAsData)
-                    self.image = thisimage
-                    //self.profileimageview.image = thisimage
-                   */
-                } catch {
-                    print("imageURL was not able to be converted into data") // Assert or add an alert
-                }
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            // add 2 options:
+            // - edit profile ( include edit size) 
+            //
+        } else {
+            // add 2 options:
+            // - show size
+            // - add reminder
+            controller.addAction(UIAlertAction(title: "Show Size", style: .default, handler: { [weak self] _ in
                 
-            }
-            print(snapshot)
- 
+            }))
             
-        })
-        
-         //self.profileimageview.image = image
-         /* UP TILL HERE  was in view did load*/
-        
-        
-        // connect to firebase database
-        var postref = Database.database().reference(withPath: "posts")
-       postref.observe(DataEventType.value) { (snapshot) in
-        self.datasource = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot) })
-        
-        // save to firebase
-        //collection is a iterator from first to last element type
-        //map is a high order function used on collection types
-        //0$ is the data
-        
-        
-       // var newposts = [PostData].self
-        //self.collectionview.reloadData()
-      
+            controller.addAction(UIAlertAction(title: "Add Reminder", style: .default, handler: { [weak self] _ in
+                
+            }))
+            
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         }
         
-        downloadPost()
-        
-        
+        present(controller, animated: true)
     }
-
+    
+    
+    @objc func showReferralPopup() {
+        ReferralPopup().show(in: view)
+    }
+    
+    func getData() {
+        let isFriendProfile = currentuserdata != nil
+        if isFriendProfile {
+            header?.setData(currentuserdata!)
+            downloadPost(ofUser: currentuserdata!)
+        } else {
+            getMyProfile()
+        }
+    }
+    
+    func getMyProfile() {
+        guard let myId = Setting.myId else { return }
+        Database.database().reference()
+            .child("users")
+            .child(myId)
+            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                guard let rawData = snapshot.value else { return }
+                let myProfile = UserData(rawData: rawData)
+                self?.currentuserdata = myProfile
+                self?.header?.setData(myProfile)
+                self?.downloadPost(ofUser: myProfile)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        header?.data = currentuserdata
+    }
+    
     func startloading () {
         
         self.view.addSubview(activityindicator)
-            activityindicator.center = self.view.center
+        activityindicator.center = self.view.center
         activityindicator.hidesWhenStopped = true
         activityindicator.style = UIActivityIndicatorView.Style.gray
         activityindicator.startAnimating()
@@ -263,73 +133,28 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collection: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
     }
-
     
-    func downloadPost() {
+    
+    func downloadPost(ofUser user: UserData) {
+        guard let userId = user.userId else { return }
         
-        let poststorage = Storage.storage().reference(withPath: "posts")
-        let postdatabase = Database.database().reference(withPath: "posts")
-        let currentuser = Auth.auth().currentUser
-        print(currentuser?.uid)
-        
-        /*
-          var userquery =  postdatabase.queryEqual(toValue: currentuser, childKey: "userID")
-        
-        // grab post for current user
-        //grab pathToImage from them
-        //get download url and pass to cell for Item At
-         print(userquery)
-         postdatabase.observe(DataEventType.value) { (snapshot) in
-     
-            for postdatasnapshot in snapshot.children {
-         
-                    let postdataobject = PostData (snapshot: postdatasnapshot as! DataSnapshot)
-         
-         
-         
-                    }
-         
-        // find the user with user id of the current user
-        //get the download url
-        //feed it to cellforItemAt
-        
-        }
-        
-        */
-        // need to make BRug etc.... a string from current user variable , its just a test value
-
-        /*
-        postdatabase
-            .queryOrdered(byChild: "userID").queryEqual(toValue: "BRugt1SWc3Ruxq5kyh8M3RG74Dg1") // 2
-            .observe(.value, with: { (snapshot: DataSnapshot) in
- */
-         var newuserposts = [PostData]() //1
-        postdatabase
-         .queryOrdered(byChild: "userID").queryEqual(toValue: currentuser?.uid) // 2
-            .observe(.value, with: { (snapshot: DataSnapshot) in
-    // 3
-        
-            for userpostsnapshot in snapshot.children {
-                let userpostobject = PostData(snapshot: userpostsnapshot as! DataSnapshot )
-                newuserposts.append(userpostobject)
-            }
-            // in the firebase I have the timestamp with the id
-                self.datasource = newuserposts.sorted(by: { return $0.timestamp > $1.timestamp })
-                self.collectionview.reloadData()
-        })
-        
-        
-        // is this project is your school assignment? yeah and I will use it after for my personal project which has similar features
-        //suggest: add project to github => add me into your git hub
-        // I do: break tasks for you
-        // you do: pick tasks and finish in order /Users/macbookpro/development/apppresent/apppresent/profile.storyboard:-1: Encountered an error communicating with IBAgent-iOS.asap
-        // you do: get back to get new tasks
-        // i want to develop apps after
-        
+        Database.database().reference(withPath: "posts")
+            .queryOrdered(byChild: "userID").queryEqual(toValue: userId) // 2
+            .observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
+                /* // old approach
+                var newuserposts = [PostData]()
+                for userpostsnapshot in snapshot.children {
+                    let userpostobject = PostData(snapshot: userpostsnapshot as! DataSnapshot )
+                    newuserposts.append(userpostobject)
+                }
+                */
+                
+                let newuserposts = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot)  })
+                self?.datasource = newuserposts.sorted(by: { return $0.timestamp > $1.timestamp })
+                self?.collectionview.reloadData()
+            })
     }
     
-// click on the image and see it in full view with a caption like instagram.
-//the general feed with the people I follow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let controller = PostDetail.create()
@@ -338,12 +163,9 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         present(controller, animated: true)
     }
     
-      func collectionView(_ collection: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        //what it will show  image in collection loads
+    func collectionView(_ collection: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-    //reference cell
+        //reference cell
         //find right image in array
         
         let image = datasource[indexPath.row]
@@ -352,69 +174,42 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         //loop through every child node and grab - pathToImage
         print("is the url here too?")
         print(image.url)
-            cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
+        cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         
-     return cell
+        return cell
     }
     
     
 }
-// if I do the post to feed view controller here , every individuals post will go there automatically, so thats the feed done?
-
-
-
-
-// check if user logged in
-//www.youtube.com/watch?v=qD582zfXlgo
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
-
-
-//...
-// array
-// map => convert an array (String) => another array (Int)
-//
-// compactMap => convert an array (String) => another array (Int) without nil items
-
-
-//var newposts = [postData] ()
-
-// information post we want
-/*
- for postdatasnapshot in snapshot.children {
- let postdataobject = postData(snapshot: postdatasnapshot as! DataSnapshot)
- //populate view snapshot of databse that is images
- 
- newposts.append(postdataobject)
- newposts.append(postdataobject)
- newposts.append(postdataobject)
- ///ALL postData to POSTDATA (capital P)
- }
- self.datasource = newposts
- self.collection.reloadData() //update all elements in collection
- */
- 
 
 extension ProfilePageViewController {
     func setupView() {
         collectionview.register(ProfileHeader.create(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader")
     }
- 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 350)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader", for: indexPath)
+        header = collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader", for: indexPath) as! ProfileHeader
+        if let data = currentuserdata {
+            header?.setData(data)
+        }
+        
+        return header!
+        
+        // I dont think this class uses the userdata structure in the beginning , I only used a structure for the other classes.
+        // when it is the logged in users account do I just change the currentuserdata value?
     }
 }
+
+extension ProfilePageViewController {
+    var isMyProfile: Bool {
+        guard let currentId = currentuserdata?.userId, let myId = Auth.auth().currentUser?.uid else { return false }
+        return currentId == myId
+    }
+}
+

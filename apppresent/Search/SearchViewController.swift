@@ -192,7 +192,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         print(currentCell.textLabel!.text)
         var searchedname  = currentCell.username.text
         
-        
+        /*
         var ref  = Database.database().reference()
         var searcheduserdata = UserData?.self
         var data = [UserData]()
@@ -229,19 +229,25 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
          
         
         )
-        
+        */
         
         //get from row to their page
-        //tableview.deselectRow(at: indexPath, animated: true)
+        //tableview.deselectRowat: indexPath, animated: true)
         
         
-        var profile = ProfilePageViewController.create()
+        // you get all users -> you have all UserData
+        // select one you want to view detail
+        // get the speciafic one from all usrs (already downloaded)
+        // send selected one to profile page
         
-        profile.currentuserdata = userrawdata
-      
+        let profileController = ProfilePageViewController.create()
+        profileController.currentuserdata = datasource[indexPath.row]
+      profileController.hidesBottomBarWhenPushed = true
+        // navigationController (has tab bar shown)
+        // hidesBottomBarWhenPushed -> push -> hiden tab bar in the destiantion  contrller 
         
         // pass the snapshot to profile page as user data object
-        self.navigationController?.pushViewController(profile, animated: true)
+        self.navigationController?.pushViewController(profileController, animated: true)
         //let storyboard = UIStoryboard(name: "profile", bundle: nil)
         //let destinationNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
         //destinationNavigationController.pushViewController(controller, animated: true)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class Setting {
     static var didLogin: Bool {
@@ -16,6 +17,10 @@ class Setting {
         set {
             UserDefaults.standard.set(newValue, forKey: "didLogin")
         }
+    }
+    
+    static var myId: String? {
+        return Auth.auth().currentUser?.uid
     }
    
 }

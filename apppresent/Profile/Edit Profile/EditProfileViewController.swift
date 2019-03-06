@@ -16,7 +16,7 @@ import Kingfisher
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     static func create() -> EditProfileViewController {
-        return UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
+        return create(fromStoryboard: "profile")
     }
     
     // when I change the image  in edit profile, you change the image view in PriflePgeCOntorller
@@ -32,7 +32,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     // retain cycle =? never relase memory here =? leak memory
     
     weak var profilePage: ProfilePageViewController?
-
+    var myProfile: UserData?
     @IBOutlet weak var datepickercompletionlbl: UILabel!
     
   
@@ -80,9 +80,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         tapimagebtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
-        
-        let dref = Database.database().reference()
-        let sref = Storage.storage().reference()
         loadProfileData()
         
       
@@ -94,7 +91,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
 
     func loadProfileData(){
+        firstnametextfield.text = myProfile?.firstname
+        profileimageview.downloadImage(from: myProfile?.profileimageurl)
         
+        /*
         let ref = Database.database().reference()
         // Do any additional setup after /loading the view.
         
@@ -146,7 +146,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 
             }
             print(snapshot)
-        }) }
+        })
+ */
+ }
 
     
     
@@ -163,7 +165,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
         }
         // update the profile page
-        profilePage?.profileimageview.image = profileimageview.image
+        //profilePage?.profileimageview.image = profileimageview.image
        
         // update other data first
         // when uploading finihs -> update profile image
@@ -283,7 +285,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profileimageview.image = image
         selectedimage = image
         
-        profilePage?.profileimageview.image = image
+        profilePage?.header?.avatarImageView.image = image
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)

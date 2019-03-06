@@ -23,6 +23,10 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     var picker = UIImagePickerController()
     var selectedimage : UIImage?
     
+    static func create() -> UploadPostViewController {
+        return UIStoryboard(name: "UploadPostViewController", bundle: nil).instantiateViewController(withIdentifier: "UploadPostViewController") as! UploadPostViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self

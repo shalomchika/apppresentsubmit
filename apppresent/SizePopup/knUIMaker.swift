@@ -7,7 +7,8 @@
 //
 
 import UIKit
-class UIMaker {
+
+class knUIMaker {
     static func makeHorizontalLine(color: UIColor = UIColor(r: 242, g: 246, b: 254),
                                    height: CGFloat = 1) -> UIView {
         let view = makeView(background: color)
