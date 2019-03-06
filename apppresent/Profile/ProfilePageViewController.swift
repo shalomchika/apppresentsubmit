@@ -14,7 +14,7 @@ import SDWebImage
 import Kingfisher
 
 class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
+    var currentuserdata = [UserData]()
     static func create() -> ProfilePageViewController {
         return create(fromStoryboard: "profile")
     }
@@ -27,6 +27,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
 
     var image: UIImage!
+    
     
     var datasource = [PostData]() //data structure defined
     //collection = imagecollection

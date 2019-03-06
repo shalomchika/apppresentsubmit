@@ -180,7 +180,7 @@ struct UserData {
     var userId: String?
     init(rawData: Any) {
         guard let data = rawData as? [String: Any] else { return }
-       // userid = data["userID"] as? String
+        userId = data["userID"] as? String
         
         firstname = data["firstname"] as? String
         lastname = data["lastname"] as? String

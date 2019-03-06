@@ -183,13 +183,65 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // use the username to find the users details
-        // and the post details and display them,
+       
         
         //get from row to their page
         //tableview.deselectRow(at: indexPath, animated: true)
-        let controller = ProfilePageViewController.create()
-        self.navigationController?.pushViewController(controller, animated: true)
+        let currentCell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
+        
+        print(currentCell.textLabel!.text)
+        var searchedname  = currentCell.username.text
+        
+        
+        var ref  = Database.database().reference()
+        var searcheduserdata = UserData?.self
+        var data = [UserData]()
+        var userrawdata = [UserData]()
+        ref.child("users")
+            .queryOrdered(byChild: "fullname")
+            .queryEqual(toValue: searchedname)
+            .observeSingleEvent(of: .value, with: { (snapshot) -> Void in
+                
+                print(snapshot)
+                var snapshotvalue = snapshot.value as? NSDictionary
+                snapshotvalue = snapshotvalue?.allValues.first as? NSDictionary
+                //convert to raw data
+                var searchedusersid = snapshotvalue?["userID"] as? String
+                 guard let rawData = snapshotvalue as? [String: Any] else { return  }
+               
+                
+                userrawdata = [UserData(rawData: rawData)]
+                // send to user data object
+                
+              
+                //data  = rawData.values.map({ return UserData(rawData: $0) })
+                
+                
+                
+            
+                //use the whole shapshot value
+                //pass to profile page
+                //user data
+                
+                print(snapshot)
+                
+            }
+         
+        
+        )
+        
+        
+        //get from row to their page
+        //tableview.deselectRow(at: indexPath, animated: true)
+        
+        
+        var profile = ProfilePageViewController.create()
+        
+        profile.currentuserdata = userrawdata
+      
+        
+        // pass the snapshot to profile page as user data object
+        self.navigationController?.pushViewController(profile, animated: true)
         //let storyboard = UIStoryboard(name: "profile", bundle: nil)
         //let destinationNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
         //destinationNavigationController.pushViewController(controller, animated: true)
