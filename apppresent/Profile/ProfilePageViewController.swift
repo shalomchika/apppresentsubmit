@@ -55,6 +55,9 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 let editController = EditProfileViewController.create()
                 editController.myProfile = self?.currentuserdata
                 editController.hidesBottomBarWhenPushed = true
+                let backItem = UIBarButtonItem()
+                backItem.title = "Back"
+                self?.navigationItem.backBarButtonItem = backItem
                 self?.navigationController?.pushViewController(editController, animated: true)
             }))
             

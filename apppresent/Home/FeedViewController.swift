@@ -130,10 +130,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // todo
             // - add foloowers and test this function
             
-            let followerDb = Database.database().reference()
-                .child("followers")
+            let followingDb = Database.database().reference()
+                .child("following")
                 .child(myId)
-            followerDb.observe(.value, with: { (followersSnapshot) in
+            followingDb.observe(.value, with: { (followersSnapshot) in
                 guard let followersRawData = followersSnapshot.value as? [String: Any] else {
                     self.datasource = posts
                     self.feedTableView.reloadData()

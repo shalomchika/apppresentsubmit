@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileHeader: UICollectionReusableView {
 
@@ -51,14 +52,27 @@ class ProfileHeader: UICollectionReusableView {
     @objc func followThisGuy() {
         print("OK. Followed")
         didFollow = true
-
-        // update fire base
+        let myId = Setting.myId
+        let toFollowId = data?.userId
+        let tofollowValue = 1
+        
+        let ref = Database.database().reference().child("following").child(myId ?? "")
+       
+       ref.updateChildValues([toFollowId: tofollowValue])
+        // update fire bas
         
         // update button color, title
         updateFollowStatus()
     }
     @objc func unFollowThisGuy() {
         print("OK. Not follow anymore ")
+        
+        let myId = Setting.myId
+        let toFollowId = data?.userId
+        
+        let ref = Database.database().reference().child("following").child(myId ?? "").child(toFollowId ?? "")
+        
+        ref.removeValue()
         didFollow = false
         // update fire base
         // update button color, title
