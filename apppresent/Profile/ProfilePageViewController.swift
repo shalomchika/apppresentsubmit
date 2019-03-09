@@ -134,6 +134,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collection: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        header?.datasourcecount = datasource.count
         return datasource.count
     }
     

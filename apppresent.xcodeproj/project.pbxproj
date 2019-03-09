@@ -32,6 +32,7 @@
 		5241DC46222FF08100103C7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC45222FF08000103C7F /* Extensions.swift */; };
 		5241DC48222FF08300103C7F /* UIMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC47222FF08300103C7F /* UIMaker.swift */; };
 		5241DC4A222FF08600103C7F /* knConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC49222FF08500103C7F /* knConstraints.swift */; };
+		525FC41F22346BC90097135C /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FC41E22346BC90097135C /* Datasource.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
 		52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */; };
@@ -112,6 +113,7 @@
 		5241DC45222FF08000103C7F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5241DC47222FF08300103C7F /* UIMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMaker.swift; sourceTree = "<group>"; };
 		5241DC49222FF08500103C7F /* knConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = knConstraints.swift; sourceTree = "<group>"; };
+		525FC41E22346BC90097135C /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52645CDA21E79E3900413DC1 /* AppNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		52713E8521CD2DCB00409294 = {
 			isa = PBXGroup;
 			children = (
+				525FC41E22346BC90097135C /* Datasource.swift */,
 				52713E9021CD2DCB00409294 /* apppresent */,
 				52713EA521CD2DCD00409294 /* apppresentTests */,
 				52713EB021CD2DCD00409294 /* apppresentUITests */,
@@ -683,6 +686,7 @@
 				52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */,
 				5241DC42222FEFB500103C7F /* KnPopup.swift in Sources */,
 				26C42F8A222E5BDE006C5165 /* ProfileHeader.swift in Sources */,
+				525FC41F22346BC90097135C /* Datasource.swift in Sources */,
 				52339EAC2204C35800059075 /* UserData.swift in Sources */,
 				5241DC46222FF08100103C7F /* Extensions.swift in Sources */,
 				523F617621EFBF58008D8F41 /* Database.swift in Sources */,

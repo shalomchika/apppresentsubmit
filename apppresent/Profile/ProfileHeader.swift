@@ -12,11 +12,30 @@ import Firebase
 class ProfileHeader: UICollectionReusableView {
 
     var data: UserData?
+    var datasourcecount: Int = 0
+    
+    
+
+    
     func setData(_ data: UserData) {
         self.data = data
         nameLabel.text = data.fullname
         avatarImageView.downloadImage(from: data.profileimageurl)
         statusLabel.text = data.status
+        var profilecount = datasourcecount
+        //let sections = profilecollection?.dataSource
+        postCountLabel.text = "\(profilecount)"
+        var birthday: String?
+        birthday = data.birthday
+        var birthdate = birthday?.changeDate(birthday!)
+        var ageInterval = Date().timeIntervalSince(birthdate ?? Date())
+        var age = Int(ageInterval / (60 * 60 * 24 * 365))
+        var agestring = String(age)
+        if age == 0 {
+            agestring = "Eternal"
+        }
+        ageLabel.text = agestring ?? ""
+        //countDownLabel.text =
         
         if checkIsMyProfile(data) {
             followButton.setTitle("Create Post", for: .normal)
@@ -114,4 +133,15 @@ class ProfileHeader: UICollectionReusableView {
         followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
+}
+
+//https:stackoverflow.com/questions/40541699/converting-string-to-date-using-dd-mm-yyyy-get-nil-in-xcode-8-in-swift-3-0
+extension String {
+    func changeDate(_ mydate:String) -> Date{
+    
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let convertedDate = dateFormatter.date(from: mydate)
+        return convertedDate!
+    }
 }
