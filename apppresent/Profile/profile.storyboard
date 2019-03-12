@@ -310,6 +310,7 @@
                     </tableView>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="backButton" destination="whw-re-6Pz" id="pxn-wR-za3"/>
                         <outlet property="birthdaytextfield" destination="yqU-yF-Rhb" id="ooL-eL-bWf"/>
                         <outlet property="emailtextfield" destination="Tlp-3e-1c7" id="s5a-fB-IG1"/>
                         <outlet property="firstnametextfield" destination="1Ep-H7-LQa" id="cAD-CQ-rIi"/>

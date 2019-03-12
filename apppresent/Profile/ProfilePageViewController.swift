@@ -71,11 +71,12 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             // - show size
             // - add reminder
             controller.addAction(UIAlertAction(title: "Show Size", style: .default, handler: { [weak self] _ in
+                let showSize =
                 
             }))
             
             controller.addAction(UIAlertAction(title: "Add Reminder", style: .default, handler: { [weak self] _ in
-                
+                let reminderController = Addzs
             }))
             
             controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

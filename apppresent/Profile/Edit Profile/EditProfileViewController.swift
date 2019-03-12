@@ -47,6 +47,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     var selectedimage : UIImage?
     @IBOutlet weak var savebtn: UIButton!
     @IBOutlet weak var backtn: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     let userid = Auth.auth().currentUser!.uid
     let datePicker = UIDatePicker()
@@ -79,7 +80,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         tapimagebtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
+         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         loadProfileData()
         
       
@@ -90,6 +91,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
 
+  
     func loadProfileData(){
         firstnametextfield.text = myProfile?.firstname
         profileimageview.downloadImage(from: myProfile?.profileimageurl)
@@ -205,6 +207,10 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         self.view.layoutIfNeeded()
     }
     
+    
+    @objc func goBack() {
+         navigationController?.popViewController(animated: true)
+    }
  
     
 
