@@ -24,6 +24,7 @@ class ProfileHeader: UICollectionReusableView {
     // back arrow to iamge
     
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     // I should always take the birthday when user . but I allow their age
     
@@ -211,6 +212,17 @@ class ProfileHeader: UICollectionReusableView {
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
     }
     
+    @IBAction func showInfoChoice(_ sender: Any) {
+        
+        infoButton.addTarget(parentController, action: #selector(parentController?.showMenu), for: .touchUpInside)
+        
+    }
+    
+    
+    @objc func showProfileChoices() {
+       
+       // infoButton.addTarget(self, action: #selector(parentController?.showMenu), for: .touchUpInside)
+    }
     
     @objc func goBack() {
         parentController?.navigationController?.popViewController(animated: true)

@@ -40,13 +40,13 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = UIMaker.makeButton(title: "Info")
+        //let button = 
         
-        view.addSubviews(views: button)
+        //view.addSubviews(views: button)
         //button.center(toView: view)
-        button.topRight(toView: view, top: 35.0, right: -10.0)
+       // button.topRight(toView: view, top: 35.0, right: -10.0)
         //button.topLeft(toView: view, top: 0.8, left: 0.6, isActive: true)
-        button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
+      //  button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
         getData()
         setupView()
     }
@@ -59,11 +59,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 let editController = EditProfileViewController.create()
                 editController.myProfile = self?.currentuserdata
                 editController.hidesBottomBarWhenPushed = true
-               // let backItem = UIBarButtonItem()
-            
-                //backItem.image = UIImage(named: "backButton")
-                //baself?.navigationItem.backBarButtonItem = backItem
-                self?.navigationController?.pushViewController(editController, animated: true)
+               self?.navigationController?.pushViewController(editController, animated: true)
             }))
             
             controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

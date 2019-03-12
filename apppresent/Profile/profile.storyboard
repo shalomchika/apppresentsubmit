@@ -119,7 +119,15 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whw-re-6Pz">
+                                                    <rect key="frame" x="8" y="11" width="79" height="25"/>
+                                                    <state key="normal" title="Button" image="backButton"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="whw-re-6Pz" firstAttribute="leading" secondItem="LiW-Uv-B4o" secondAttribute="leading" constant="8" id="QJa-Fw-ybz"/>
+                                                <constraint firstItem="whw-re-6Pz" firstAttribute="top" secondItem="LiW-Uv-B4o" secondAttribute="top" constant="11" id="VFr-bS-BIU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f6p-rE-SBh">
@@ -382,6 +390,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="25" height="25"/>
         <image name="close" width="256" height="256"/>
         <image name="noprofile" width="512" height="512"/>
     </resources>
