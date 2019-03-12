@@ -59,6 +59,8 @@
 		52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */; };
 		52D30D0021DFA912005E3128 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFF21DFA912005E3128 /* PostData.swift */; };
 		52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */; };
+		52F1DFEA22387433002F7A55 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F1DFE922387433002F7A55 /* Reminder.storyboard */; };
+		52F1DFEC22387439002F7A55 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1DFEB22387439002F7A55 /* ReminderViewController.swift */; };
 		52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */; };
 		52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920221DD01760021B3A0 /* EditProfileViewController.swift */; };
 		52FD920521DD1FEF0021B3A0 /* checkedit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */; };
@@ -145,6 +147,8 @@
 		52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		52D30CFF21DFA912005E3128 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVCViewController.swift; sourceTree = "<group>"; };
+		52F1DFE922387433002F7A55 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
+		52F1DFEB22387439002F7A55 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPostViewController.swift; sourceTree = "<group>"; };
 		52FD920221DD01760021B3A0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		52FD920421DD1FEF0021B3A0 /* checkedit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = checkedit.storyboard; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				5241CD5E21FF73EB00524276 /* UserAccounts */,
 				5241CD5C21FF6E7100524276 /* Main */,
 				5241CD5B21FF6E6400524276 /* Search */,
+				52F1DFE8223873D6002F7A55 /* Reminder */,
 				5241CD5A21FF6E5600524276 /* Profile */,
 				5241CD5921FF6E5000524276 /* Gift */,
 				5241CD5721FF6E3700524276 /* Home */,
@@ -356,6 +361,15 @@
 				52713EB321CD2DCD00409294 /* Info.plist */,
 			);
 			path = apppresentUITests;
+			sourceTree = "<group>";
+		};
+		52F1DFE8223873D6002F7A55 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				52F1DFEB22387439002F7A55 /* ReminderViewController.swift */,
+				52F1DFE922387433002F7A55 /* Reminder.storyboard */,
+			);
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 		76DD4F9FE10552716046BB0B /* Pods */ = {
@@ -502,6 +516,7 @@
 				5224EBD6221A5C22007519D4 /* userprofile.storyboard in Resources */,
 				52FD920521DD1FEF0021B3A0 /* checkedit.storyboard in Resources */,
 				52339EB02208C8CB00059075 /* usersgiftpage.storyboard in Resources */,
+				52F1DFEA22387433002F7A55 /* Reminder.storyboard in Resources */,
 				52C3D1D521ED1C6300DF7F41 /* home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,6 +649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F1DFEC22387439002F7A55 /* ReminderViewController.swift in Sources */,
 				52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */,
 				5241DC3A222DC31E00103C7F /* DateExtension.swift in Sources */,
 				528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */,
