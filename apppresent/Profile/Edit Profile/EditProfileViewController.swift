@@ -13,7 +13,7 @@ import FirebaseAuth
 import Kingfisher
 
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     static func create() -> EditProfileViewController {
         return create(fromStoryboard: "profile")
@@ -207,10 +207,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
  
     
-    @IBAction func savebtn(_ sender: Any) {
-        
-        
-    }
+
     
     func uploadProfileImage(_ image: UIImage, completion: @escaping((_ url: String?) -> ())) {
         let userid = Auth.auth().currentUser!.uid

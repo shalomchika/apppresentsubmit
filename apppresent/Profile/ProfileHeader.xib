@@ -191,6 +191,11 @@
                             <rect key="frame" x="370" y="20" width="22" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSd-Ia-yOb">
+                            <rect key="frame" x="8" y="20" width="28" height="26"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                            <state key="normal" image="backButton"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -208,6 +213,8 @@
                         <constraint firstItem="jxY-hL-nWC" firstAttribute="leading" secondItem="IdJ-rI-3ma" secondAttribute="leading" id="YXf-Qa-hFM"/>
                         <constraint firstItem="IdJ-rI-3ma" firstAttribute="leading" secondItem="uEa-cP-IYb" secondAttribute="leading" constant="44" id="b4o-AZ-hf8"/>
                         <constraint firstItem="jxY-hL-nWC" firstAttribute="top" secondItem="IdJ-rI-3ma" secondAttribute="bottom" constant="8" id="dk9-Jn-Alr"/>
+                        <constraint firstItem="fSd-Ia-yOb" firstAttribute="top" secondItem="wZ0-H7-LQn" secondAttribute="top" constant="24" id="fHd-gu-WUO"/>
+                        <constraint firstItem="fSd-Ia-yOb" firstAttribute="leading" secondItem="wZ0-H7-LQn" secondAttribute="leading" constant="24" id="wGY-1e-ebn"/>
                         <constraint firstItem="oVE-IX-4wb" firstAttribute="top" secondItem="jxY-hL-nWC" secondAttribute="bottom" constant="16" id="wcx-Q7-3fb"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="wZ0-H7-LQn"/>
@@ -224,6 +231,7 @@
             <connections>
                 <outlet property="ageLabel" destination="uD8-pz-oVz" id="ag5-vA-wgW"/>
                 <outlet property="avatarImageView" destination="Dld-LA-XsG" id="biw-RE-mP9"/>
+                <outlet property="backButton" destination="fSd-Ia-yOb" id="fV5-Hh-lR9"/>
                 <outlet property="countDownLabel" destination="ylg-Dw-Ekc" id="fZa-as-V8w"/>
                 <outlet property="followButton" destination="oVE-IX-4wb" id="77N-kh-pi9"/>
                 <outlet property="nameLabel" destination="IdJ-rI-3ma" id="7xL-wR-Pr9"/>
@@ -235,6 +243,7 @@
         </collectionReusableView>
     </objects>
     <resources>
+        <image name="backButton" width="512" height="512"/>
         <image name="noprofile" width="512" height="512"/>
     </resources>
 </document>

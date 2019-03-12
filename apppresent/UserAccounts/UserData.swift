@@ -135,6 +135,7 @@ struct UserData {
         }
         
         if let userbirthday = snapshotvalue?["birthday"] as? String {
+            // change birthday to timestamp, easier to convert to calculate
             birthday = userbirthday
             //  print(url)
         }

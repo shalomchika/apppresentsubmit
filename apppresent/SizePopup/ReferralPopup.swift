@@ -39,6 +39,21 @@ class ReferralPopup: knView {
     }()
     
     
+    // wanted the current user to edit their clothes and shoe size ( I had the code for it before but not with the correct UI)
+    // How to use UI with that code.
+    // User adds size with date pickers
+    // other user sees it as labels?
+    // simplest way to do that?
+    
+    //if you know how to change the pop UI to textfields I can make the current user work?
+    // we can do the other users view later?
+    
+    
+    // in edit rpofile
+    // add one section
+    //is that a table view, right now I just have text fields? Can I keep the textfields?//
+    // I have to chagne edit profile to a table view? for better format? why? why?
+    // to show and hide keyboard table view - table view will handle the keyboard for me , easier to scroll.
     /*
      
      

@@ -19,6 +19,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         return create(fromStoryboard: "profile")
     }
     
+    // some of the examples use more than one label and animations
+    // Its one label on there, should I just do days?
+    
+    
     var header: ProfileHeader?
     
     var activityindicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -55,9 +59,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 let editController = EditProfileViewController.create()
                 editController.myProfile = self?.currentuserdata
                 editController.hidesBottomBarWhenPushed = true
-                let backItem = UIBarButtonItem()
-                backItem.title = "Back"
-                self?.navigationItem.backBarButtonItem = backItem
+               // let backItem = UIBarButtonItem()
+            
+                //backItem.image = UIImage(named: "backButton")
+                //baself?.navigationItem.backBarButtonItem = backItem
                 self?.navigationController?.pushViewController(editController, animated: true)
             }))
             
@@ -145,16 +150,13 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         Database.database().reference(withPath: "posts")
             .queryOrdered(byChild: "userID").queryEqual(toValue: userId) // 2
             .observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
-                /* // old approach
-                var newuserposts = [PostData]()
-                for userpostsnapshot in snapshot.children {
-                    let userpostobject = PostData(snapshot: userpostsnapshot as! DataSnapshot )
-                    newuserposts.append(userpostobject)
-                }
-                */
-                
                 let newuserposts = snapshot.children.map({ return PostData(snapshot: $0 as! DataSnapshot)  })
                 self?.datasource = newuserposts.sorted(by: { return $0.timestamp > $1.timestamp })
+                self?.header?.setPostCount(newuserposts.count)
+                //why herere please explain again?
+                //it runs in deifferent thread -> you dont know when it finishs downloading
+                // if you set in main thread at the same time with profile data -> youget 0
+                //
                 self?.collectionview.reloadData()
             })
     }
@@ -199,15 +201,21 @@ extension ProfilePageViewController {
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         header = collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileHeader", for: indexPath) as! ProfileHeader
+        header?.parentController = self
         if let data = currentuserdata {
             header?.setData(data)
         }
         
+        // add target from parrent controller
+        // pass the parrent controlerl into the profile header
+        // why use the second one now? - less functions, more useful
+        //
         return header!
         
         // I dont think this class uses the userdata structure in the beginning , I only used a structure for the other classes.
         // when it is the logged in users account do I just change the currentuserdata value?
     }
+    
 }
 
 extension ProfilePageViewController {

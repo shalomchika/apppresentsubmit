@@ -1,4 +1,5 @@
 PODS:
+  - CountdownLabel (4.0.1)
   - Firebase/Auth (5.15.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.2.0)
@@ -116,6 +117,7 @@ PODS:
     - SDWebImage/Core
 
 DEPENDENCIES:
+  - CountdownLabel
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -126,6 +128,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CountdownLabel
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -147,6 +150,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  CountdownLabel: c9975e3f329140b5e7d1f45cd63b1300badd1712
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
@@ -167,6 +171,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 88290cf2e28c855c71a1e67ebdeca6e21524f432
+PODFILE CHECKSUM: e1b4df6ae4ba9735e3257a7c07bff21a659b27cc
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.5.3
