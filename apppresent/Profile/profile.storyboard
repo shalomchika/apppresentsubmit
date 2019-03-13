@@ -312,11 +312,13 @@
                     <connections>
                         <outlet property="backButton" destination="whw-re-6Pz" id="pxn-wR-za3"/>
                         <outlet property="birthdaytextfield" destination="yqU-yF-Rhb" id="ooL-eL-bWf"/>
+                        <outlet property="clothesizetextfield" destination="jj2-Xo-3aP" id="MfI-mS-iuf"/>
                         <outlet property="emailtextfield" destination="Tlp-3e-1c7" id="s5a-fB-IG1"/>
                         <outlet property="firstnametextfield" destination="1Ep-H7-LQa" id="cAD-CQ-rIi"/>
                         <outlet property="lastnametextfield" destination="Ci0-Ll-I3r" id="xkY-FM-MmX"/>
                         <outlet property="profileimageview" destination="0tr-vD-eIs" id="7FK-Ce-Ri0"/>
                         <outlet property="savebtn" destination="qvq-hv-dwZ" id="eSD-Hm-tkV"/>
+                        <outlet property="shoesizetextfield" destination="mMf-SA-bL9" id="xLn-fx-1NN"/>
                         <outlet property="statustextfield" destination="tb1-Vf-Ep5" id="DNU-cL-Qs5"/>
                         <outlet property="tapimagebtn" destination="isl-tZ-TNs" id="kUK-Ec-vPv"/>
                     </connections>

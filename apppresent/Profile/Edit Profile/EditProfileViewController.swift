@@ -44,6 +44,9 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var emailtextfield: UITextField!
     @IBOutlet weak var tapimagebtn: UIButton!
     @IBOutlet weak var profileimageview: UIImageView!
+    @IBOutlet weak var shoesizetextfield: UITextField!
+    @IBOutlet weak var clothesizetextfield: UITextField!
+
     var selectedimage : UIImage?
     @IBOutlet weak var savebtn: UIButton!
     @IBOutlet weak var backtn: UIButton!
@@ -60,6 +63,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     var url = ""
     var firstname = ""
     var lastname = ""
+    var clothesize = ""
+    var shoesize = ""
     //var selectedImage = UIImage()
     
     override func viewDidLoad() {
@@ -93,7 +98,17 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
 
   
     func loadProfileData(){
+        
+        //changed from uploading snapshot to a data structure that varies accoridng to the user
         firstnametextfield.text = myProfile?.firstname
+        lastnametextfield.text = myProfile?.lastname
+        emailtextfield.text = myProfile?.email
+        statustextfield.text = myProfile?.status
+        birthdaytextfield.text = myProfile?.birthday
+        clothesizetextfield.text = myProfile?.clothesize
+        shoesizetextfield.text = myProfile?.shoesize
+        
+        
         profileimageview.downloadImage(from: myProfile?.profileimageurl)
         
         /*
@@ -161,6 +176,9 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         status = statustextfield.text ?? ""
         birthday = birthdaytextfield.text ?? ""
         email = emailtextfield.text ?? ""
+        shoesize = shoesizetextfield.text ?? ""
+        clothesize = clothesizetextfield.text ?? ""
+        
        
         selectedimage = profileimageview.image
         uploadProfileImage(selectedimage!) { (success) in
@@ -182,7 +200,9 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
                                               "age" : self.age,
                                              "email" : self.email,
                                              "status": self.status,
-                                            "profileImageUrl": selectedimageurl])
+                                            "profileImageUrl": selectedimageurl,
+                                            "shoesize": shoesize,
+                                            "clothesize": clothesize])
 
                         
                         // disiss current contorller

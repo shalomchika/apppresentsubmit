@@ -71,6 +71,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             // - show size
             // - add reminder
             controller.addAction(UIAlertAction(title: "Show Size", style: .default, handler: { [weak self] _ in
+                let sizepopup = self?.showReferralPopup()
+                
                 
                 
             }))

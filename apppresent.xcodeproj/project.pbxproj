@@ -61,6 +61,7 @@
 		52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */; };
 		52D30D0021DFA912005E3128 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFF21DFA912005E3128 /* PostData.swift */; };
 		52D6D57A22397C2F0038FC74 /* size.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D6D57922397C2F0038FC74 /* size.storyboard */; };
+		52D6D57C223989420038FC74 /* GiftPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6D57B223989420038FC74 /* GiftPopUpViewController.swift */; };
 		52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */; };
 		52F1DFF522387904002F7A55 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F1DFF422387904002F7A55 /* Reminder.storyboard */; };
 		52F1DFF72238790C002F7A55 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1DFF62238790C002F7A55 /* ReminderViewController.swift */; };
@@ -152,6 +153,7 @@
 		52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		52D30CFF21DFA912005E3128 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		52D6D57922397C2F0038FC74 /* size.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = size.storyboard; sourceTree = "<group>"; };
+		52D6D57B223989420038FC74 /* GiftPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftPopUpViewController.swift; sourceTree = "<group>"; };
 		52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVCViewController.swift; sourceTree = "<group>"; };
 		52F1DFF422387904002F7A55 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Reminder.storyboard; path = ../../Reminder.storyboard; sourceTree = "<group>"; };
 		52F1DFF62238790C002F7A55 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderViewController.swift; path = ../../ReminderViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		5241DC4D223015D800103C7F /* SizePopup */ = {
 			isa = PBXGroup;
 			children = (
+				52D6D57B223989420038FC74 /* GiftPopUpViewController.swift */,
 				5241DC3F222FEE3800103C7F /* ReferralPopup.swift */,
 				5241DC47222FF08300103C7F /* UIMaker.swift */,
 				5241DC45222FF08000103C7F /* Extensions.swift */,
@@ -717,6 +720,7 @@
 				5241DC46222FF08100103C7F /* Extensions.swift in Sources */,
 				523F617621EFBF58008D8F41 /* Database.swift in Sources */,
 				52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */,
+				52D6D57C223989420038FC74 /* GiftPopUpViewController.swift in Sources */,
 				52C994EC21F63432002DE553 /* PostTableViewCell.swift in Sources */,
 				5241DC4A222FF08600103C7F /* knConstraints.swift in Sources */,
 				52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */,
