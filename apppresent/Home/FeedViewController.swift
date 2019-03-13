@@ -35,6 +35,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         feedTableView.dataSource = self as! UITableViewDataSource
         downloadPost()
         setupView()
+        
+    
+        
     }
     
     
@@ -325,10 +328,10 @@ extension FeedViewController {
     
     func makeHeaderView() -> UIView {
         let circle = UIMaker.makeView(background: UIColor.c_102_100_247)
-        let helloLabel = UIMaker.makeLabel(text: "Morning, Ky. What can we help today?",
+        let helloLabel = UIMaker.makeLabel(text: "Hello, let's share and Celebrate",
                                            font: UIFont.systemFont(ofSize: 17), color: .white)
         let headerView = UIView()
-        let addButton = UIMaker.makeButton(title: "Add reminder",
+        let addButton = UIMaker.makeButton(title: "Add Post",
                                            titleColor: UIColor.c_102_100_247,
                                            font: UIFont.boldSystemFont(ofSize: 17),
                                            background: .white, cornerRadius: 5)
@@ -347,8 +350,16 @@ extension FeedViewController {
         addButton.size(CGSize(width: 200, height: 44))
         addButton.centerX(toView: headerView)
         addButton.verticalSpacing(toView: helloLabel, space: padding)
+       
+        addButton.addTarget(self, action: #selector(createPost), for: .touchUpInside)
+        
         
         headerView.height(150)
         return headerView
+    }
+    
+    @objc func createPost() {
+         let controller = UploadPostViewController.create()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

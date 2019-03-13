@@ -71,12 +71,19 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
             // - show size
             // - add reminder
             controller.addAction(UIAlertAction(title: "Show Size", style: .default, handler: { [weak self] _ in
-                let showSize =
+                
                 
             }))
             
             controller.addAction(UIAlertAction(title: "Add Reminder", style: .default, handler: { [weak self] _ in
-                let reminderController = Addzs
+                let reminderController = ReminderViewController.create()
+                reminderController.userProfile = self?.currentuserdata
+                reminderController.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(reminderController, animated: true)
+                // for adding reminder on another user's account, set the user profile data with data of current profile
+                
+                
+                
             }))
             
             controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

@@ -1,9 +1,7 @@
 //
 //  Colors.swift
 //  apppresent
-//
-//  Created by Ky Nguyen on 3/4/19.
-//  Copyright © 2019 Macbook Pro. All rights reserved.
+// Created by Macbook Pro on 01/01/2019.
 //
 
 import UIKit

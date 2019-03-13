@@ -2,7 +2,7 @@
 //  ProfileHeader.swift
 //  apppresent
 //
-//  Created by Ky Nguyen on 3/5/19.
+//  Created by Macbook Pro on 01/01/2019.
 //  Copyright © 2019 Macbook Pro. All rights reserved.
 //
 
@@ -130,6 +130,7 @@ class ProfileHeader: UICollectionReusableView {
         }
     }
     
+   
     var didFollow = false
     
     @objc func followThisGuy() {
@@ -177,10 +178,6 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     
-    @objc func createPost() {
-        //parentController?.navigationController
-    }
-    
     func checkIsMyProfile(_ profile: UserData) -> Bool {
         guard let currentId = profile.userId, let myId = Setting.myId else { return false }
         return currentId == myId
@@ -227,6 +224,13 @@ class ProfileHeader: UICollectionReusableView {
     @objc func goBack() {
         parentController?.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func createPost() {
+        let controller = UploadPostViewController.create()
+        
+        parentController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
 
 //https:stackoverflow.com/questions/40541699/converting-string-to-date-using-dd-mm-yyyy-get-nil-in-xcode-8-in-swift-3-0

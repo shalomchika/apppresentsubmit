@@ -18,7 +18,7 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var captionlbl: UITextView!
     @IBOutlet weak var postbtn: UIButton!
     @IBOutlet weak var selectbtn: UIButton!
-    
+    @IBOutlet weak var backButton: UIButton!
     
     var picker = UIImagePickerController()
     var selectedimage : UIImage?
@@ -29,6 +29,7 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         picker.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(hideKeyboard(sender:))))
@@ -61,6 +62,10 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         selectedimage = image
         dismiss(animated: true, completion: nil)
         postbtn.isHidden = false
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
     }
     
     

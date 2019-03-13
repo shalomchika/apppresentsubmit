@@ -1,9 +1,7 @@
 //
 //  knUIColor.swift
 //  kynguyenCodebase
-//
-//  Created by Ky Nguyen on 11/25/16.
-//  Copyright © 2016 kynguyen. All rights reserved.
+// Created by Macbook Pro on 01/01/2019.
 //
 
 import UIKit

@@ -1,9 +1,7 @@
 //
 //  UITextField.swift
 //  kLibrary
-//
-//  Created by Ky Nguyen on 8/27/16.
-//  Copyright © 2016 Ky Nguyen. All rights reserved.
+// Created by Macbook Pro on 01/01/2019.
 //
 
 import UIKit

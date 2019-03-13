@@ -2,8 +2,8 @@
 //  knView.swift
 //  Ogenii
 //
-//  Created by Ky Nguyen on 3/17/17.
-//  Copyright © 2017 Ky Nguyen. All rights reserved.
+//  Created by Macbook Pro on 01/01/2019.
+//  Created by Macbook Pro on 01/01/2019.
 //
 
 import UIKit

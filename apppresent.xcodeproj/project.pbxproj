@@ -60,7 +60,11 @@
 		52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */; };
 		52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */; };
 		52D30D0021DFA912005E3128 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D30CFF21DFA912005E3128 /* PostData.swift */; };
+		52D6D57A22397C2F0038FC74 /* size.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D6D57922397C2F0038FC74 /* size.storyboard */; };
 		52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */; };
+		52F1DFF522387904002F7A55 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F1DFF422387904002F7A55 /* Reminder.storyboard */; };
+		52F1DFF72238790C002F7A55 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1DFF62238790C002F7A55 /* ReminderViewController.swift */; };
+		52F1DFF922388709002F7A55 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F1DFF822388709002F7A55 /* DateExtension.swift */; };
 		52FD920121DCFB110021B3A0 /* BirthdayPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */; };
 		52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD920221DD01760021B3A0 /* EditProfileViewController.swift */; };
 		8782363CB62BD84C697CCC85 /* Pods_apppresent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E937DD2E08AD515173A9 /* Pods_apppresent.framework */; };
@@ -147,7 +151,11 @@
 		52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageFlowLayout.swift; sourceTree = "<group>"; };
 		52D30CFF21DFA912005E3128 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		52D6D57922397C2F0038FC74 /* size.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = size.storyboard; sourceTree = "<group>"; };
 		52D893A421CE2D4300FCAA5D /* RegisterDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailVCViewController.swift; sourceTree = "<group>"; };
+		52F1DFF422387904002F7A55 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Reminder.storyboard; path = ../../Reminder.storyboard; sourceTree = "<group>"; };
+		52F1DFF62238790C002F7A55 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderViewController.swift; path = ../../ReminderViewController.swift; sourceTree = "<group>"; };
+		52F1DFF822388709002F7A55 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPostViewController.swift; sourceTree = "<group>"; };
 		52FD920221DD01760021B3A0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		73A188A30E5DA16646ED68B7 /* Pods-apppresentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apppresentTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apppresentTests/Pods-apppresentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +219,7 @@
 		5241CD5621FF6E2D00524276 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				52F1DFF822388709002F7A55 /* DateExtension.swift */,
 				26C42F6C222D35EC006C5165 /* UIViewExtension.swift */,
 				523F617521EFBF58008D8F41 /* Database.swift */,
 				523F617721EFC413008D8F41 /* UIImageExtension.swift */,
@@ -323,6 +332,7 @@
 				5241DC41222FEFB500103C7F /* KnPopup.swift */,
 				5241DC49222FF08500103C7F /* knConstraints.swift */,
 				26C42F84222E501A006C5165 /* knUIMaker.swift */,
+				52D6D57922397C2F0038FC74 /* size.storyboard */,
 			);
 			path = SizePopup;
 			sourceTree = "<group>";
@@ -339,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				525FC41E22346BC90097135C /* Datasource.swift */,
+				52F1DFEF223878D0002F7A55 /* Reminder */,
 				52713E9021CD2DCB00409294 /* apppresent */,
 				52713EA521CD2DCD00409294 /* apppresentTests */,
 				52713EB021CD2DCD00409294 /* apppresentUITests */,
@@ -391,6 +402,15 @@
 				52713EB321CD2DCD00409294 /* Info.plist */,
 			);
 			path = apppresentUITests;
+			sourceTree = "<group>";
+		};
+		52F1DFEF223878D0002F7A55 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				52F1DFF62238790C002F7A55 /* ReminderViewController.swift */,
+				52F1DFF422387904002F7A55 /* Reminder.storyboard */,
+			);
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 		76DD4F9FE10552716046BB0B /* Pods */ = {
@@ -527,11 +547,13 @@
 				5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */,
 				5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */,
 				52C3D1D921ED1CBE00DF7F41 /* post.storyboard in Resources */,
+				52F1DFF522387904002F7A55 /* Reminder.storyboard in Resources */,
 				52713E9C21CD2DCD00409294 /* LaunchScreen.storyboard in Resources */,
 				52C3D1E521EDFA7700DF7F41 /* gifting.storyboard in Resources */,
 				52713E9921CD2DCD00409294 /* Assets.xcassets in Resources */,
 				52C3D1DD21ED1D1400DF7F41 /* profile.storyboard in Resources */,
 				52C3D1DB21ED1CE100DF7F41 /* search.storyboard in Resources */,
+				52D6D57A22397C2F0038FC74 /* size.storyboard in Resources */,
 				52713E9721CD2DCB00409294 /* Main.storyboard in Resources */,
 				26C42F8B222E5BDE006C5165 /* ProfileHeader.xib in Resources */,
 				52C3D1D521ED1C6300DF7F41 /* home.storyboard in Resources */,
@@ -667,7 +689,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52645CDB21E79E3900413DC1 /* AppNavigationViewController.swift in Sources */,
+				52F1DFF922388709002F7A55 /* DateExtension.swift in Sources */,
 				5241DC40222FEE3800103C7F /* ReferralPopup.swift in Sources */,
+				52F1DFF72238790C002F7A55 /* ReminderViewController.swift in Sources */,
 				26C42F6F222D36BD006C5165 /* Colors.swift in Sources */,
 				528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */,
 				52D30D0021DFA912005E3128 /* PostData.swift in Sources */,

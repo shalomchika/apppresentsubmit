@@ -2,8 +2,8 @@
 //  knConstraints.swift
 //  knConstraints
 //
-//  Created by Ky Nguyen on 4/12/17.
-//  Copyright © 2017 Ky Nguyen. All rights reserved.
+//  Created by Macbook Pro on 01/01/2019.
+//
 //
 
 import UIKit
