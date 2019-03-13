@@ -44,7 +44,20 @@ class ProfileHeader: UICollectionReusableView {
             updateFollowStatus()
         }
     }
-    
+
+    func countDownToBirthday(birthday: Date) -> String {
+        let interval = birthday.timeIntervalSinceNow
+
+        let secondsOneDay: Double = 24 * 60 * 60
+        let days = interval / secondsOneDay
+        if days > 30 {
+            let months = Int(days / 30)
+            let daysRemain = Int(days.truncatingRemainder(dividingBy: 30))
+            return "\(months)m \(daysRemain)d"
+        } else {
+            return "\(Int(days))"
+        }
+    }
     
     func updateFollowStatus() {
         let followStatus = didFollow ? "Following" : "Follow"
@@ -138,10 +151,7 @@ class ProfileHeader: UICollectionReusableView {
 //https:stackoverflow.com/questions/40541699/converting-string-to-date-using-dd-mm-yyyy-get-nil-in-xcode-8-in-swift-3-0
 extension String {
     func changeDate(_ mydate:String) -> Date{
-    
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        let convertedDate = dateFormatter.date(from: mydate)
-        return convertedDate!
+        guard let interval = Double(mydate) else { return Date() }
+        return Date(timeIntervalSince1970: interval)
     }
 }

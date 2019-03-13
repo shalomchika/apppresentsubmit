@@ -41,16 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         //Messaging.messaging().delegate = self
         setupApp()
+
         return true
     }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    func applicationWillTerminate(_ application: UIApplication) {
-        
-    }
-    
+
+
+
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
@@ -96,8 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window!.rootViewController = UINavigationController(rootViewController: LoginViewController.create())
         }
-//        window!.rootViewController = ProfilePageViewController.create()
-        
+        window!.rootViewController = GiftController()
+
         window!.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
     }
