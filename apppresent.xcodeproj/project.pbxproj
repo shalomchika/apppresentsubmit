@@ -37,6 +37,9 @@
 		5241DC46222FF08100103C7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC45222FF08000103C7F /* Extensions.swift */; };
 		5241DC48222FF08300103C7F /* UIMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC47222FF08300103C7F /* UIMaker.swift */; };
 		5241DC4A222FF08600103C7F /* knConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC49222FF08500103C7F /* knConstraints.swift */; };
+		5250B6AD22403347009C0CB3 /* GiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6AC22403347009C0CB3 /* GiftManager.swift */; };
+		5250B6AF224056AE009C0CB3 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6AE224056AE009C0CB3 /* PresentViewController.swift */; };
+		5250B6B32241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */; };
 		525FC41F22346BC90097135C /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FC41E22346BC90097135C /* Datasource.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
 		52645CD921E79D7D00413DC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD821E79D7D00413DC1 /* SearchViewController.swift */; };
@@ -128,6 +131,9 @@
 		5241DC45222FF08000103C7F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5241DC47222FF08300103C7F /* UIMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMaker.swift; sourceTree = "<group>"; };
 		5241DC49222FF08500103C7F /* knConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = knConstraints.swift; sourceTree = "<group>"; };
+		5250B6AC22403347009C0CB3 /* GiftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftManager.swift; sourceTree = "<group>"; };
+		5250B6AE224056AE009C0CB3 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
+		5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftSpecificCollectionViewCell.swift; sourceTree = "<group>"; };
 		525FC41E22346BC90097135C /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		52645CD821E79D7D00413DC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -257,16 +263,19 @@
 			isa = PBXGroup;
 			children = (
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
+				5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */,
+				2666C6BF2238F3BB0072964A /* GiftController.swift */,
+				5250B6AE224056AE009C0CB3 /* PresentViewController.swift */,
 				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
 				5241DC2F222C83FE00103C7F /* Place.swift */,
 				5241DC31222C840900103C7F /* Shop.swift */,
 				5241DC2D222C835400103C7F /* ShopGiftCell.swift */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
-				2666C6BF2238F3BB0072964A /* GiftController.swift */,
 				2666C6C32238F3F00072964A /* Extension.swift */,
 				2666C6C92238F4A50072964A /* RewardView.swift */,
 				2666C6C72238F40B0072964A /* CategoryView.swift */,
 				2666C6C12238F3F00072964A /* knStaticListController.swift */,
+				5250B6AC22403347009C0CB3 /* GiftManager.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -629,6 +638,7 @@
 				"${BUILT_PRODUCTS_DIR}/CountdownLabel/CountdownLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/GravitySliderFlowLayout/GravitySliderFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -643,6 +653,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountdownLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GravitySliderFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -718,6 +729,7 @@
 				52713E9421CD2DCB00409294 /* LoginViewController.swift in Sources */,
 				5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */,
 				26C42F6D222D35EC006C5165 /* UIViewExtension.swift in Sources */,
+				5250B6AF224056AE009C0CB3 /* PresentViewController.swift in Sources */,
 				52713E9221CD2DCB00409294 /* AppDelegate.swift in Sources */,
 				52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */,
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
@@ -726,6 +738,7 @@
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,
 				2666C6C62238F3F00072964A /* Extension.swift in Sources */,
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
+				5250B6AD22403347009C0CB3 /* GiftManager.swift in Sources */,
 				5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */,
 				52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */,
 				26C42F85222E501A006C5165 /* knUIMaker.swift in Sources */,
@@ -734,6 +747,7 @@
 				52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */,
 				5241DC42222FEFB500103C7F /* KnPopup.swift in Sources */,
 				26C42F8A222E5BDE006C5165 /* ProfileHeader.swift in Sources */,
+				5250B6B32241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift in Sources */,
 				525FC41F22346BC90097135C /* Datasource.swift in Sources */,
 				52339EAC2204C35800059075 /* UserData.swift in Sources */,
 				5241DC46222FF08100103C7F /* Extensions.swift in Sources */,

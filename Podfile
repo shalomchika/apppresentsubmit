@@ -14,6 +14,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'SDWebImage/WebP'
 pod 'Firebase/Messaging'
+pod 'GravitySliderFlowLayout'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'

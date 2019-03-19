@@ -69,7 +69,8 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GiftSpecificCollectionViewCell
         
-        if let url = urls(string:urls[indexPath.row]) {
+        if let url = urls.
+        {
             do {
                 
                 let image = ImageResource(downloadURL: url, cacheKey: url.path)
@@ -78,7 +79,8 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
             }
             catch {
                 print("imageURL was not able to be converted into data") //
-            } cell.giftLabel.text = urls[indexPath.row]
+            }
+            cell.giftLabel.text = urls[indexPath.row]
         
         return cell
     }

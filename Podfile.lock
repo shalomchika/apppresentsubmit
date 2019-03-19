@@ -78,6 +78,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
+  - GravitySliderFlowLayout (1.0)
   - GTMSessionFetcher/Core (1.2.1)
   - Kingfisher (5.0.1)
   - leveldb-library (1.20)
@@ -123,6 +124,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - GravitySliderFlowLayout
   - Kingfisher (~> 5.0)
   - SDWebImage/WebP
 
@@ -141,6 +143,7 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleUtilities
+    - GravitySliderFlowLayout
     - GTMSessionFetcher
     - Kingfisher
     - leveldb-library
@@ -163,6 +166,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  GravitySliderFlowLayout: bb9ae6a302b85821c9e0271c00533fae8091143b
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -171,6 +175,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: e1b4df6ae4ba9735e3257a7c07bff21a659b27cc
+PODFILE CHECKSUM: a774e0dbc8f1f29a86b5cc8409c94cd6442d5b0e
 
 COCOAPODS: 1.5.3
