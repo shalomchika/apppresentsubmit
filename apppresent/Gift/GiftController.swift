@@ -6,9 +6,9 @@
 //  Copyright © 2019 Macbook Pro. All rights reserved.
 //
 import UIKit
-import Kingfisher
+import GravitySliderFlowLayout
 
-class GiftController:UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GiftController:UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
    //knStaticListController,
@@ -17,19 +17,35 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         return UIStoryboard(name: "gifting", bundle: nil).instantiateViewController(withIdentifier: "GiftController") as! GiftController
     }
  */
+    let collectionViewCellHeightCoefficient: CGFloat = 0.85
+    let collectionViewCellWidthCoefficient: CGFloat = 0.55
     
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
           paymentButton.addTarget(self, action: #selector(URLButtonPressed), for: .touchUpInside)
         //setupView()
+        
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .green
+        
+        let gravitySliderLayout = UICollectionViewFlowLayout()
+        gravitySliderLayout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = gravitySliderLayout
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
-    
-    let urls = ["https://i.postimg.cc/NF3whFmJ/Screen-Shot-2019-03-14-at-10-54-59.png","https://i.postimg.cc/Kzbx9JtK/Screen-Shot-2019-03-14-at-11-09-24.png", "https://i.postimg.cc/tTDQByXf/Screen-Shot-2019-03-14-at-11-10-42.png"]
-    
+    let urls = ["https://i.postimg.cc/NF3whFmJ/Screen-Shot-2019-03-14-at-10-54-59.png","https://i.postimg.cc/Kzbx9JtK/Screen-Shot-2019-03-14-at-11-09-24.png", "https://i.postimg.cc/tTDQByXf/Screen-Shot-2019-03-14-at-11-10-42.png",
+                "https://i.postimg.cc/NF3whFmJ/Screen-Shot-2019-03-14-at-10-54-59.png","https://i.postimg.cc/Kzbx9JtK/Screen-Shot-2019-03-14-at-11-09-24.png", "https://i.postimg.cc/tTDQByXf/Screen-Shot-2019-03-14-at-11-10-42.png",
+                "https://i.postimg.cc/NF3whFmJ/Screen-Shot-2019-03-14-at-10-54-59.png","https://i.postimg.cc/Kzbx9JtK/Screen-Shot-2019-03-14-at-11-09-24.png", "https://i.postimg.cc/tTDQByXf/Screen-Shot-2019-03-14-at-11-10-42.png",
+                "https://i.postimg.cc/NF3whFmJ/Screen-Shot-2019-03-14-at-10-54-59.png","https://i.postimg.cc/Kzbx9JtK/Screen-Shot-2019-03-14-at-11-09-24.png", "https://i.postimg.cc/tTDQByXf/Screen-Shot-2019-03-14-at-11-10-42.png"
+    ]
+    // need to create the whole object, it will go to the web link for that item.
+    // it displays that picture and a label - not sure sure what label should be? Price, description,not sure what will look best/
     
     
     var data: Shop? {
@@ -61,30 +77,33 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return urls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GiftSpecificCollectionViewCell
-        
-        if let url = urls.
-        {
-            do {
-                
-                let image = ImageResource(downloadURL: url, cacheKey: url.path)
-                cell.giftImageView.kf.setImage(with: image)
-                
-            }
-            catch {
-                print("imageURL was not able to be converted into data") //
-            }
-            cell.giftLabel.text = urls[indexPath.row]
-        
+        let url = urls[indexPath.row]
+        cell.giftImageView.downloadImage(from: url)
+        cell.giftImageView.clipsToBounds = true
+            cell.giftLabel.text = "$100 - When you first open the example app, you'll see many items and sections pre-populated. Most items are configured to self-size based on the text they're displaying."
+//should I just put a shopping bag icon as the button?
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
+        
+        // sorry?
+        
+    }
     
     
     

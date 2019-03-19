@@ -45,12 +45,22 @@ class ProfileHeader: UICollectionReusableView {
             let ageInterval = Date().timeIntervalSince(birthdate)
             age = Int(ageInterval / (60 * 60 * 24 * 365))
             ageLabel.text = String(age)
-            countDownLabel.text = countDownToBirthday(birthdate)
+            countDownLabel.text = countDown(toBirthdate: birthdate)
         } else {
             ageLabel.text = "N/A"
+            countDownLabel.text = "N/A"
         }
     
         
+        // you cna edit the page, change the link to the top button
+        // time not sure, but you can add to the collection view
+        //thats the end
+        // is it ok if change it from 11m 2d to 11(month underneath) 2 ( days underneath)
+        
+        //do the firebase
+        //ok thanks
+        
+// change how it shows month and day not sure how but it looks a little weird haha
     
         
         // I need to give them the option to not put their birthday/age
@@ -117,33 +127,6 @@ class ProfileHeader: UICollectionReusableView {
             
         }
         
-    }
-
-    func countDownToBirthday(_ birthday: Date) -> String {
-        let day = birthday.day
-        let month = birthday.month
-        let today = Date()
-        let thisDay = today.day
-        let thisMonth = today.month
-        var year: Int = today.year
-        if day < thisDay && month <= thisMonth {
-            year = today.year + 1
-        } else {
-            return "Today"
-        }
-        
-        guard let upcomingBirthday = Date.dateFrom(year: year, month: month, day: day) else { return "N/A" }
-        let interval = upcomingBirthday.timeIntervalSinceNow
-
-        let secondsOneDay: Double = 24 * 60 * 60
-        let days = interval / secondsOneDay
-        if days > 30 {
-            let months = Int(days / 30)
-            let daysRemain = Int(days.truncatingRemainder(dividingBy: 30))
-            return "\(months)m \(daysRemain)d"
-        } else {
-            return "\(Int(days))"
-        }
     }
 
     
@@ -257,6 +240,74 @@ class ProfileHeader: UICollectionReusableView {
         let controller = UploadPostViewController.create()
         
         parentController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func countDown(toBirthdate: Date) -> String {
+        let today = Date()
+        let thisDay = today.day
+        let thisMonth = today.month
+        let birthDay = toBirthdate.day
+        let birthMonth = toBirthdate.month
+        
+        let months = [
+            1: 31,
+            2: 28,
+            3: 31,
+            4: 30,
+            5: 31,
+            6: 30,
+            7: 31,
+            8: 31,
+            9: 30,
+            10: 31,
+            11: 30,
+            12: 31
+        ]
+        
+        var monthCount = 0
+        var dayCount = 0
+        
+        let dayInMonth = months[thisMonth] ?? 31
+        if thisMonth == birthMonth {
+            if thisDay == birthDay {
+                monthCount = 0
+                dayCount = 0
+            } else if thisDay > birthDay {
+                monthCount = 11
+                dayCount = dayInMonth - (thisDay - birthDay)
+            } else if thisDay < birthDay {
+                monthCount = 0
+                dayCount = birthDay - thisDay
+            }
+        } else if thisMonth < birthMonth {
+            if thisDay == birthDay {
+                monthCount = birthMonth - thisMonth
+                dayCount = 0
+            } else if thisDay > birthDay {
+                monthCount = birthMonth - thisMonth - 1
+                dayCount = dayInMonth - (thisDay - birthDay)
+            } else if thisDay < birthDay {
+                monthCount = birthMonth - thisMonth
+                dayCount = birthDay - thisDay
+            }
+        } else if thisMonth > birthMonth {
+            if thisDay == birthDay {
+                monthCount = thisMonth - birthMonth
+                dayCount = 0
+            } else if thisDay > birthDay {
+                monthCount = 12 - (thisMonth - birthMonth)
+                dayCount = dayInMonth - (thisDay - birthDay)
+            } else if thisDay < birthDay {
+                monthCount = 12 - (thisMonth - birthMonth)
+                dayCount = birthDay - thisDay
+            }
+        }
+        
+        let monthString = monthCount > 0 ? "\(monthCount)m " : ""
+        let dayString = dayCount > 0 ? "\(dayCount)d" : ""
+        let result = monthCount == 0 && dayCount == 0 ? "Today" : "\(monthString)\(dayString)"
+        return result
+        
     }
     
 }
