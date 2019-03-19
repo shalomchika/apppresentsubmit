@@ -130,11 +130,11 @@
         <!--gifting-->
         <scene sceneID="NCT-EQ-aNB">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWz-0L-har" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="UINavigationController-M7x-jp-yyR" storyboardName="gifting" id="gtb-Rz-pnv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="YGV-DA-A3Z"/>
                     <navigationItem key="navigationItem" id="2dv-h4-98H"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iWz-0L-har" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2163" y="-150"/>
         </scene>

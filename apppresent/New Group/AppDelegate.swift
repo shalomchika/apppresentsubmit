@@ -41,16 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         //Messaging.messaging().delegate = self
         setupApp()
+
         return true
     }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    func applicationWillTerminate(_ application: UIApplication) {
-        
-    }
-    
+
+
+
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
@@ -87,17 +83,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
+    // // three elements
+    // favoourite shops in collection view,
+    //favourite placces in the collection view
+    // favourite links, so a clickable url to a website on the webbrowser the user inputs
+    
+    // I dont mind how th UI layout is, just what is simplest, so we can put shops and places in one collection view and links in the other or have three collection views???
+    // if I use your set up, then I guess the links will be at the top
+    // the other collecction views will be the places and shops.
+    
+    // or anythign simmpler or better?
     
 
     func setupApp() {
+        
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         if Setting.didLogin {
             window!.rootViewController = AppTabViewController.create()
         } else {
             window!.rootViewController = UINavigationController(rootViewController: LoginViewController.create())
         }
-//        window!.rootViewController = ProfilePageViewController.create()
-        
+        //window!.rootViewController = GiftController()
+
         window!.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
     }

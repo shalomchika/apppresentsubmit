@@ -39,6 +39,7 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let myId = Auth.auth().currentUser?.uid else { return }
+        /*
         let shopDB = Database.database().reference().child("shops")
             .observe(.value) { (returnData) in
                 guard let rawData = returnData.value as? [String: Any] else { return }
@@ -49,6 +50,7 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
             self.placearray = Array(rawData.values).map({ return Place(rawData: $0) })
             print(self.placearray)
         }
+    */
         
        self.shoptableview.delegate  = self
       self.placetableview.delegate = self
@@ -105,9 +107,9 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
             //let optionalString = datasource[indexPath.row].fullname?.description
             
             // now unwrap it
-            var dataname = shopdatasource[indexPath.row].name
-            print(dataname)
-            cell.shopnamelbl.text = dataname!
+            //var dataname = shopdatasource[indexPath.row].name
+            //print(dataname)
+            //cell.shopnamelbl.text = dataname!
             return cell
         }
         

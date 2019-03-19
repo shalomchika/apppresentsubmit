@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0AEB35BB7AC7757EF0EAECB8 /* Pods_apppresentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */; };
+		2666C6C02238F3BB0072964A /* GiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6BF2238F3BB0072964A /* GiftController.swift */; };
+		2666C6C42238F3F00072964A /* knStaticListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C12238F3F00072964A /* knStaticListController.swift */; };
+		2666C6C62238F3F00072964A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C32238F3F00072964A /* Extension.swift */; };
+		2666C6C82238F40C0072964A /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C72238F40B0072964A /* CategoryView.swift */; };
+		2666C6CA2238F4A50072964A /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C92238F4A50072964A /* RewardView.swift */; };
 		26C42F6D222D35EC006C5165 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C42F6C222D35EC006C5165 /* UIViewExtension.swift */; };
 		26C42F6F222D36BD006C5165 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C42F6E222D36BD006C5165 /* Colors.swift */; };
 		26C42F71222D36EA006C5165 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C42F70222D36EA006C5165 /* UIColorExtension.swift */; };
@@ -91,6 +96,11 @@
 
 /* Begin PBXFileReference section */
 		1858E937DD2E08AD515173A9 /* Pods_apppresent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apppresent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2666C6BF2238F3BB0072964A /* GiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftController.swift; sourceTree = "<group>"; };
+		2666C6C12238F3F00072964A /* knStaticListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knStaticListController.swift; sourceTree = "<group>"; };
+		2666C6C32238F3F00072964A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2666C6C72238F40B0072964A /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		2666C6C92238F4A50072964A /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		26C42F6C222D35EC006C5165 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		26C42F6E222D36BD006C5165 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		26C42F70222D36EA006C5165 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -252,6 +262,11 @@
 				5241DC31222C840900103C7F /* Shop.swift */,
 				5241DC2D222C835400103C7F /* ShopGiftCell.swift */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
+				2666C6BF2238F3BB0072964A /* GiftController.swift */,
+				2666C6C32238F3F00072964A /* Extension.swift */,
+				2666C6C92238F4A50072964A /* RewardView.swift */,
+				2666C6C72238F40B0072964A /* CategoryView.swift */,
+				2666C6C12238F3F00072964A /* knStaticListController.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -696,6 +711,7 @@
 				5241DC40222FEE3800103C7F /* ReferralPopup.swift in Sources */,
 				52F1DFF72238790C002F7A55 /* ReminderViewController.swift in Sources */,
 				26C42F6F222D36BD006C5165 /* Colors.swift in Sources */,
+				2666C6C02238F3BB0072964A /* GiftController.swift in Sources */,
 				528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */,
 				52D30D0021DFA912005E3128 /* PostData.swift in Sources */,
 				52645CE121E7B15700413DC1 /* InitialNavViewController.swift in Sources */,
@@ -705,13 +721,16 @@
 				52713E9221CD2DCB00409294 /* AppDelegate.swift in Sources */,
 				52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */,
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
+				2666C6CA2238F4A50072964A /* RewardView.swift in Sources */,
 				5241DC30222C83FE00103C7F /* Place.swift in Sources */,
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,
+				2666C6C62238F3F00072964A /* Extension.swift in Sources */,
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
 				5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */,
 				52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */,
 				26C42F85222E501A006C5165 /* knUIMaker.swift in Sources */,
 				26C42F71222D36EA006C5165 /* UIColorExtension.swift in Sources */,
+				2666C6C42238F3F00072964A /* knStaticListController.swift in Sources */,
 				52D30CFE21DFA1B8005E3128 /* CustomImageFlowLayout.swift in Sources */,
 				5241DC42222FEFB500103C7F /* KnPopup.swift in Sources */,
 				26C42F8A222E5BDE006C5165 /* ProfileHeader.swift in Sources */,
@@ -734,6 +753,7 @@
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
 				5241DC32222C840900103C7F /* Shop.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
+				2666C6C82238F40C0072964A /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

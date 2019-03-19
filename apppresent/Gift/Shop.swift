@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
+/*
 struct Shop {
     
     var url: String!
@@ -70,3 +71,5 @@ struct Shop {
     }
 }
 
+
+ */

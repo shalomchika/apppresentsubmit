@@ -45,6 +45,7 @@ class ProfileHeader: UICollectionReusableView {
             let ageInterval = Date().timeIntervalSince(birthdate)
             age = Int(ageInterval / (60 * 60 * 24 * 365))
             ageLabel.text = String(age)
+            countDownLabel.text = countDownToBirthday(birthdate)
         } else {
             ageLabel.text = "N/A"
         }
@@ -116,6 +117,33 @@ class ProfileHeader: UICollectionReusableView {
             
         }
         
+    }
+
+    func countDownToBirthday(_ birthday: Date) -> String {
+        let day = birthday.day
+        let month = birthday.month
+        let today = Date()
+        let thisDay = today.day
+        let thisMonth = today.month
+        var year: Int = today.year
+        if day < thisDay && month <= thisMonth {
+            year = today.year + 1
+        } else {
+            return "Today"
+        }
+        
+        guard let upcomingBirthday = Date.dateFrom(year: year, month: month, day: day) else { return "N/A" }
+        let interval = upcomingBirthday.timeIntervalSinceNow
+
+        let secondsOneDay: Double = 24 * 60 * 60
+        let days = interval / secondsOneDay
+        if days > 30 {
+            let months = Int(days / 30)
+            let daysRemain = Int(days.truncatingRemainder(dividingBy: 30))
+            return "\(months)m \(daysRemain)d"
+        } else {
+            return "\(Int(days))"
+        }
     }
 
     
@@ -238,5 +266,10 @@ extension String {
     func toDate() -> Date? {
         guard let timestamp = Double(self) else { return nil }
         return Date(timeIntervalSince1970: timestamp)
+    }
+    
+    func changeDate(_ mydate:String) -> Date{
+        guard let interval = Double(mydate) else { return Date() }
+        return Date(timeIntervalSince1970: interval)
     }
 }

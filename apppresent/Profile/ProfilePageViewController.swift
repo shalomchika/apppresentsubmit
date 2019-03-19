@@ -77,6 +77,13 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 
             }))
             
+            controller.addAction(UIAlertAction(title: "View Favourite Gifts", style: .default, handler: { [weak self] _ in
+                let sizepopup = self?.showReferralPopup()
+                
+                
+                
+            }))
+            
             controller.addAction(UIAlertAction(title: "Add Reminder", style: .default, handler: { [weak self] _ in
                 let reminderController = ReminderViewController.create()
                 reminderController.userProfile = self?.currentuserdata
