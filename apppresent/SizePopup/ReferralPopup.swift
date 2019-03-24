@@ -39,6 +39,9 @@ class ReferralPopup: knView {
     }()
     
     
+    let shoesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor.c_102_100_247, alignment: .center)
+    let clothesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor.c_102_100_247, alignment: .center)
+    
     // wanted the current user to edit their clothes and shoe size ( I had the code for it before but not with the correct UI)
     // How to use UI with that code.
     // User adds size with date pickers
@@ -160,6 +163,7 @@ class ReferralPopup: knView {
      }
      
  */
+    // thats the code for the edir profile page, I took it from a different branch.
     func show(in view: UIView) {
         addSubviews(views: blackView, container)
         blackView.fill(toView: self)
@@ -242,13 +246,12 @@ class ReferralPopup: knView {
  */
         
         
-        let codeLabel = UIMaker.makeLabel(text: "SIZE DETAILS",
-                                          font: UIFont.boldSystemFont(ofSize: 40),
-                                          color: UIColor.color(r: 242, g: 64, b: 65),
-                                          alignment: .center)
+        let shoesTitle = UIMaker.makeLabel(text: "Shoes size", font: UIFont.systemFont(ofSize: 15), color: .black)
+        let clothesTitle = UIMaker.makeLabel(text: "Shoes size", font: UIFont.systemFont(ofSize: 15), color: .black)
         
         
-        container.addSubviews(views: circle, label, okButton, logo, codeTitle, codeLabel)
+        container.addSubviews(views: circle, label, okButton, logo, codeTitle)
+        container.addSubviews(views: shoesTitle, shoesSizeLabel, clothesTitle, clothesSizeLabel)
         
         // (1)
         label.top(toView: container, space: 24)
@@ -274,17 +277,32 @@ class ReferralPopup: knView {
         codeTitle.verticalSpacing(toView: logo, space: 24)
         
         // (5)
-        codeLabel.centerX(toView: container)
-        codeLabel.verticalSpacing(toView: codeTitle, space: 8)
+        
+        shoesTitle.left(toView: container, space: 24)
+        shoesTitle.verticalSpacing(toView: codeTitle, space: 24)
+        
+        shoesSizeLabel.centerX(toView: container)
+        shoesSizeLabel.bottom(toView: shoesTitle, space: 2)
+        
+        clothesTitle.left(toView: shoesTitle)
+        clothesTitle.bottom(toView: clothesSizeLabel)
+        
+        clothesSizeLabel.centerX(toView: container)
+        clothesSizeLabel.verticalSpacing(toView: shoesSizeLabel, space: 24)
         
         // (6)
-        okButton.verticalSpacing(toView: codeLabel, space: 24)
+        okButton.verticalSpacing(toView: clothesSizeLabel, space: 24)
         okButton.bottom(toView: container, space: -24)
         okButton.horizontal(toView: container, space: 36)
         okButton.createRoundCorner(28)
         
         okButton.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
         blackView.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
+        
+        
+        
+        shoesSizeLabel.text = "UK 5"
+        clothesSizeLabel.text = "UK 5"
     }
    
 }

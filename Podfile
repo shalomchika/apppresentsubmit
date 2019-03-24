@@ -15,6 +15,7 @@ pod 'Firebase/Core'
 pod 'SDWebImage/WebP'
 pod 'Firebase/Messaging'
 pod 'GravitySliderFlowLayout'
+pod 'PKHUD', '~> 5.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'

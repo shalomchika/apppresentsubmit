@@ -111,6 +111,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PKHUD (5.2.1)
   - Protobuf (3.6.1)
   - SDWebImage/Core (4.4.3)
   - SDWebImage/WebP (4.4.3):
@@ -126,6 +127,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GravitySliderFlowLayout
   - Kingfisher (~> 5.0)
+  - PKHUD (~> 5.0)
   - SDWebImage/WebP
 
 SPEC REPOS:
@@ -149,6 +151,7 @@ SPEC REPOS:
     - leveldb-library
     - libwebp
     - nanopb
+    - PKHUD
     - Protobuf
     - SDWebImage
 
@@ -172,9 +175,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: a774e0dbc8f1f29a86b5cc8409c94cd6442d5b0e
+PODFILE CHECKSUM: 0b52c7586571ddfee2774f9d18c45900c2ac5d34
 
 COCOAPODS: 1.5.3

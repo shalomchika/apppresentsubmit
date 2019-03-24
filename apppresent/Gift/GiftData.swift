@@ -10,20 +10,22 @@ import Foundation
 import UIKit
 import Firebase
 
-/*
-struct Shop {
+struct GiftData {
     
     var url: String!
-    var name: String!
+    var description: String!
+    var image: String!
     var key: String!
     var itemRef :DatabaseReference?
-    
+    var created: Double = 0
+    /*
     init(url:String, name:String, key:String, itemRef:String) {
         self.key = key
         self.itemRef = nil
         self.url = url
         self.name = name
     }
+ */
     init(snapshot: DataSnapshot)
     {
         key = snapshot.key
@@ -31,8 +33,8 @@ struct Shop {
         
         var snapshotvalue = snapshot.value as? NSDictionary
         
-        if let shopimage = snapshotvalue?["url"] as? String {
-            url = shopimage
+        if let gifturl = snapshotvalue?["url"] as? String {
+            url = gifturl
             //  print(url)
         }
             
@@ -41,13 +43,13 @@ struct Shop {
         }
         
         
-        if let shopname = snapshotvalue?["name"] as? String {
-            name = shopname
+        if let giftdescription = snapshotvalue?["description"] as? String {
+            description = giftdescription
             //  print(url)
         }
             
         else {
-            url = ""
+            description = ""
         }
         print("THIS IS name TEST on firebase")
         // print("THIS IS URL TEST on firebase")
@@ -57,6 +59,16 @@ struct Shop {
         // print(caption)
         
         
+        if let giftimage = snapshotvalue?["imageUrl"] as? String {
+            image = giftimage
+            //  print(url)
+        }
+            
+        else {
+            image = ""
+        }
+        print("THIS IS name TEST on firebase")
+        
         
         
     }
@@ -64,12 +76,13 @@ struct Shop {
     var userId: String?
     init(rawData: Any) {
         guard let data = rawData as? [String: Any] else { return }
-        userId = data["userID"] as? String
-        url = data["image"] as? String ?? "url"
-        name = data["name"] as? String ?? "name"
+        url = data["link"] as? String
+        description = data["description"] as? String ?? "url"
+        image = data["imageUrl"] as? String ?? "name"
+        created = data["created"] as? Double ?? 0
         
     }
 }
 
 
- */
+

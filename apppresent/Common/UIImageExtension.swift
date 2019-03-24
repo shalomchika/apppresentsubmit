@@ -14,11 +14,14 @@ extension UIView {
         layer.cornerRadius = radius
         layer.masksToBounds = true
     }
-}
+} //the gif?
 
-
+// is it possible to reference it ? or no? just need the link to the github
 extension UIImageView {
     func downloadImage(from url: String?, placeholder: UIImage? = nil) {
+        if placeholder == nil {
+            image = UIImage(named: "imagePlaceholder")
+        }
         guard let url = url, let nsurl = URL(string: url) else { return }
         kf.setImage(with: ImageResource(downloadURL: nsurl), placeholder: placeholder)
     }

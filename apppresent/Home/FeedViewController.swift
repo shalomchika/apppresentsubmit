@@ -169,7 +169,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // any books you reccommend for after
                 
                 // add more users
-                // add mroe posts from different users. 
+                // add mroe posts from different users.
+            // carry one sorry
                 let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
                 self.datasource = myFollowerPosts.sorted(by: { return $0.timestamp < $1.timestamp })
                 self.feedTableView.reloadData()

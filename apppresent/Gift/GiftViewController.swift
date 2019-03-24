@@ -8,9 +8,9 @@
 
 import UIKit
 import Firebase
-
+/*
 class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
-  
+  /*
     @IBOutlet weak var shoptableview: UITableView!
     @IBOutlet weak var placetableview: UITableView!
     
@@ -115,5 +115,6 @@ class GiftViewController: UIViewController , UITableViewDelegate, UITableViewDat
         
     }
     
-
+*/
 }
+ */

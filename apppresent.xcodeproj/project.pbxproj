@@ -29,16 +29,13 @@
 		5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6921FF7C6700524276 /* GoogleService-Info.plist */; };
 		5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5241CD6E21FF7D2600524276 /* Info copy.plist */; };
 		5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */; };
-		5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2D222C835400103C7F /* ShopGiftCell.swift */; };
-		5241DC30222C83FE00103C7F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC2F222C83FE00103C7F /* Place.swift */; };
-		5241DC32222C840900103C7F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC31222C840900103C7F /* Shop.swift */; };
+		5241DC32222C840900103C7F /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC31222C840900103C7F /* GiftData.swift */; };
 		5241DC40222FEE3800103C7F /* ReferralPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC3F222FEE3800103C7F /* ReferralPopup.swift */; };
 		5241DC42222FEFB500103C7F /* KnPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC41222FEFB500103C7F /* KnPopup.swift */; };
 		5241DC46222FF08100103C7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC45222FF08000103C7F /* Extensions.swift */; };
 		5241DC48222FF08300103C7F /* UIMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC47222FF08300103C7F /* UIMaker.swift */; };
 		5241DC4A222FF08600103C7F /* knConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC49222FF08500103C7F /* knConstraints.swift */; };
 		5250B6AD22403347009C0CB3 /* GiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6AC22403347009C0CB3 /* GiftManager.swift */; };
-		5250B6AF224056AE009C0CB3 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6AE224056AE009C0CB3 /* PresentViewController.swift */; };
 		5250B6B32241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */; };
 		525FC41F22346BC90097135C /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FC41E22346BC90097135C /* Datasource.swift */; };
 		52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52645CD621E79D4A00413DC1 /* GiftViewController.swift */; };
@@ -55,6 +52,10 @@
 		52713EA721CD2DCD00409294 /* apppresentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52713EA621CD2DCD00409294 /* apppresentTests.swift */; };
 		52713EB221CD2DCD00409294 /* apppresentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52713EB121CD2DCD00409294 /* apppresentUITests.swift */; };
 		528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528117F321E696EA00AD9E4F /* PostDetail.swift */; };
+		52864C792246586D008E76B2 /* AddGiftItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52864C782246586D008E76B2 /* AddGiftItemViewController.swift */; };
+		52864C7B22466530008E76B2 /* ContributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52864C7A22466530008E76B2 /* ContributionViewController.swift */; };
+		52864C7D22467929008E76B2 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 52864C7C22467928008E76B2 /* loading.gif */; };
+		52864C7F22467981008E76B2 /* UIImageGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52864C7E22467981008E76B2 /* UIImageGif.swift */; };
 		52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A4DB2921E4C0D7008D1110 /* postHeaderView.swift */; };
 		52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */; };
 		52C3D1D121ED1BFA00DF7F41 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C3D1D021ED1BFA00DF7F41 /* login.storyboard */; };
@@ -123,16 +124,13 @@
 		5241CD6921FF7C6700524276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5241CD6E21FF7D2600524276 /* Info copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = "<group>"; };
 		5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceGiftCell.swift; sourceTree = "<group>"; };
-		5241DC2D222C835400103C7F /* ShopGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopGiftCell.swift; sourceTree = "<group>"; };
-		5241DC2F222C83FE00103C7F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		5241DC31222C840900103C7F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		5241DC31222C840900103C7F /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 		5241DC3F222FEE3800103C7F /* ReferralPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralPopup.swift; sourceTree = "<group>"; };
 		5241DC41222FEFB500103C7F /* KnPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnPopup.swift; sourceTree = "<group>"; };
 		5241DC45222FF08000103C7F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5241DC47222FF08300103C7F /* UIMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMaker.swift; sourceTree = "<group>"; };
 		5241DC49222FF08500103C7F /* knConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = knConstraints.swift; sourceTree = "<group>"; };
 		5250B6AC22403347009C0CB3 /* GiftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftManager.swift; sourceTree = "<group>"; };
-		5250B6AE224056AE009C0CB3 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftSpecificCollectionViewCell.swift; sourceTree = "<group>"; };
 		525FC41E22346BC90097135C /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		52645CD621E79D4A00413DC1 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +153,10 @@
 		52713EB321CD2DCD00409294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528117F321E696EA00AD9E4F /* PostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetail.swift; sourceTree = "<group>"; };
 		5281EB6422021257006DF175 /* apppresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = apppresent.entitlements; sourceTree = "<group>"; };
+		52864C782246586D008E76B2 /* AddGiftItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftItemViewController.swift; sourceTree = "<group>"; };
+		52864C7A22466530008E76B2 /* ContributionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionViewController.swift; sourceTree = "<group>"; };
+		52864C7C22467928008E76B2 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		52864C7E22467981008E76B2 /* UIImageGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageGif.swift; sourceTree = "<group>"; };
 		52A4DB2921E4C0D7008D1110 /* postHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postHeaderView.swift; sourceTree = "<group>"; };
 		52A4DB2B21E4CF62008D1110 /* UploadPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewController.swift; sourceTree = "<group>"; };
 		52C3D1D021ED1BFA00DF7F41 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		5241CD5521FF6E1400524276 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				52864C7C22467928008E76B2 /* loading.gif */,
 				52713E9121CD2DCB00409294 /* AppDelegate.swift */,
 				52713E9821CD2DCD00409294 /* Assets.xcassets */,
 				52713E9A21CD2DCD00409294 /* LaunchScreen.storyboard */,
@@ -245,6 +248,7 @@
 				26C42F70222D36EA006C5165 /* UIColorExtension.swift */,
 				26C42F72222D379C006C5165 /* UITextFieldExtension.swift */,
 				26C42F6E222D36BD006C5165 /* Colors.swift */,
+				52864C7E22467981008E76B2 /* UIImageGif.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -263,13 +267,12 @@
 			isa = PBXGroup;
 			children = (
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
+				52864C7A22466530008E76B2 /* ContributionViewController.swift */,
 				5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */,
 				2666C6BF2238F3BB0072964A /* GiftController.swift */,
-				5250B6AE224056AE009C0CB3 /* PresentViewController.swift */,
+				52864C782246586D008E76B2 /* AddGiftItemViewController.swift */,
 				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
-				5241DC2F222C83FE00103C7F /* Place.swift */,
-				5241DC31222C840900103C7F /* Shop.swift */,
-				5241DC2D222C835400103C7F /* ShopGiftCell.swift */,
+				5241DC31222C840900103C7F /* GiftData.swift */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
 				2666C6C32238F3F00072964A /* Extension.swift */,
 				2666C6C92238F4A50072964A /* RewardView.swift */,
@@ -582,6 +585,7 @@
 				52C3D1DB21ED1CE100DF7F41 /* search.storyboard in Resources */,
 				52D6D57A22397C2F0038FC74 /* size.storyboard in Resources */,
 				52713E9721CD2DCB00409294 /* Main.storyboard in Resources */,
+				52864C7D22467929008E76B2 /* loading.gif in Resources */,
 				26C42F8B222E5BDE006C5165 /* ProfileHeader.xib in Resources */,
 				52C3D1D521ED1C6300DF7F41 /* home.storyboard in Resources */,
 			);
@@ -640,6 +644,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/GravitySliderFlowLayout/GravitySliderFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -655,6 +660,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GravitySliderFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -729,17 +735,15 @@
 				52713E9421CD2DCB00409294 /* LoginViewController.swift in Sources */,
 				5241DC2C222C82E700103C7F /* PlaceGiftCell.swift in Sources */,
 				26C42F6D222D35EC006C5165 /* UIViewExtension.swift in Sources */,
-				5250B6AF224056AE009C0CB3 /* PresentViewController.swift in Sources */,
+				52864C7B22466530008E76B2 /* ContributionViewController.swift in Sources */,
 				52713E9221CD2DCB00409294 /* AppDelegate.swift in Sources */,
 				52D30CFC21DF9BF8005E3128 /* CollectionViewCell.swift in Sources */,
 				52645CDD21E79EAD00413DC1 /* AppTabViewController.swift in Sources */,
 				2666C6CA2238F4A50072964A /* RewardView.swift in Sources */,
-				5241DC30222C83FE00103C7F /* Place.swift in Sources */,
 				52A4DB2C21E4CF62008D1110 /* UploadPostViewController.swift in Sources */,
 				2666C6C62238F3F00072964A /* Extension.swift in Sources */,
 				52FD920321DD01760021B3A0 /* EditProfileViewController.swift in Sources */,
 				5250B6AD22403347009C0CB3 /* GiftManager.swift in Sources */,
-				5241DC2E222C835400103C7F /* ShopGiftCell.swift in Sources */,
 				52A4DB2A21E4C0D7008D1110 /* postHeaderView.swift in Sources */,
 				26C42F85222E501A006C5165 /* knUIMaker.swift in Sources */,
 				26C42F71222D36EA006C5165 /* UIColorExtension.swift in Sources */,
@@ -750,6 +754,7 @@
 				5250B6B32241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift in Sources */,
 				525FC41F22346BC90097135C /* Datasource.swift in Sources */,
 				52339EAC2204C35800059075 /* UserData.swift in Sources */,
+				52864C7F22467981008E76B2 /* UIImageGif.swift in Sources */,
 				5241DC46222FF08100103C7F /* Extensions.swift in Sources */,
 				523F617621EFBF58008D8F41 /* Database.swift in Sources */,
 				52D893A521CE2D4300FCAA5D /* RegisterDetailVCViewController.swift in Sources */,
@@ -764,8 +769,9 @@
 				52339EAE2206025000059075 /* SearchTableViewCell.swift in Sources */,
 				5241DC48222FF08300103C7F /* UIMaker.swift in Sources */,
 				26C42F73222D379D006C5165 /* UITextFieldExtension.swift in Sources */,
+				52864C792246586D008E76B2 /* AddGiftItemViewController.swift in Sources */,
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
-				5241DC32222C840900103C7F /* Shop.swift in Sources */,
+				5241DC32222C840900103C7F /* GiftData.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
 				2666C6C82238F40C0072964A /* CategoryView.swift in Sources */,
 			);

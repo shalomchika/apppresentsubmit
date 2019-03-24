@@ -15,63 +15,48 @@ import FirebaseAuth
 
 //https:github.com/suzuki-0000/CountdownLabel/blob/master/README.md
 class ProfileHeader: UICollectionReusableView {
+    //set the root view controller for tab
     weak var  parentController: ProfilePageViewController?
     var data: UserData?
     var datasourcecount: Int = 0
     var birthday: String?
     var birthdate: Date?
     var age: Int = 0
-    // back arrow to iamge
+    //set variables for profile user details view
     
-    
+    //set variable buttons for actions and navigation
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    // I should always take the birthday when user . but I allow their age
+    
+    // follow is true and false, instead of 1 or remove 1 ( the node), for future reference with a lot of users is it better to remove the node, than to set it at false for every person they have ever followed? C
     
     func setPostCount(_ count: Int) {
         postCountLabel.text = String(count)
     }
     
+    // set the data using the user from firebase from user data structure
     func setData(_ data: UserData) {
         self.data = data
         nameLabel.text = data.fullname
         avatarImageView.downloadImage(from: data.profileimageurl)
         statusLabel.text = data.status
-    
+        // if birthday exists, convert to date
         if let birthday = data.birthday, birthday.isEmpty == false,
             let birthdate = birthday.toDate() {
+            
             self.birthday = birthday
             self.birthdate = birthdate
+            //convert birthday to an age
             let ageInterval = Date().timeIntervalSince(birthdate)
             age = Int(ageInterval / (60 * 60 * 24 * 365))
             ageLabel.text = String(age)
             countDownLabel.text = countDown(toBirthdate: birthdate)
+        //
         } else {
             ageLabel.text = "N/A"
             countDownLabel.text = "N/A"
         }
     
-        
-        // you cna edit the page, change the link to the top button
-        // time not sure, but you can add to the collection view
-        //thats the end
-        // is it ok if change it from 11m 2d to 11(month underneath) 2 ( days underneath)
-        
-        //do the firebase
-        //ok thanks
-        
-// change how it shows month and day not sure how but it looks a little weird haha
-    
-        
-        // I need to give them the option to not put their birthday/age
-        // there is no birthday saved in my database for some people because I made it up
-        // Should I ask them for their birthday and age still but give them the option to hide it?
-        // From a few surveys some people feel uncomfortable showing their age, but I guess they would still use it for people to know how many days until their birthday, so its their age not their birthday they want to hide.
-        
-       // countDownLabel.text =
-        
-    
-        
         
         if checkIsMyProfile(data) {
             backButton.isHidden = true
@@ -79,7 +64,7 @@ class ProfileHeader: UICollectionReusableView {
             followButton.addTarget(self, action: #selector(createPost), for: .touchUpInside)
         } else {
             backButton.isHidden = false
-            
+            followButton.addTarget(self, action: #selector(changeFollowStatus), for: .touchUpInside)
             checkFollowStatus()
         }
     }
@@ -92,7 +77,7 @@ class ProfileHeader: UICollectionReusableView {
             .child(friendId)
             .observeSingleEvent(of: .value) {[weak self] (snapshot) in
                 guard let value = snapshot.value as? Bool else {
-                    // when in runs into this: -> you didn't fllow thisguy or the value is incorrect (changed by somereason)
+                    // when in runs into this: -> you didn't fllow thisguy or the value is incorrect
                     // -< consider not folow yet
                     self?.updateFollowStatus(false)
                     return
@@ -129,35 +114,24 @@ class ProfileHeader: UICollectionReusableView {
         
     }
 
-    
     func updateFollowStatus(_ didFollow: Bool) {
         setFollowButton(by: didFollow)
-        if didFollow {
-            followButton.addTarget(self, action: #selector(unFollowThisGuy), for: .touchUpInside)
-            followButton.removeTarget(self, action: #selector(followThisGuy), for: .touchUpInside)
-        } else {
-            followButton.addTarget(self, action: #selector(followThisGuy), for: .touchUpInside)
-            followButton.removeTarget(self, action: #selector(unFollowThisGuy), for: .touchUpInside)
-        }
+        self.didFollow = didFollow
     }
     
-   
     var didFollow = false
-    
-    @objc func followThisGuy() {
-        print("OK. Followed")
-        didFollow = true
-        let myId = Setting.myId
-        let toFollowId = data?.userId
-        let tofollowValue = 1
+    @objc func changeFollowStatus() {
+        didFollow = !didFollow
+        guard let myId = Setting.myId,
+            let toFollowId = data?.userId else { return }
+        if didFollow {
+            DatabaseNode.getDb(.following).child(myId).child(toFollowId).setValue(didFollow)
+        } else {
+            DatabaseNode.getDb(.following).child("following").child(myId).child(toFollowId).removeValue()
+        }
         
-        //let ref = Database.database().reference().child("following").child(myId ?? "")
-       
-       //ref.updateChildValues([toFollowId: tofollowValue])
-        // update fire bas
+        updateFollowStatus(didFollow)
         
-        // update button color, title
-        updateFollowStatus(true)
     }
     
     func setFollowButton(by didFollow: Bool) {
@@ -173,21 +147,7 @@ class ProfileHeader: UICollectionReusableView {
             followButton.setBorder(1, color: UIColor.c_102_100_247)
         }
     }
-    
-    @objc func unFollowThisGuy() {
-        print("OK. Not follow anymore ")
-        
-        let myId = Setting.myId
-        let toFollowId = data?.userId
-        
-        //let ref = Database.database().reference().child("following").child(myId ?? "").child(toFollowId ?? "")
-        
-        //ref.removeValue()
-        didFollow = false
-        // update fire base
-        updateFollowStatus(false)
-    }
-    
+
     
     func checkIsMyProfile(_ profile: UserData) -> Bool {
         guard let currentId = profile.userId, let myId = Setting.myId else { return false }
@@ -218,6 +178,8 @@ class ProfileHeader: UICollectionReusableView {
         followButton.backgroundColor = UIColor.c_102_100_247
         followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        
+        
     }
     
     @IBAction func showInfoChoice(_ sender: Any) {
@@ -302,9 +264,10 @@ class ProfileHeader: UICollectionReusableView {
                 dayCount = birthDay - thisDay
             }
         }
-        
-        let monthString = monthCount > 0 ? "\(monthCount)m " : ""
-        let dayString = dayCount > 0 ? "\(dayCount)d" : ""
+        let monthString = monthCount > 0 ? "\(monthCount)  " : ""
+        let dayString = dayCount > 0 ? "\(dayCount)  " : ""
+        //let monthString = monthCount > 0 ? "\(monthCount)m " : ""
+        //let dayString = dayCount > 0 ? "\(dayCount)d" : ""
         let result = monthCount == 0 && dayCount == 0 ? "Today" : "\(monthString)\(dayString)"
         return result
         
