@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import PKHUD
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var feedimageview: UIImageView!

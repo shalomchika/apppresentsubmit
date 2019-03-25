@@ -20,6 +20,9 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
+    var contributionlink = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         paymentButton.addTarget(self, action: #selector(URLButtonPressed), for: .touchUpInside)
@@ -31,14 +34,15 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         collectionView.collectionViewLayout = gravitySliderLayout
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        //collectionView.reloadData()
         
     }
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchData()
+        fetchLink()
     }
+ */
     
     var datasource = [GiftData]() {
         didSet {
@@ -47,8 +51,27 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
+    func fetchLink() {
+        let poolDB = DatabaseNode.getDb(.pools).child("owner")
+        
+        
+        poolDB
+            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                if let rawLink = snapshot.value as? String { return }
+                self?.contributionlink = "\(link)"
+                
+       // https://stackoverflow.com/questions/44460165/reading-a-single-value-from-firebase-using-swift
+                
+                
+    }
+    }
+    
     
     @objc func URLButtonPressed(_ sender: Any)  {
+       
+        
+        
+        
         guard let url = URL(string: "https://paypal.me/pools/c/8d7DqcbHSg") else {
             return //be safe
         }
@@ -90,6 +113,10 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         controller.addAction(UIAlertAction(title: "Add Online Gift Item" , style: .default, handler: { [weak self] _ in
             let controller  = AddGiftItemViewController.create()
             
+            controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            //controller.navigationController?.present(controller, animated: true, completion: nil)
+            
+            
             self?.present(controller, animated: true, completion: nil)
             
         }))
@@ -97,6 +124,13 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         controller.addAction(UIAlertAction(title: "Edit Contribution Link", style: .default, handler: { [weak self] _ in
             
             let controller = ContributionViewController.create()
+            
+            
+            
+            
+            controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            //controller.navigationController?.present(controller, animated: true, completion: nil)
+            
             
             self?.present(controller, animated: true, completion: nil)
             

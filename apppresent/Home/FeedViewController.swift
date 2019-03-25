@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 import SDWebImage
-
+import PKHUD
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -37,6 +37,16 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         setupView()
         
     
+        
+    }
+    
+    
+    func viewWillAppear() {
+       // super.viewWillAppear()
+        
+        feedTableView.dataSource = self as! UITableViewDataSource
+        downloadPost()
+        setupView()
         
     }
     
@@ -110,6 +120,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func downloadPost(){
         guard let myId = Auth.auth().currentUser?.uid else { return }
+        if datasource.isEmpty {
+            HUD.show(.progress, onView: view)
+        }
         let postDB = Database.database().reference().child("posts").observe(.value) { (returnData) in
             guard let rawData = returnData.value as? [String: Any] else { return }
             // rawData has many items
@@ -174,6 +187,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
                 self.datasource = myFollowerPosts.sorted(by: { return $0.timestamp < $1.timestamp })
                 self.feedTableView.reloadData()
+                HUD.hide(animated: true)
             })
             
         }
@@ -186,6 +200,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // post retrieved one by one and added to an optional dictionary
         
         //https://www.youtube.com/watch?v=zsFnRvdu96I&t=60s
+        
+      
+        
+
         
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
              print("POSTS!!")
@@ -282,7 +300,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("THIS IS image url")
         //print (datasource)
         print (image.url)
-        cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
+        cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: nil)
+        
+        //cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         cell.feedcaptionlbl.text = image.caption ?? "No caption"
         return cell
     }
@@ -361,6 +381,13 @@ extension FeedViewController {
     
     @objc func createPost() {
          let controller = UploadPostViewController.create()
-        self.navigationController?.pushViewController(controller, animated: true)
+        
+        
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.navigationController?.present(controller, animated: true, completion: nil)
+        //self.present(alertVC, animated: true, completion: nil)
+       //controller.modalPresentationStyle = .p
+        //self.navigationController?.popoverPresentationController(controller)
+        //self.navigationController?.pushViewController(controller, animated: true)
     }
 }

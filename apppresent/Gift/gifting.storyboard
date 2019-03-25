@@ -228,11 +228,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyW-8J-JRg">
+                                <rect key="frame" x="16" y="20" width="36" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="cancel"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8m6-nP-298"/>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="XyW-8J-JRg" id="pLj-bV-M3z"/>
                         <outlet property="linkTextfield" destination="99O-eQ-gGB" id="LXb-tB-Ykc"/>
                     </connections>
                 </viewController>
@@ -535,6 +541,7 @@
     </scenes>
     <resources>
         <image name="21st-birthday-party" width="1950" height="1300"/>
+        <image name="cancel" width="480" height="480"/>
         <image name="close" width="256" height="256"/>
         <image name="moreButton" width="25" height="25"/>
         <image name="store" width="512" height="512"/>

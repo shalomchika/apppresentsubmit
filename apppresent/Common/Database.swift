@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 enum DatabaseNode: String {
-    case followers, following, users, shops
+    case followers, following, users, shops, gifts, pools
     
     static func getDb(_ node: DatabaseNode) -> DatabaseReference {
         let db = Database.database().reference().child(node.rawValue)

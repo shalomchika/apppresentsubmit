@@ -35,6 +35,7 @@
 		5241DC46222FF08100103C7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC45222FF08000103C7F /* Extensions.swift */; };
 		5241DC48222FF08300103C7F /* UIMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC47222FF08300103C7F /* UIMaker.swift */; };
 		5241DC4A222FF08600103C7F /* knConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241DC49222FF08500103C7F /* knConstraints.swift */; };
+		524A4DE822497AE60055F7E6 /* PoolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524A4DE722497AE60055F7E6 /* PoolData.swift */; };
 		5250B6AD22403347009C0CB3 /* GiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6AC22403347009C0CB3 /* GiftManager.swift */; };
 		5250B6B32241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */; };
 		525FC41F22346BC90097135C /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FC41E22346BC90097135C /* Datasource.swift */; };
@@ -130,6 +131,7 @@
 		5241DC45222FF08000103C7F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5241DC47222FF08300103C7F /* UIMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMaker.swift; sourceTree = "<group>"; };
 		5241DC49222FF08500103C7F /* knConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = knConstraints.swift; sourceTree = "<group>"; };
+		524A4DE722497AE60055F7E6 /* PoolData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolData.swift; sourceTree = "<group>"; };
 		5250B6AC22403347009C0CB3 /* GiftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftManager.swift; sourceTree = "<group>"; };
 		5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftSpecificCollectionViewCell.swift; sourceTree = "<group>"; };
 		525FC41E22346BC90097135C /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
@@ -269,10 +271,11 @@
 				52C3D1E421EDFA7700DF7F41 /* gifting.storyboard */,
 				52864C7A22466530008E76B2 /* ContributionViewController.swift */,
 				5250B6B22241734C009C0CB3 /* GiftSpecificCollectionViewCell.swift */,
+				524A4DE722497AE60055F7E6 /* PoolData.swift */,
+				5241DC31222C840900103C7F /* GiftData.swift */,
 				2666C6BF2238F3BB0072964A /* GiftController.swift */,
 				52864C782246586D008E76B2 /* AddGiftItemViewController.swift */,
 				5241DC2B222C82E700103C7F /* PlaceGiftCell.swift */,
-				5241DC31222C840900103C7F /* GiftData.swift */,
 				52645CD621E79D4A00413DC1 /* GiftViewController.swift */,
 				2666C6C32238F3F00072964A /* Extension.swift */,
 				2666C6C92238F4A50072964A /* RewardView.swift */,
@@ -772,6 +775,7 @@
 				52864C792246586D008E76B2 /* AddGiftItemViewController.swift in Sources */,
 				52645CD721E79D4A00413DC1 /* GiftViewController.swift in Sources */,
 				5241DC32222C840900103C7F /* GiftData.swift in Sources */,
+				524A4DE822497AE60055F7E6 /* PoolData.swift in Sources */,
 				5210CC0021DE192600EE0A79 /* FeedViewController.swift in Sources */,
 				2666C6C82238F40C0072964A /* CategoryView.swift in Sources */,
 			);

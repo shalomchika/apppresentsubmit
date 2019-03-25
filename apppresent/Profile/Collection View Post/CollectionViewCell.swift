@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PKHUD
+
 //for image view alone
 
 class CollectionViewCell: UICollectionViewCell {
@@ -14,8 +16,12 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageview: UIImageView!
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         self.imageview.image = nil
-    
+         
+        
+        
+        
     }
     
 }

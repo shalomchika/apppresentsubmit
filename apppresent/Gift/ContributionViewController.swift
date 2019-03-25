@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
 
 class ContributionViewController: UIViewController {
     
@@ -15,14 +18,36 @@ class ContributionViewController: UIViewController {
     }
 
     @IBOutlet weak var linkTextfield: UITextField!
+    
+    @IBOutlet weak var dismissButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        dismissButton.addTarget(self, action: #selector(dismissView ), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
     
+    func updateLink() {
+       
+        let link = linkTextfield.text
+        
+        guard let userid = Auth.auth().currentUser?.uid else { return }
+        let linkDb = Database.database().reference().child("pools").child(userid)
+        //var caption = captionlbl.text
+        let item = [
+                    "owner": userid,
+                    "link": link,
+                    "created": Date().timeIntervalSince1970]
+            as [String : Any?]
+        linkDb.setValue(item)
+        
+    }
     
-    
+    @objc func dismissView()  {
+             dismiss(animated: true)
+        
+     
+    }
     
 
     /*

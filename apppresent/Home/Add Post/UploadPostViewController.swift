@@ -60,12 +60,15 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         
         previewImage.contentMode = .scaleAspectFit
         selectedimage = image
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
+        //pickdismiss(animated: true, completion: nil)
         postbtn.isHidden = false
     }
     
     @objc func goBack() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
+       // navigationController?.popViewController(animated: true)
     }
     
     
@@ -138,7 +141,7 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
  
  */
 //uploadTask.resume()
-    
+    goBack()
         
     }
     
@@ -151,5 +154,7 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

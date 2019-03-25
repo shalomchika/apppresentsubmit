@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import UIKit
-import CountdownLabel
+//import CountdownLabel
 import FirebaseAuth
 
 //https:github.com/suzuki-0000/CountdownLabel/blob/master/README.md
@@ -199,9 +199,19 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     @objc func createPost() {
+        
+        
         let controller = UploadPostViewController.create()
         
-        parentController?.navigationController?.pushViewController(controller, animated: true)
+        
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        parentController?.navigationController?.present(controller, animated: true, completion: nil)
+        
+        
+        
+       // let controller = UploadPostViewController.create()
+        
+        //parentController?.navigationController?.pushViewController(controller, animated: true)
     }
     
     func countDown(toBirthdate: Date) -> String {

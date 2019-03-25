@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import SDWebImage
 import Kingfisher
+import PKHUD
 
 class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var currentuserdata: UserData?
@@ -159,7 +160,17 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     func downloadPost(ofUser user: UserData) {
         guard let userId = user.userId else { return }
+       
+        /*if imageview.image == nil {
+            HUD.show(.progress, onView: imageview)
+        }
+        else {
+            HUD.hide(animated: true)
+        }*/
         
+        if datasource.isEmpty {
+            HUD.show(.progress, onView: view)
+        }
         Database.database().reference(withPath: "posts")
             .queryOrdered(byChild: "userID").queryEqual(toValue: userId) // 2
             .observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
@@ -169,8 +180,11 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 //why herere please explain again?
                 //it runs in deifferent thread -> you dont know when it finishs downloading
                 // if you set in main thread at the same time with profile data -> youget 0
-                //
+                
+                
+                //HUD.show(.progress, onView: view)
                 self?.collectionview.reloadData()
+                HUD.hide(animated: true)
             })
     }
     
@@ -193,7 +207,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         //loop through every child node and grab - pathToImage
         print("is the url here too?")
         print(image.url)
-        cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
+        cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: nil)
+        //cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         
         return cell
     }
