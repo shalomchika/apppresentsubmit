@@ -12,6 +12,7 @@ class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var feedimageview: UIImageView!
     @IBOutlet weak var feedcaptionlbl: UILabel!
+    @IBOutlet weak var feednamelbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

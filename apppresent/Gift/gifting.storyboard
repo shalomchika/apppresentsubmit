@@ -295,7 +295,7 @@
                                     <constraint firstAttribute="width" constant="44" id="sgX-lW-66T"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" title="Button" image="close"/>
+                                <state key="normal" title="Button" image="cancel"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nOT-gU-Srg">
                                 <rect key="frame" x="16" y="216" width="343" height="82"/>
@@ -542,7 +542,6 @@
     <resources>
         <image name="21st-birthday-party" width="1950" height="1300"/>
         <image name="cancel" width="480" height="480"/>
-        <image name="close" width="256" height="256"/>
         <image name="moreButton" width="25" height="25"/>
         <image name="store" width="512" height="512"/>
         <image name="store (2)" width="512" height="512"/>

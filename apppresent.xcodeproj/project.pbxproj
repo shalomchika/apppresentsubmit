@@ -258,6 +258,7 @@
 		5241CD5721FF6E3700524276 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				52C994EB21F63432002DE553 /* PostTableViewCell.swift */,
 				5210CBFF21DE192600EE0A79 /* FeedViewController.swift */,
 				52C3D1D421ED1C6300DF7F41 /* home.storyboard */,
 				5241DC4B223014D600103C7F /* Add Post */,
@@ -345,7 +346,6 @@
 		5241DC4C2230157600103C7F /* Collection View Post */ = {
 			isa = PBXGroup;
 			children = (
-				52C994EB21F63432002DE553 /* PostTableViewCell.swift */,
 				52FD920021DCFB110021B3A0 /* BirthdayPostViewController.swift */,
 				52D30CFD21DFA1B8005E3128 /* CustomImageFlowLayout.swift */,
 				52D30CFB21DF9BF8005E3128 /* CollectionViewCell.swift */,

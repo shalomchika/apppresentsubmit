@@ -16,15 +16,17 @@ struct PostData {
     // nee dto add timestamp
     var timestamp: Double = 0
     var itemRef : DatabaseReference?
+    var author:String!
     
     
     //give it the key 
-    init(url: String, key:String, caption: String)
+    init(url: String, key:String, caption: String, author: String)
     {
         self.key = key
         self.url = url
         self.caption = caption
         self.itemRef = nil
+        
         
     }
     
@@ -51,6 +53,7 @@ struct PostData {
             caption = ""
         }
         
+        
       
         if let imageUrl = snapshotvalue?["pathToImage"] as? String {
             url = imageUrl
@@ -66,7 +69,26 @@ struct PostData {
        // print(key)
        // print("THIS IS CAPTION TEST on firebase")
        // print(caption)
+        
+        
+        
+        
+        if let postauthor = snapshotvalue?["author"] as? String {
+            author = postauthor
+            //  print(url)
+        }
+            
+        else {
+            author = "set"
+        }
+        print("THIS IS CAPTION TEST on firebase")
+        // print("THIS IS URL TEST on firebase")
+        //  print(url)
+        // print(key)
+        // print("THIS IS CAPTION TEST on firebase")
+        // print(caption)
         timestamp = snapshotvalue?["timestamp"] as? Double ?? 0
+        
   
  
         
@@ -79,6 +101,7 @@ struct PostData {
         url = data["pathToImage"] as? String
         caption = data["caption"] as? String
         timestamp = data["timestamp"] as? Double ?? 0
+        author = data["author"] as? String
     }
 
 }

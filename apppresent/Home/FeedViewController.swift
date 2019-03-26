@@ -59,7 +59,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 182)
     }
     
-    
+    /*
     
     func downloadPost1() {
         
@@ -117,6 +117,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // i want to develop apps after
         
     }
+    */
     
     func downloadPost(){
         guard let myId = Auth.auth().currentUser?.uid else { return }
@@ -187,6 +188,24 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let myFollowerPosts = posts.filter({ return followers.contains($0.userId ?? "") })
                 self.datasource = myFollowerPosts.sorted(by: { return $0.timestamp < $1.timestamp })
                 self.feedTableView.reloadData()
+                
+                let myPostsDB = Database.database().reference().child("users")
+                
+                myPostsDB
+                .queryOrderedByKey().queryEqual(toValue: myId)
+                .observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
+                
+                var myPost = [PostData]()
+                let myPost = Array(followersRawData.keys)
+                myFollowerPosts.append(<#T##newElement: PostData##PostData#>)
+                self?.feedTableView.reloadData()
+                
+                    
+                    
+                    
+                    
+                    
+                    
                 HUD.hide(animated: true)
             })
             
@@ -304,6 +323,14 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         cell.feedcaptionlbl.text = image.caption ?? "No caption"
+        
+        
+        
+        
+        if let name = datasource[indexPath.row].author {
+            cell.feednamelbl.text = name
+        }
+        
         return cell
     }
     

@@ -74,14 +74,36 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func postPressed(_ sender: Any) {
         guard let userid = Auth.auth().currentUser?.uid else { return }
+        let name = Database.database().reference().child("userid")
+        var feedname : String?
+        
+        
+        let nameDB = Database.database().reference().child("users").child("userid")
+        
+        nameDB
+            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                        
+                var snapshotvalue = snapshot.value as? NSDictionary
+                        
+                if var displayname = snapshotvalue?["fullname"] as? String {
+                    feedname = displayname
+                }
+        
+        
+        }
+        
+        
+        
+        
+        
         let postId = String(Date().timeIntervalSince1970).replacingOccurrences(of: ".", with: "") + userid
         let postDb = Database.database().reference().child("posts").child(postId)
         var  caption = captionlbl.text
         let feed = ["userID": userid,
-                    "likes": 0,
+                    //"likes": 0,
                     "caption" : caption,
-                    "albumname": "set album name",
-                    "author": Auth.auth().currentUser!.displayName ?? "set user",
+                    //"albumname": "set album name",
+                    "author": feedname ?? "set user",
                     "timestamp": Date().timeIntervalSince1970,
                     "postID": postId] as [String : Any]
         postDb.setValue(feed)
