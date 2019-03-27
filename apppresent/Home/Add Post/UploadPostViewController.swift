@@ -15,7 +15,7 @@ import FirebaseStorage
 class UploadPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var collection: UITextField!
-    @IBOutlet weak var captionlbl: UITextView!
+    @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var postbtn: UIButton!
     @IBOutlet weak var selectbtn: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -32,15 +32,21 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
          backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         picker.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(hideKeyboard(sender:))))
-        // Do any additional setup after loading the view.
+        
+        postbtn.setCorner(radius: 7)
+        postbtn.backgroundColor = UIColor.c_102_100_247
+        
+        backButton.imageView?.changeColor(to: .white)
+        previewImage.image = UIImage(named: "image1_add_placeholder")
+        previewImage.contentMode = .scaleAspectFit
     }
+    // sorry I have to run! message you on my way thanks sorry I was late
     
 
     @IBAction func selectPressed(_ sender: Any) {
         
         //show picker
-        picker.allowsEditing = true
+        //picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         self.present(picker,animated: true , completion: nil)
         
@@ -98,7 +104,7 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         
         let postId = String(Date().timeIntervalSince1970).replacingOccurrences(of: ".", with: "") + userid
         let postDb = Database.database().reference().child("posts").child(postId)
-        var  caption = captionlbl.text
+        var  caption = captionTextView.text
         let feed = ["userID": userid,
                     //"likes": 0,
                     "caption" : caption,

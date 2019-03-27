@@ -109,7 +109,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         shoesizetextfield.text = myProfile?.shoesize
         
         
-        profileimageview.downloadImage(from: myProfile?.profileimageurl)
+        profileimageview.downloadImage(from: myProfile?.profileimageurl, placeholder: UIImage(named: "user_placeholder"))
         
         /*
         let ref = Database.database().reference()

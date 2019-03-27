@@ -8,12 +8,21 @@
 
 import UIKit
 import PKHUD
+import SDWebImage
+
 class PostTableViewCell: UITableViewCell {
+    private var data: PostData?
+
+func setData(_ data: PostData) {
+    self.data = data
+    //a//vatarImageView.sd
+}
 
     @IBOutlet weak var feedimageview: UIImageView!
     @IBOutlet weak var feedcaptionlbl: UILabel!
     @IBOutlet weak var feednamelbl: UILabel!
-    
+    @IBOutlet weak var avatarImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

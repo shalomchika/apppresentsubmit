@@ -41,7 +41,7 @@ struct UserData {
         self.clothesize = clothesize
         //self.age = age
         self.birthday = birthday
-        self.profileimageurl = profileimageurl
+        self.profileimageurl = profileimageurl 
         self.itemRef = nil
         self.fullname = "\(firstname) + \(lastname)"
         

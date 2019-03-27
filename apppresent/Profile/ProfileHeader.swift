@@ -38,7 +38,7 @@ class ProfileHeader: UICollectionReusableView {
     func setData(_ data: UserData) {
         self.data = data
         nameLabel.text = data.fullname
-        avatarImageView.downloadImage(from: data.profileimageurl)
+        avatarImageView.downloadImage(from: data.profileimageurl, placeholder: UIImage(named: "user_placeholder"))
         statusLabel.text = data.status
         // if birthday exists, convert to date
         if let birthday = data.birthday, birthday.isEmpty == false,
@@ -274,8 +274,8 @@ class ProfileHeader: UICollectionReusableView {
                 dayCount = birthDay - thisDay
             }
         }
-        let monthString = monthCount > 0 ? "\(monthCount)  " : ""
-        let dayString = dayCount > 0 ? "\(dayCount)  " : ""
+        let monthString = monthCount > 0 ? "  \(monthCount)   " : ""
+        let dayString = dayCount > 0 ? "    \(dayCount)" : ""
         //let monthString = monthCount > 0 ? "\(monthCount)m " : ""
         //let dayString = dayCount > 0 ? "\(dayCount)d" : ""
         let result = monthCount == 0 && dayCount == 0 ? "Today" : "\(monthString)\(dayString)"

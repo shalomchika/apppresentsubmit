@@ -163,10 +163,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         
         var dataname = datasource[indexPath.row].fullname
         cell.username.text = dataname!
-        
+        cell.userprofileimage.downloadImage(from: datasource[indexPath.row].profileimageurl , placeholder: UIImage(named: "user_placeholder"))
+       /*
         if let url = URL(string: datasource[indexPath.row].profileimageurl) {
             do {
-                
+            
         let image = ImageResource(downloadURL: url, cacheKey: url.path)
                 cell.userprofileimage.kf.setImage(with: image)
                 
@@ -174,11 +175,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
             catch {
                  print("imageURL was not able to be converted into data") //
             }
+
        
          
     
     
 }
+ */
            return cell
     }
     

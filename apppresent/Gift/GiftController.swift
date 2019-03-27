@@ -34,15 +34,14 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         collectionView.collectionViewLayout = gravitySliderLayout
         collectionView.dataSource = self
         collectionView.delegate = self
-        //collectionView.reloadData()
-        
     }
-    /*
+
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchLink()
-    }
- */
+        fetchData()
+     }
     
     var datasource = [GiftData]() {
         didSet {
@@ -60,15 +59,15 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
                 if let rawLink = snapshot.value as? String { return }
                 self?.contributionlink = "\(link)"
                 
-       // https://stackoverflow.com/questions/44460165/reading-a-single-value-from-firebase-using-swift
+                // https://stackoverflow.com/questions/44460165/reading-a-single-value-from-firebase-using-swift
                 
                 
-    }
+        }
     }
     
     
     @objc func URLButtonPressed(_ sender: Any)  {
-       
+        
         
         
         
@@ -105,7 +104,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-
+    
     @objc func showMenu() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -176,3 +175,4 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         return collectionView.frame.size
     }
 }
+

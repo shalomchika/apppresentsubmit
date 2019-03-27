@@ -180,6 +180,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 //why herere please explain again?
                 //it runs in deifferent thread -> you dont know when it finishs downloading
                 // if you set in main thread at the same time with profile data -> youget 0
+                // i f you add name, you also add avatar
                 
                 
                 //HUD.show(.progress, onView: view)
@@ -187,7 +188,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 HUD.hide(animated: true)
             })
     }
-    
+    //
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let controller = PostDetail.create()
