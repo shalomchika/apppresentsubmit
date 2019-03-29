@@ -32,6 +32,9 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
         addGiftButton.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(addItem), for: .touchUpInside)
         dismissButton.addTarget(self, action: #selector(dismissScreen), for: .touchUpInside)
+        
+        saveButton.setCorner(radius: 7)
+        saveButton.backgroundColor = UIColor.c_102_100_247
         setupView()
     }
     //?
@@ -41,13 +44,15 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
     
     func setupView() {
         descriptionTextfield.backgroundColor = .white
-        descriptionTextfield.setBorder(1, color: .lightGray)
+        descriptionTextfield.setBorder(1, color: .white)
         descriptionTextfield.setCorner(radius: 7)
         
         giftLinkTextfield.setBorder(1, color: .lightGray)
         giftLinkTextfield.setCorner(radius: 7)
         
         saveButton.setCorner(radius: 7)
+        giftImageView.image = UIImage(named: "camera")
+        giftImageView.contentMode = .scaleAspectFit
     }
     
     
@@ -161,9 +166,13 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
         
-        
-        
-        
+        /*
+        @objc func goBack() {
+            self.dismiss(animated: true, completion: nil)
+            navigationController?.dismiss(animated: true, completion: nil)
+            // navigationController?.popViewController(animated: true)
+        }
+        */
         
         /*
          

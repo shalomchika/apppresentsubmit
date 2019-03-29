@@ -27,7 +27,12 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewDidLoad()
         paymentButton.addTarget(self, action: #selector(URLButtonPressed), for: .touchUpInside)
         //setupView()
-        moreButton.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
+        
+        let moresButton = UIImage(named: "moreButton")?.withRenderingMode(.alwaysOriginal) // keep original color
+        //barButtonItem.image = UIImage(named: "moreButton")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moresButton, style: .plain, target: self, action: #selector(showMenu))
+      //  self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreButton, style: .done, target: self, action: #selector(showMenu.bar ))
+        //moreButton.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
         collectionView.isPagingEnabled = true
         let gravitySliderLayout = UICollectionViewFlowLayout()
         gravitySliderLayout.scrollDirection = .horizontal
@@ -41,6 +46,8 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewWillAppear(animated)
         fetchLink()
         fetchData()
+        paymentButton.setCorner(radius: 7)
+        paymentButton.backgroundColor = UIColor.c_102_100_247
      }
     
     var datasource = [GiftData]() {
@@ -67,7 +74,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     @objc func URLButtonPressed(_ sender: Any)  {
-        
+        // enter the firebase url link
         
         
         
@@ -84,6 +91,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func fetchData() {
+        //enter the gift data from the firebase
         guard let userId = Auth.auth().currentUser?.uid else { return }
         if datasource.isEmpty {
             HUD.show(.progress, onView: view)

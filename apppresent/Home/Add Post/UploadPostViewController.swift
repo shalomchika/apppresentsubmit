@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 
 //https:www.youtube.com/results?search_query=Instagram-like+App+Ep+2%3A+Upload+Post+to+Firebase+(with+Swift+3+and+XCode+8)
-class UploadPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var previewImage: UIImageView!
     @IBOutlet weak var collection: UITextField!
     @IBOutlet weak var captionTextView: UITextView!
@@ -36,9 +36,15 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         postbtn.setCorner(radius: 7)
         postbtn.backgroundColor = UIColor.c_102_100_247
         
-        backButton.imageView?.changeColor(to: .white)
-        previewImage.image = UIImage(named: "image1_add_placeholder")
+        backButton.imageView?.changeColor(to: .black)
+        previewImage.image = UIImage(named: "image_add_button")
         previewImage.contentMode = .scaleAspectFit
+        captionTextView.delegate = self
+        
+        
+        
+       
+  
     }
     // sorry I have to run! message you on my way thanks sorry I was late
     
@@ -53,6 +59,11 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        captionTextView.text = " "
+        captionTextView.textColor = UIColor.black
+    }
+    
     //give image that the user selected
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -63,8 +74,9 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     }
         
         self.previewImage.image = image
-        
+        backButton.imageView?.changeColor(to: .white)
         previewImage.contentMode = .scaleAspectFit
+        previewImage.backgroundColor = UIColor.black
         selectedimage = image
         picker.dismiss(animated: true, completion: nil)
         //pickdismiss(animated: true, completion: nil)
@@ -185,4 +197,20 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     
     
 
+}
+//https://stackoverflow.com/questions/31107994/how-to-only-show-bottom-border-of-uitextfield-in-swift
+
+//https://stackoverflow.com/questions/27652227/text-view-placeholder-swift
+
+extension UITextField {
+    
+    
+    func addBottomBorder(){
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect.init(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+        bottomLine.backgroundColor = UIColor.black.cgColor
+        self.borderStyle = UITextField.BorderStyle.none
+        self.layer.addSublayer(bottomLine)
+        
+    }
 }

@@ -19,15 +19,20 @@ class ContributionViewController: UIViewController {
 
     @IBOutlet weak var linkTextfield: UITextField!
     
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dismissButton.addTarget(self, action: #selector(dismissView ), for: .touchUpInside)
+        updateButton.addTarget(self, action: #selector(updateLink), for: .touchUpInside)
         // Do any additional setup after loading the view.
+        updateButton.setCorner(radius: 7)
+        updateButton.backgroundColor = UIColor.c_102_100_247
+        
     }
     
-    func updateLink() {
+    @objc func updateLink() {
        
         let link = linkTextfield.text
         
