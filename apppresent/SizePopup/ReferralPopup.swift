@@ -39,8 +39,8 @@ class ReferralPopup: knView {
     }()
     
     
-    let shoesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor.c_102_100_247, alignment: .center)
-    let clothesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor.c_102_100_247, alignment: .center)
+    let shoesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), alignment: .center)
+    let clothesSizeLabel = UIMaker.makeLabel(font: UIFont.boldSystemFont(ofSize: 25), color: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), alignment: .center)
     
     // wanted the current user to edit their clothes and shoe size ( I had the code for it before but not with the correct UI)
     // How to use UI with that code.

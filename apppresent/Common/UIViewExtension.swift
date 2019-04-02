@@ -48,7 +48,7 @@ extension UIView {
                            width: CGFloat = 1) {
         let gradient = CAGradientLayer()
         gradient.frame = CGRect(origin: CGPoint.zero,
-                                     size: size == .zero ? bounds.size : size)
+                                size: size == .zero ? bounds.size : size)
         gradient.colors = colors.map({ return $0.cgColor })
         
         let shape = CAShapeLayer()
@@ -67,7 +67,7 @@ extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
-
+    
     func setEnabled(_ value: Bool) {
         isUserInteractionEnabled = value
     }
@@ -114,7 +114,7 @@ extension UIView {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor;
     }
-
+    
     @discardableResult
     private func _round(corners: UIRectCorner, radius: CGFloat) -> CAShapeLayer {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -139,3 +139,19 @@ extension UIView {
 
 
 
+extension UIApplication {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(presented)
+        }
+        return base
+    }
+}

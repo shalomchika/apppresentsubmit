@@ -79,7 +79,6 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         birthdaytextfield.delegate = self
         statustextfield.delegate = self
         imagePicker.delegate = self
-        birthdaytextfield.inputView = datePicker
         datePicker.datePickerMode = .date
         
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
@@ -89,7 +88,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         loadProfileData()
         
       
-        
+        let pickerView = UIPickerView()
+        shoesizetextfield.inputView = pickerView
         
         
         // Do any additional setup after loading the view.
@@ -104,67 +104,18 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         lastnametextfield.text = myProfile?.lastname
         emailtextfield.text = myProfile?.email
         statustextfield.text = myProfile?.status
-        birthdaytextfield.text = myProfile?.birthday
+        if let intervalString = myProfile?.birthday, let interval = Double(intervalString) {
+            let date = Date(timeIntervalSince1970: interval)
+            birthdaytextfield.text = date.toString("dd/MM/yyyy")
+            datePicker.date = date
+        }
+        
         clothesizetextfield.text = myProfile?.clothesize
         shoesizetextfield.text = myProfile?.shoesize
         
         
         profileimageview.downloadImage(from: myProfile?.profileimageurl, placeholder: UIImage(named: "user_placeholder"))
         
-        /*
-        let ref = Database.database().reference()
-        // Do any additional setup after /loading the view.
-        
-        let userid = Auth.auth().currentUser?.uid
-        ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            
-            let firstname = value?["firstname"] as? String ?? ""
-            let lastname = value?["lastname"] as? String ?? ""
-            let age = value?["age"] as? Int ?? 0
-            let status = value?["status"] as? String ?? ""
-            let fullname = "\(firstname) \(lastname)"
-            print (" If the profile url is there", self.profileImageUrl)
-            let imageurl = value?["profileImageUrl"] as? String ?? ""
-            let birthday = value?["birthday"] as? String ?? ""
-            let email = value?["email"] as? String ?? ""
-            print("This is age" ,age)
-            let stringage = String(age)
-            print(stringage)
-            print(imageurl)
-            print("This is status ", status)
-            print(" This is fullname " ,fullname)
-            
-            self.firstnametextfield?.text = firstname
-            self.lastnametextfield?.text = lastname
-            //self.birthdaytextfield.text = stringage
-            self.birthdaytextfield.text = birthday
-            self.statustextfield?.text = status
-            self.emailtextfield?.text = email
-            
-            if let url = URL(string: imageurl) {
-                do {
-                    // if the url matches our cache it will get the image from the cache url
-                    
-                    let resource = ImageResource(downloadURL: url, cacheKey: url.path)
-                    self.profileimageview.kf.setImage(with: resource)
-                    
-                    // use king fisher load image faster
-                    
-                    // check kingfisher
-                    //oh SD has to bridge from obj C, ok!
-                    //let imageAsData = try Data(contentsOf: url)
-                   // let image = UIImage(data: imageAsData)
-                    //self.profileimageview.image = image
-                } catch {
-                    print("imageURL was not able to be converted into data") // Assert or add an alert
-                }
-                
-            }
-            print(snapshot)
-        })
- */
  }
 
     
@@ -204,14 +155,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
                                             "shoesize": shoesize,
                                             "clothesize": clothesize])
 
-                        
-                        // disiss current contorller
-            
-//            ref.child("users").child(userid ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
-//
-//                let value = snapshot.value as? NSDictionary
-//                print("LOOOOOOK")
-//                print(snapshot) })
+
         }
     
         

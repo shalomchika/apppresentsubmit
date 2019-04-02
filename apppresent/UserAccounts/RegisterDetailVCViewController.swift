@@ -72,7 +72,7 @@ class RegisterDetailVCViewController: UIViewController, UIImagePickerControllerD
     }
     
     func setupView() {
-        continueButton.backgroundColor = UIColor.c_102_100_247
+        continueButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         continueButton.setTitleColor(.white, for: .normal)
         continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         continueButton.setCorner(radius: 5)

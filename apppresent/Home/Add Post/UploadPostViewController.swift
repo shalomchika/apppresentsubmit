@@ -34,11 +34,11 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         postbtn.setCorner(radius: 7)
-        postbtn.backgroundColor = UIColor.c_102_100_247
+        postbtn.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         
         backButton.imageView?.changeColor(to: .black)
         previewImage.image = UIImage(named: "image_add_button")
-        previewImage.contentMode = .scaleAspectFit
+        //previewImage.contentMode = .scaleAspectFit
         captionTextView.delegate = self
         
         
@@ -54,6 +54,8 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
         //show picker
         //picker.allowsEditing = true
         picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        
         self.present(picker,animated: true , completion: nil)
         
         
@@ -68,20 +70,46 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //go info image dictionary get the image and put in display
+        
+        self.picker.allowsEditing = true
+        var image : UIImage!
+        
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        {
+            image = img
+            
+        }
+        else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        {
+            image = img
+        }
+        
+/*
+        
+        if let image  = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            previewImage.contentMode = .scaleAspectFit
+            previewImage.image = image
+        }
+        else {
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
            
     }
+ */
         
-        self.previewImage.image = image
+        
+       
         backButton.imageView?.changeColor(to: .white)
-        previewImage.contentMode = .scaleAspectFit
+        //previewImage.contentMode = .scaleAspectFit
         previewImage.backgroundColor = UIColor.black
         selectedimage = image
         picker.dismiss(animated: true, completion: nil)
+        self.previewImage.image = image
         //pickdismiss(animated: true, completion: nil)
         postbtn.isHidden = false
-    }
+        }
+        
+
     
     @objc func goBack() {
         self.dismiss(animated: true, completion: nil)
@@ -121,7 +149,6 @@ class UploadPostViewController: UIViewController, UIImagePickerControllerDelegat
                     //"likes": 0,
                     "caption" : caption,
                     //"albumname": "set album name",
-                    "author": feedname ?? "set user",
                     "timestamp": Date().timeIntervalSince1970,
                     "postID": postId] as [String : Any]
         postDb.setValue(feed)
@@ -208,8 +235,9 @@ extension UITextField {
     func addBottomBorder(){
         let bottomLine = CALayer()
         bottomLine.frame = CGRect.init(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
-        bottomLine.backgroundColor = UIColor.black.cgColor
-        self.borderStyle = UITextField.BorderStyle.none
+        let colourblue = (UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1) as! CGColor)
+        bottomLine.backgroundColor = colourblue
+        self.borderStyle = UITextField.BorderStyle.bezel
         self.layer.addSublayer(bottomLine)
         
     }

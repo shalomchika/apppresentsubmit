@@ -14,14 +14,11 @@ import SDWebImage
 import Kingfisher
 import PKHUD
 
-class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     var currentuserdata: UserData?
     static func create() -> ProfilePageViewController {
         return create(fromStoryboard: "profile")
     }
-    
-    // some of the examples use more than one label and animations
-    // Its one label on there, should I just do days?
     
     
     var header: ProfileHeader?
@@ -208,7 +205,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         //loop through every child node and grab - pathToImage
         print("is the url here too?")
         print(image.url)
-        cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: nil)
+        cell.imageview.downloadImage(from: image.url, placeholder: UIImage(named: ""))
+        //cell.imageview.sd_setImage(with: URL(string: image.url), placeholderImage: nil)
         //cell.feedimageview.sd_setImage(with: URL(string: image.url), placeholderImage: UIImage(named:"image1"))
         
         return cell
@@ -253,4 +251,3 @@ extension ProfilePageViewController {
         return currentId == myId
     }
 }
-

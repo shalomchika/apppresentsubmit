@@ -16,7 +16,7 @@ class GiftSpecificCollectionViewCell: UICollectionViewCell {
         giftImageView.clipsToBounds = true
         giftLabel.text = data.description
         if let url = data.url, let description = data.description {
-            giftLabel.text = "\(description) \n\(url)"
+            giftLabel.text = "\(description)"
         }
     }
     

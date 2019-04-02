@@ -27,6 +27,12 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewDidLoad()
         paymentButton.addTarget(self, action: #selector(URLButtonPressed), for: .touchUpInside)
         //setupView()
+        title = "Gift Me Online"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tabBarItem.title = ""
+        // unless I make a label but then constraints for the collection view have to change?
+        
+        //what ever is simple, but if it will change the tab I can put labels for the funding and the online gift but then its constraint change
         
         let moresButton = UIImage(named: "moreButton")?.withRenderingMode(.alwaysOriginal) // keep original color
         //barButtonItem.image = UIImage(named: "moreButton")
@@ -47,7 +53,8 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         fetchLink()
         fetchData()
         paymentButton.setCorner(radius: 7)
-        paymentButton.backgroundColor = UIColor.c_102_100_247
+        paymentButton.backgroundColor = //UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
      }
     
     var datasource = [GiftData]() {
@@ -119,22 +126,13 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         
         controller.addAction(UIAlertAction(title: "Add Online Gift Item" , style: .default, handler: { [weak self] _ in
             let controller  = AddGiftItemViewController.create()
-            
-            controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            //controller.navigationController?.present(controller, animated: true, completion: nil)
-            
-            
+            //controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self?.present(controller, animated: true, completion: nil)
             
         }))
         
         controller.addAction(UIAlertAction(title: "Edit Contribution Link", style: .default, handler: { [weak self] _ in
-            
             let controller = ContributionViewController.create()
-            
-            
-            
-            
             controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             //controller.navigationController?.present(controller, animated: true, completion: nil)
             

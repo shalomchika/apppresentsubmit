@@ -39,6 +39,7 @@ class ProfileHeader: UICollectionReusableView {
         self.data = data
         nameLabel.text = data.fullname
         avatarImageView.downloadImage(from: data.profileimageurl, placeholder: UIImage(named: "user_placeholder"))
+        avatarImageView.contentMode = .scaleAspectFill
         statusLabel.text = data.status
         // if birthday exists, convert to date
         if let birthday = data.birthday, birthday.isEmpty == false,
@@ -137,17 +138,17 @@ class ProfileHeader: UICollectionReusableView {
     func setFollowButton(by didFollow: Bool) {
         if didFollow {
             followButton.setTitle("Following", for: .normal)
-            followButton.setTitleColor(UIColor.c_102_100_247, for: .normal)
+            followButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
             followButton.backgroundColor = .clear
-            followButton.setBorder(1, color: UIColor.c_102_100_247)
+            followButton.setBorder(1, color: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1))
         } else {
             followButton.setTitle("Follow", for: .normal)
             followButton.setTitleColor(UIColor.white, for: .normal)
             followButton.backgroundColor = .c_102_100_247
-            followButton.setBorder(1, color: UIColor.c_102_100_247)
+            followButton.setBorder(1, color: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1))
         }
     }
-
+//UIColor.c_102_100_247, for: .normal)
     
     func checkIsMyProfile(_ profile: UserData) -> Bool {
         guard let currentId = profile.userId, let myId = Setting.myId else { return false }
@@ -170,12 +171,14 @@ class ProfileHeader: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
+        
     }
     
     func setupView() {
         avatarImageView.setCorner(radius: 48)
         followButton.setCorner(radius: 5)
-        followButton.backgroundColor = UIColor.c_102_100_247
+        followButton.backgroundColor =// UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+                 UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         

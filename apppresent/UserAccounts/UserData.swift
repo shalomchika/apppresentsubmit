@@ -94,7 +94,7 @@ struct UserData {
             username = ""
         }
         
-        if let userimageurl = snapshotvalue?["pathToImage"] as? String {
+        if let userimageurl = snapshotvalue?["profileImageUrl"] as? String {
             profileimageurl = userimageurl
             //  print(url)
         }
@@ -190,7 +190,7 @@ struct UserData {
         birthday = data["birthday"] as? String
         status = data["status"] as? String
         email = data["email"] as? String
-        profileimageurl = data["url"] as? String
+        profileimageurl = data["profileImageUrl"] as? String
         shoesize = data ["shoesize"] as? String
         clothesize = data ["clothesize"] as? String
         

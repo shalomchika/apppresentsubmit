@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 import Firebase
 
 class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -34,7 +35,7 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
         dismissButton.addTarget(self, action: #selector(dismissScreen), for: .touchUpInside)
         
         saveButton.setCorner(radius: 7)
-        saveButton.backgroundColor = UIColor.c_102_100_247
+        saveButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         setupView()
     }
     //?
@@ -43,12 +44,16 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func setupView() {
+        
+        
         descriptionTextfield.backgroundColor = .white
         descriptionTextfield.setBorder(1, color: .white)
         descriptionTextfield.setCorner(radius: 7)
         
-        giftLinkTextfield.setBorder(1, color: .lightGray)
-        giftLinkTextfield.setCorner(radius: 7)
+        //giftLinkTextfield.setBorder(1, color: .lightGray)
+        //giftLinkTextfield.setCorner(radius: 7)
+        giftLinkTextfield.addBottomBorder()
+        // Left view and right view for textField
         
         saveButton.setCorner(radius: 7)
         giftImageView.image = UIImage(named: "camera")
@@ -67,7 +72,7 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    
+    var selectedImage: UIImage?
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -77,58 +82,13 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
             
         }
-        // I need to do the firebase and view controller for the link button at the top
-        // put the the more button in the navigation controller
-        // put it in view will appear for profile edit, and feed view controller
-        //delete for post, try delete for gift
-        // reminders for day and month?
-        //hide my age
-        //edit profile to show the date
         
-        //shoe and clothes size - edit programatically to show to labels and change the colour of the red bit.
-        
-        //Issues:
-        // the following button doesnt press and unpress
-        
-        
-        // if its complicated I might just leave it
-        // I will change everyday to on the day so its not annoying I think on every week and on the day is fine and every month
-        
-        
-        // need to finish it by mon/tuesday mainly
-        
-        // After that user testing and small v.small changes i.e. the icons etc. for a week
-        
-        
-        //
-        //put back button on reminder
-        
-        
-        
-        // how difficult is to put a header on the feed, or show the author somehow?
-        // should I do that in profile too? why not? im not goign to move it but why?
-        // so to utlise the UI space
-        // if it will take time, if not I will leave it .
-        // Should I try the empty page stuff? dont think its that important?
-        //thank you!
-        // do I need to edit the reminders, I know it works for monthly, but the weekly and on the day?
-        //when I switch the button off doesnt it cancel it already?
-        // Do I need to delete post or gift .... I dont know how complicated that is
-        // the reason why the post is not showing in the feed immediately is because of view will appear?
-        //when I edit profile and it doesnt show imediately it is view will appear?
-        //Last stuff
-        // At last time as well I may put this
-        //I could get them to hold on the image or do I have to put a header? or a button like shop in the gift controller
-        
-        
-        // Set photoImageView to display the selected image.
         giftImageView.contentMode = .scaleAspectFit
-        //profileimageview.layer.cornerRadius = 40
         giftImageView.image = image
-        //selectedimage = image
+        selectedImage = image
         
         // Dismiss the picker.
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true)
     }//can I make the pictures a fixed size or more similar size, an aspect ration or ?... not distorted
     
      // what is the link in initial?
@@ -143,7 +103,10 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
         let description  = descriptionTextfield.text
         let link = giftLinkTextfield.text
         
+        guard let selectedImage = selectedImage else { return }
         guard let userid = Auth.auth().currentUser?.uid else { return }
+        HUD.show(.progress, onView: view)
+        hideKeyboard()
         let giftDb = Database.database().reference().child("gifts").child(id)
         //var caption = captionlbl.text
         let item = ["id": id,
@@ -154,70 +117,20 @@ class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelega
                      as [String : Any?]
         giftDb.setValue(item)
         let storage = Storage.storage().reference(forURL: "gs://apppresent.appspot.com")
-        if let data = giftImageView.image!.jpegData(compressionQuality: 0.6) {
+        if let data = selectedImage.jpegData(compressionQuality: 0.6) {
             let imageRef = storage.child("gifts").child(id)
             imageRef.putData(data, metadata: nil) { (metadata, err) in
                 imageRef.downloadURL(completion: { (url, downloadErr) in
                     if let downloadUrl = url?.absoluteString {
                         giftDb.child("imageUrl").setValue(downloadUrl)
+                        HUD.hide()
                         self.dismiss(animated: true)
                     }
                 })
             }
         }
-        
-        /*
-        @objc func goBack() {
-            self.dismiss(animated: true, completion: nil)
-            navigationController?.dismiss(animated: true, completion: nil)
-            // navigationController?.popViewController(animated: true)
-        }
-        */
-        
-        /*
-         
-         let storage = Storage.storage().reference(forURL: "gs://apppresent.appspot.com")
-         //id for a post, go to databse ref create new branch called post give post unique IF
-         //        var key = ref.child("post").childByAutoId().key
-         // created a file .jpg with the name of the post which will be unique
-         let imageRef = storage.child("post").child(userid).child("\(key).jpg")
-         
-         //upload image to database
-         //convert to data
-         let data = previewImage.image!.jpegData(compressionQuality:0.6)
-         
-         let uploadTask = imageRef.putData(data!, metadata: nil) { (metadata, error) in
-         if error != nil {
-         print(error!.localizedDescription)
-         return
-         }
-         
-         imageRef.downloadURL(completion: { (url, error) in
-         //get and check download url
-         if let url = url {
-         let feed = ["userID": userid,
-         "pathToImage": url.absoluteString,
-         "likes": 0,
-         "caption" : "set caption",
-         "collectionID": "set collectionID",
-         "author": Auth.auth().currentUser!.displayName ?? "set it",
-         "timestamp": ServerValue.timestamp() as! [String : Any],
-         "postID": key ?? "none"] as [String : Any]
-         ]
-         //create key under the post IFput all the sfeed
-         let postfeed = ["\(key)" : feed]
-         ref.child("post").updateChildValues(postfeed)
-         self.dismiss(animated: true, completion: nil)
-         }
-         })
-         }
-         
-         */
-        //uploadTask.resume()
-        
-        
     }
-    
+    // sorry to be annoying but should I add a title to the gift or is it clear what it is ?\\
         //create a unique ID
         //save text in description and link
         //create a link for the image view in firebase

@@ -28,7 +28,7 @@ class ContributionViewController: UIViewController {
         updateButton.addTarget(self, action: #selector(updateLink), for: .touchUpInside)
         // Do any additional setup after loading the view.
         updateButton.setCorner(radius: 7)
-        updateButton.backgroundColor = UIColor.c_102_100_247
+        updateButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
         
     }
     
@@ -45,7 +45,7 @@ class ContributionViewController: UIViewController {
                     "created": Date().timeIntervalSince1970]
             as [String : Any?]
         linkDb.setValue(item)
-        
+        dismissView()
     }
     
     @objc func dismissView()  {

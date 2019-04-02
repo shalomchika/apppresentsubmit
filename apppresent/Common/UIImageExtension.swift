@@ -14,9 +14,7 @@ extension UIView {
         layer.cornerRadius = radius
         layer.masksToBounds = true
     }
-} //the gif?
-
-// is it possible to reference it ? or no? just need the link to the github
+} 
 extension UIImageView {
     func downloadImage(from url: String?, placeholder: UIImage? = nil) {
         if placeholder == nil {
