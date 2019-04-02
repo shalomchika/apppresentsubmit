@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0AEB35BB7AC7757EF0EAECB8 /* Pods_apppresentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F442F1BEDD82010219D648C /* Pods_apppresentUITests.framework */; };
-		262AE2582253F0B400E3ECBF /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262AE2572253F0B400E3ECBF /* ReminderViewController.swift */; };
-		262AE25A2253F0BA00E3ECBF /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 262AE2592253F0BA00E3ECBF /* Reminder.storyboard */; };
+		262AE25D2253F52800E3ECBF /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 262AE25B2253F52800E3ECBF /* Reminder.storyboard */; };
+		262AE2602253F54C00E3ECBF /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262AE25F2253F54C00E3ECBF /* ReminderViewController.swift */; };
 		2666C6C02238F3BB0072964A /* GiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6BF2238F3BB0072964A /* GiftController.swift */; };
 		2666C6C42238F3F00072964A /* knStaticListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C12238F3F00072964A /* knStaticListController.swift */; };
 		2666C6C62238F3F00072964A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666C6C32238F3F00072964A /* Extension.swift */; };
@@ -102,8 +102,8 @@
 /* Begin PBXFileReference section */
 		136C1D3D9470EB2D3C65B83E /* Pods-apppresent.releasebefore3.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apppresent.releasebefore3.xcconfig"; path = "Pods/Target Support Files/Pods-apppresent/Pods-apppresent.releasebefore3.xcconfig"; sourceTree = "<group>"; };
 		1858E937DD2E08AD515173A9 /* Pods_apppresent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apppresent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		262AE2572253F0B400E3ECBF /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderViewController.swift; path = ../../../../../Downloads/ReminderViewController.swift; sourceTree = "<group>"; };
-		262AE2592253F0BA00E3ECBF /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
+		262AE25B2253F52800E3ECBF /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
+		262AE25F2253F54C00E3ECBF /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		2666C6BF2238F3BB0072964A /* GiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftController.swift; sourceTree = "<group>"; };
 		2666C6C12238F3F00072964A /* knStaticListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knStaticListController.swift; sourceTree = "<group>"; };
 		2666C6C32238F3F00072964A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -443,8 +443,8 @@
 		52F1DFEF223878D0002F7A55 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				262AE2592253F0BA00E3ECBF /* Reminder.storyboard */,
-				262AE2572253F0B400E3ECBF /* ReminderViewController.swift */,
+				262AE25F2253F54C00E3ECBF /* ReminderViewController.swift */,
+				262AE25B2253F52800E3ECBF /* Reminder.storyboard */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -581,13 +581,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262AE25D2253F52800E3ECBF /* Reminder.storyboard in Resources */,
 				52C3D1D321ED1C1300DF7F41 /* register.storyboard in Resources */,
 				52C3D1D121ED1BFA00DF7F41 /* login.storyboard in Resources */,
 				5241CD6A21FF7C6700524276 /* GoogleService-Info.plist in Resources */,
 				5241CD6F21FF7D2600524276 /* Info copy.plist in Resources */,
 				52C3D1D921ED1CBE00DF7F41 /* post.storyboard in Resources */,
 				52713E9C21CD2DCD00409294 /* LaunchScreen.storyboard in Resources */,
-				262AE25A2253F0BA00E3ECBF /* Reminder.storyboard in Resources */,
 				52C3D1E521EDFA7700DF7F41 /* gifting.storyboard in Resources */,
 				52713E9921CD2DCD00409294 /* Assets.xcassets in Resources */,
 				52C3D1DD21ED1D1400DF7F41 /* profile.storyboard in Resources */,
@@ -736,7 +736,7 @@
 				52F1DFF922388709002F7A55 /* DateExtension.swift in Sources */,
 				5241DC40222FEE3800103C7F /* ReferralPopup.swift in Sources */,
 				26C42F6F222D36BD006C5165 /* Colors.swift in Sources */,
-				262AE2582253F0B400E3ECBF /* ReminderViewController.swift in Sources */,
+				262AE2602253F54C00E3ECBF /* ReminderViewController.swift in Sources */,
 				2666C6C02238F3BB0072964A /* GiftController.swift in Sources */,
 				528117F421E696EA00AD9E4F /* PostDetail.swift in Sources */,
 				52D30D0021DFA912005E3128 /* PostData.swift in Sources */,
