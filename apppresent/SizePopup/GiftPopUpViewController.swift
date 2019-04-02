@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import Firebase
 
 class GiftPopUpViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {

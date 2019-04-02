@@ -21,6 +21,14 @@ extension UIImageView {
             image = UIImage(named: "imagePlaceholder")
         }
         guard let url = url, let nsurl = URL(string: url) else { return }
+        image = placeholder
+        kf.setImage(with: ImageResource(downloadURL: nsurl), placeholder: placeholder) { [weak self] (value) in
+            if let _ = value.error {
+                self?.image = placeholder
+            } else {
+                self?.image = value.value?.image
+            }
+        }
         kf.setImage(with: ImageResource(downloadURL: nsurl), placeholder: placeholder)
     }
     

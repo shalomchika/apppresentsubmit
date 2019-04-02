@@ -25,8 +25,8 @@ open class GravitySliderFlowLayout: UICollectionViewFlowLayout {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-      
-    func setup(for scrollDirection: UICollectionView.ScrollDirection, with collectionViewSize: CGSize) {
+    
+    func setup(for scrollDirection: UICollectionViewScrollDirection, with collectionViewSize: CGSize) {
         guard collectionViewSize != lastCollectionViewSize else { return }
         self.lastCollectionViewSize = collectionViewSize
         self.scrollDirection = scrollDirection

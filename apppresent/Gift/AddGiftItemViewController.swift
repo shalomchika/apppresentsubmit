@@ -9,6 +9,8 @@
 import UIKit
 import PKHUD
 import Firebase
+import FirebaseAuth
+import FirebaseStorage
 
 class AddGiftItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
