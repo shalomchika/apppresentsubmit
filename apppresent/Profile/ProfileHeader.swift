@@ -54,8 +54,8 @@ class ProfileHeader: UICollectionReusableView {
             countDownLabel.text = countDown(toBirthdate: birthdate)
         //
         } else {
-            ageLabel.text = "N/A"
-            countDownLabel.text = "N/A"
+            ageLabel.text = "25"
+            countDownLabel.text = " 11          5"
         }
     
         

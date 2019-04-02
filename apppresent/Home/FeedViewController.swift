@@ -92,10 +92,10 @@ extension FeedViewController {
     
     func makeHeaderView() -> UIView {
         let circle = UIMaker.makeView(background: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1))
-        let helloLabel = UIMaker.makeLabel(text: "Hello, let's share and Celebrate",
+        let helloLabel = UIMaker.makeLabel(text: "Let's share and Celebrate!",
                                            font: UIFont.systemFont(ofSize: 17), color: .white)
         let headerView = UIView()
-        let addButton = UIMaker.makeButton(title: "Add Post",
+        let addButton = UIMaker.makeButton(title: "Make a Post",
                                            titleColor: UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
                                             ,
                                            font: UIFont.boldSystemFont(ofSize: 17),

@@ -47,10 +47,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EAC-qk-GJ0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="328" height="412"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="328" height="415"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Me for Me!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3l-E2-tkl">
-                                                    <rect key="frame" x="8" y="416" width="312" height="48"/>
+                                                    <rect key="frame" x="8" y="419" width="312" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="lgJ-J3-Y6c"/>
                                                     </constraints>
@@ -59,7 +59,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Ot-LpN">
-                                                    <rect key="frame" x="236" y="366" width="76" height="34"/>
+                                                    <rect key="frame" x="236" y="361" width="76" height="34"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
@@ -75,25 +75,16 @@
                                                         <action selector="viewDetailAction:" destination="UTh-Hu-Coa" eventType="touchUpInside" id="0pc-84-vez"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuF-KT-igK">
-                                                    <rect key="frame" x="24" y="415" width="28.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="QuF-KT-igK" firstAttribute="leading" secondItem="UTh-Hu-Coa" secondAttribute="leadingMargin" constant="16" id="3Jm-wk-pYv"/>
                                             <constraint firstItem="g3l-E2-tkl" firstAttribute="top" secondItem="EAC-qk-GJ0" secondAttribute="bottom" constant="4" id="CcL-4x-xws"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="g3l-E2-tkl" secondAttribute="bottom" constant="8" id="Dhs-03-1Ae"/>
                                             <constraint firstItem="EAC-qk-GJ0" firstAttribute="top" secondItem="UTh-Hu-Coa" secondAttribute="top" id="H0l-Vx-Dv9"/>
                                             <constraint firstAttribute="trailing" secondItem="EAC-qk-GJ0" secondAttribute="trailing" id="Nn0-5e-kHh"/>
-                                            <constraint firstItem="g3l-E2-tkl" firstAttribute="top" secondItem="XFs-Ot-LpN" secondAttribute="bottom" constant="16" id="SHL-Qb-IiF"/>
+                                            <constraint firstItem="g3l-E2-tkl" firstAttribute="top" secondItem="XFs-Ot-LpN" secondAttribute="bottom" constant="24" id="SHL-Qb-IiF"/>
                                             <constraint firstAttribute="trailing" secondItem="g3l-E2-tkl" secondAttribute="trailing" constant="8" id="XsH-NI-iaK"/>
-                                            <constraint firstItem="QuF-KT-igK" firstAttribute="top" secondItem="EAC-qk-GJ0" secondAttribute="bottom" constant="3" id="ZB0-hb-kMY"/>
                                             <constraint firstItem="EAC-qk-GJ0" firstAttribute="leading" secondItem="UTh-Hu-Coa" secondAttribute="leading" id="ZFX-wr-06v"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="QuF-KT-igK" secondAttribute="bottom" constant="39" id="mE1-BA-DYs"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="g3l-E2-tkl" secondAttribute="bottom" constant="5" id="nhg-e1-uNS"/>
                                             <constraint firstAttribute="trailing" secondItem="XFs-Ot-LpN" secondAttribute="trailing" constant="16" id="p2L-Kc-jCL"/>
                                             <constraint firstItem="g3l-E2-tkl" firstAttribute="leading" secondItem="UTh-Hu-Coa" secondAttribute="leading" constant="8" id="qtx-Jb-0Hp"/>
                                         </constraints>

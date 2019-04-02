@@ -53,6 +53,7 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         avatarImageView.setCorner(radius: 20)
+        feedimageview.contentMode = .scaleAspectFill
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
