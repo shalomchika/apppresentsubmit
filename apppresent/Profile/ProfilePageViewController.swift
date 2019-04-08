@@ -45,9 +45,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
        // button.topRight(toView: view, top: 35.0, right: -10.0)
         //button.topLeft(toView: view, top: 0.8, left: 0.6, isActive: true)
       //  button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
-        getData()
-        setupView()
+     
     }
+    
+    
     
     @objc func showMenu() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -105,10 +106,17 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func getData() {
-        let isFriendProfile = currentuserdata != nil
-        if isFriendProfile {
-            header?.setData(currentuserdata!)
-            downloadPost(ofUser: currentuserdata!)
+        if currentuserdata != nil {
+            let isFriendProfile = currentuserdata?.userId != Auth.auth().currentUser?.uid
+            if isFriendProfile {
+                if let data = currentuserdata {
+                    header?.setData(currentuserdata!)
+                    downloadPost(ofUser: currentuserdata!)
+                }
+                
+            } else {
+                getMyProfile()
+            }
         } else {
             getMyProfile()
         }
@@ -132,6 +140,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         header?.data = currentuserdata
+        getData()
+        setupView()
+        
+        
     }
     
     func startloading () {

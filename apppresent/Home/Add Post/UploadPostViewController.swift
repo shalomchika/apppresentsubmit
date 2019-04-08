@@ -235,8 +235,8 @@ extension UITextField {
     func addBottomBorder(){
         let bottomLine = CALayer()
         bottomLine.frame = CGRect.init(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
-        let colourblue = (UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1) as! CGColor)
-        bottomLine.backgroundColor = colourblue
+        let colourblue = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        bottomLine.backgroundColor = colourblue.cgColor
         self.borderStyle = UITextField.BorderStyle.bezel
         self.layer.addSublayer(bottomLine)
         

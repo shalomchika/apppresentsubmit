@@ -315,6 +315,7 @@
                         <outlet property="clothesizetextfield" destination="jj2-Xo-3aP" id="MfI-mS-iuf"/>
                         <outlet property="emailtextfield" destination="Tlp-3e-1c7" id="s5a-fB-IG1"/>
                         <outlet property="firstnametextfield" destination="1Ep-H7-LQa" id="cAD-CQ-rIi"/>
+                        <outlet property="hideAgeSwitch" destination="bFu-Wq-PiD" id="0pJ-v9-Doe"/>
                         <outlet property="lastnametextfield" destination="Ci0-Ll-I3r" id="xkY-FM-MmX"/>
                         <outlet property="profileimageview" destination="0tr-vD-eIs" id="7FK-Ce-Ri0"/>
                         <outlet property="savebtn" destination="qvq-hv-dwZ" id="eSD-Hm-tkV"/>

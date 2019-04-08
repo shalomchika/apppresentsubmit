@@ -35,7 +35,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     var myProfile: UserData?
     @IBOutlet weak var datepickercompletionlbl: UILabel!
     
-  
+    
     @IBOutlet weak var firstnametextfield: UITextField!
     @IBOutlet weak var lastnametextfield: UITextField!
     @IBOutlet weak var statustextfield: UITextField!
@@ -46,7 +46,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var profileimageview: UIImageView!
     @IBOutlet weak var shoesizetextfield: UITextField!
     @IBOutlet weak var clothesizetextfield: UITextField!
-
+    
+    @IBOutlet weak var hideAgeSwitch: UISwitch!
     var selectedimage : UIImage?
     @IBOutlet weak var savebtn: UIButton!
     @IBOutlet weak var backtn: UIButton!
@@ -84,10 +85,10 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         tapimagebtn.addTarget(self, action: #selector(handlePickImage), for: .touchUpInside)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        loadProfileData()
+        backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         
-      
+        
+        
         let pickerView = UIPickerView()
         shoesizetextfield.inputView = pickerView
         
@@ -95,8 +96,12 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         // Do any additional setup after loading the view.
     }
     
-
-  
+    override func viewWillAppear(_ animated: Bool) {
+        loadProfileData()
+    }
+    
+    
+    
     func loadProfileData(){
         
         //changed from uploading snapshot to a data structure that varies accoridng to the user
@@ -116,8 +121,8 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
         profileimageview.downloadImage(from: myProfile?.profileimageurl, placeholder: UIImage(named: "user_placeholder"))
         
- }
-
+    }
+    
     
     
     @IBAction func saveprofilebtn(_ sender: Any) {
@@ -125,47 +130,53 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         firstname = firstnametextfield.text ?? ""
         lastname = lastnametextfield.text ?? ""
         status = statustextfield.text ?? ""
-        birthday = birthdaytextfield.text ?? ""
+        if let date = newBirthdate {
+            birthday = String(date.timeIntervalSince1970)
+        }
+        // need birthday to save as timeinterval into fire
+        //birthday = birthday.timeIntervalSince1970
+        
         email = emailtextfield.text ?? ""
         shoesize = shoesizetextfield.text ?? ""
         clothesize = clothesizetextfield.text ?? ""
         
-       
+        
         selectedimage = profileimageview.image
         uploadProfileImage(selectedimage!) { (success) in
             
         }
         // update the profile page
         //profilePage?.profileimageview.image = profileimageview.image
-       
+        
         // update other data first
         // when uploading finihs -> update profile image
         
         var ref = Database.database().reference().root
-       
+        
         let userid = Auth.auth().currentUser!.uid
         ref = ref.child("users").child(userid)
-     ref.updateChildValues(["firstname": self.firstname,
-                                          "lastname": self.lastname,
-                                               "birthday": self.birthday,
-                                              "age" : self.age,
-                                             "email" : self.email,
-                                             "status": self.status,
-                                            "profileImageUrl": selectedimageurl,
-                                            "shoesize": shoesize,
-                                            "clothesize": clothesize])
-
-
-        }
+        ref.updateChildValues(["firstname": self.firstname,
+                               "lastname": self.lastname,
+                               "birthday": self.birthday,
+                               "age" : self.age,
+                               "email" : self.email,
+                               "status": self.status,
+                               "profileImageUrl": selectedimageurl,
+                               "shoesize": shoesize,
+                               "hideAge": hideAgeSwitch.isOn,
+                               "clothesize": clothesize])
+        
+        
+    }
     
-        
-        
-       
-        
     
-        
-            
-        
+    
+    
+    
+    
+    
+    
+    
     
     func loadview(){
         self.view.layoutIfNeeded()
@@ -173,11 +184,11 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     
     @objc func goBack() {
-         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
- 
     
-
+    
+    
     
     func uploadProfileImage(_ image: UIImage, completion: @escaping((_ url: String?) -> ())) {
         let userid = Auth.auth().currentUser!.uid
@@ -205,26 +216,23 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
                         //   let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
                         //   self.registeUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
                     }
-                   
+                    
                 })
-               
+                
             })
         }
         
     }
     
+    var newBirthdate: Date?
+    
     @objc func handleDatePicker(picker: UIDatePicker) {
         
         birthday = convertDateToString(date: picker.date, format: "dd/MM/yyyy")
         birthdaytextfield.text = birthday
-        // calculate age
-        let ageInterval = Date().timeIntervalSince(picker.date)
-        age = Int(ageInterval / (60 * 60 * 24 * 365))
-        let month = Int(ageInterval / (60 * 60 * 24 ))
-        let day = Int(ageInterval / (60 * 60 * 24 ))
-        let minute = Int(ageInterval / (60 * 60 ))
+        newBirthdate = picker.date
         
-        }
+    }
     
     @objc func handlePickImage(picker: UIImagePickerController) {
         
@@ -256,9 +264,9 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
-
-}
- 
+        
+    }
+    
     
     func convertDateToString(date: Date, format: String) -> String {
         let formatter = DateFormatter()
@@ -266,19 +274,19 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         return formatter.string(from: date)
     }
     
- /*   @IBAction func backbtn(_ sender: Any) {
-
-        
-    }
-    
-    */
+    /*   @IBAction func backbtn(_ sender: Any) {
+     
+     
+     }
+     
+     */
 }
 extension EditProfileViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == birthdaytextfield {
             
         }
-
+        
     }
     
 }

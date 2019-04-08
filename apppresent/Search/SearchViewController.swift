@@ -39,7 +39,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)

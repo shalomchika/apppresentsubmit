@@ -34,7 +34,7 @@ class ContributionViewController: UIViewController {
     
     @objc func updateLink() {
        
-        let link = linkTextfield.text
+        let link = linkTextfield.text!
         
         guard let userid = Auth.auth().currentUser?.uid else { return }
         let linkDb = Database.database().reference().child("pools").child(userid)

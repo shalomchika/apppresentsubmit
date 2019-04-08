@@ -18,6 +18,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         self.imageview.image = nil
+        self.imageview.contentMode = .scaleAspectFill
         
         
         

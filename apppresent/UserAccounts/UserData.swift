@@ -25,6 +25,7 @@ struct UserData {
     var clothesize: String!
    // var note: String!
     var itemRef : DatabaseReference?
+    var hideAge = false
     
     
     
@@ -152,30 +153,11 @@ struct UserData {
             clothesize = ""
         }
         
+        shoesize = snapshotvalue?["shoesize"] as? String ?? ""
         
-        if let  usershoesize = snapshotvalue?["shoesize"] as? String {
-            shoesize = usershoesize
-            //  print(url)
+        if let data = snapshotvalue?["hideAge"] as? Bool {
+            hideAge = data
         }
-            
-        else {
-            shoesize = ""
-        }
-        
-        
-        // I created the user data structure, but Im not sure how to adapt it to order the posts like we did in the profile page.
-        // also I got the kingfisher pod and the code shows no error but its not working
-       // I need to use the data structure for it to work? I was trying to order the posts in the feed like the profile. But i havent used the data structure yet. 
-        print("THIS IS CAPTION TEST on firebase")
-        // print("THIS IS URL TEST on firebase")
-        //  print(url)
-        // print(key)
-        // print("THIS IS CAPTION TEST on firebase")
-        // print(caption)
-       // timestamp = snapshotvalue?["timestamp"] as? Double ?? 0
-        
-        
-        
     }
     
     var userId: String?
@@ -193,8 +175,7 @@ struct UserData {
         profileimageurl = data["profileImageUrl"] as? String
         shoesize = data ["shoesize"] as? String
         clothesize = data ["clothesize"] as? String
-        
-        //timestamp = data["timestamp"] as? Double ?? 0
+        hideAge = data ["hideAge"] as? Bool ?? false
     }
     
 }

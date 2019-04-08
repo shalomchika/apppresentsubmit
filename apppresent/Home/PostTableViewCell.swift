@@ -19,6 +19,7 @@ class PostTableViewCell: UITableViewCell {
         feedimageview.downloadImage(from: data.url, placeholder: nil)
         //feedimageview.sd_setImage(with: URL(string: data.url), placeholderImage: nil)
         feedcaptionlbl.text = data.caption
+        
         getAuthor()
     }
     
@@ -53,6 +54,7 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         avatarImageView.setCorner(radius: 20)
+        avatarImageView.image = UIImage(named: "user_placeholder")
         feedimageview.contentMode = .scaleAspectFill
     }
     
@@ -67,7 +69,7 @@ class PostTableViewCell: UITableViewCell {
         self.feedimageview.image = nil
         self.feedcaptionlbl.text = ""
         feednamelbl.text = ""
-        avatarImageView.image = nil
+        //avatarImageView.image = nil
         
         // this is demo for git stash 
     }

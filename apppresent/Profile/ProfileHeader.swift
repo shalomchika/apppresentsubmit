@@ -50,12 +50,17 @@ class ProfileHeader: UICollectionReusableView {
             //convert birthday to an age
             let ageInterval = Date().timeIntervalSince(birthdate)
             age = Int(ageInterval / (60 * 60 * 24 * 365))
-            ageLabel.text = String(age)
+            if data.hideAge {
+                ageLabel.text = "Guess"
+            } else {
+                ageLabel.text = String(age)
+            }
+            
             countDownLabel.text = countDown(toBirthdate: birthdate)
         //
         } else {
-            ageLabel.text = "25"
-            countDownLabel.text = " 11          5"
+            ageLabel.text = "Guess"
+            countDownLabel.text = "Soon in"
         }
     
         

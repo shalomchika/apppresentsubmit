@@ -14,6 +14,8 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        userprofileimage.setCorner(radius: 20)
+    
         // Initialization code
     }
 

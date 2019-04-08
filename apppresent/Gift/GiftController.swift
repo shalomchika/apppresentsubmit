@@ -27,9 +27,10 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewDidLoad()
         paymentButton.addTarget(self, action: #selector(URLButtonPressed), for: .touchUpInside)
         //setupView()
-        title = "Gift Me Online"
+        
+        //navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = "Gift Me Online"
         navigationController?.navigationBar.prefersLargeTitles = true
-        tabBarItem.title = ""
         // unless I make a label but then constraints for the collection view have to change?
         
         //what ever is simple, but if it will change the tab I can put labels for the funding and the online gift but then its constraint change
@@ -37,7 +38,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         let moresButton = UIImage(named: "moreButton")?.withRenderingMode(.alwaysOriginal) // keep original color
         //barButtonItem.image = UIImage(named: "moreButton")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moresButton, style: .plain, target: self, action: #selector(showMenu))
-      //  self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreButton, style: .done, target: self, action: #selector(showMenu.bar ))
+        //  self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: moreButton, style: .done, target: self, action: #selector(showMenu.bar ))
         //moreButton.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
         collectionView.isPagingEnabled = true
         let gravitySliderLayout = UICollectionViewFlowLayout()
@@ -46,7 +47,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,8 +55,9 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         fetchData()
         paymentButton.setCorner(radius: 7)
         paymentButton.backgroundColor = //UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
-        UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
-     }
+            UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        self.tabBarController?.title = ""
+    }
     
     var datasource = [GiftData]() {
         didSet {
@@ -65,17 +67,13 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
     
     
     func fetchLink() {
-        let poolDB = DatabaseNode.getDb(.pools).child("owner")
-        
-        
-        poolDB
+        guard let id = Auth.auth().currentUser?.uid else { return }
+        DatabaseNode.getDb(.pools)
+            .child(id)
             .observeSingleEvent(of: .value) { [weak self] (snapshot) in
-                if let rawLink = snapshot.value as? String { return }
+                guard let rawData = snapshot.value as? AnyObject else { return }
+                guard let link = rawData["link"] as? String else { return }
                 self?.contributionlink = "\(link)"
-                
-                // https://stackoverflow.com/questions/44460165/reading-a-single-value-from-firebase-using-swift
-                
-                
         }
     }
     
@@ -85,7 +83,7 @@ class GiftController:UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
         
-        guard let url = URL(string: "https://paypal.me/pools/c/8d7DqcbHSg") else {
+        guard let url = URL(string: contributionlink) else {
             return //be safe
         }
         
